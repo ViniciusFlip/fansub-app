@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+ 
+<form method="post" id="registerForm">
+
+    <div class="form-group">
+
+        <input
+            type="text"
+            class="form-control"
+            id="registerName"
+            placeholder="Seu nome"
+            required
+        >
+
+    </div>
+
+    <div class="form-group">
+
+        <input
+            type="email"
+            class="form-control"
+            id="registerEmail"
+            placeholder="Seu e-mail"
+            required
+        >
+
+    </div>
+
+    <div class="form-group">
+
+        <input
+            type="password"
+            class="form-control"
+            id="registerPassword"
+            placeholder="Sua senha"
+            minlength="6"
+            required
+        >
+
+    </div>
+
+    <div class="form-group">
+
+        <input
+            type="password"
+            class="form-control"
+            id="registerConfirmPassword"
+            placeholder="Confirmar senha"
+            minlength="6"
+            required
+        >
+
+    </div>
+
+    <div class="checkbox">
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="registerTerms"
+                class="remember-me"
+                required
+            >
+
+            Aceito os termos da plataforma
+
+        </label>
+
+    </div>
+
+    <div class="ft-log-in-button">
+
+        <button
+            type="submit"
+            class="btn btn-default"
+        >
+
+            <span class="text">
+                Criar conta
+            </span>
+
+            <span class="icon">
+                <i class="fa fa-arrow-circle-right"></i>
+            </span>
+
+        </button>
+
+    </div>
+
+</form>
+
+ 
+
+<script type="module" src="services/registerService.js"></script>
+ 
+</body>
+</html>

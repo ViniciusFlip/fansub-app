@@ -1,0 +1,609 @@
+/*Form-control Focus*/
+.form-control:focus {
+  border-color: none;
+  -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075),0 0 0px transparent;
+  box-shadow: inset 0 0px 0px rgba(0,0,0,.075),0 0 0px transparent;
+}
+
+/*Section Title*/
+.title-bg {
+  border-bottom: 2px solid #5864be;
+}
+.slider-title-border{
+background: #5864be;
+}  
+.small-title-border {
+  width: 42px;
+  border-bottom: 3px solid #5864be;
+}
+
+/*Header Part*/
+.header-serarch-area .btn-default {
+  color: #5864be;
+}
+
+.header-serarch-area .form-control::-webkit-input-placeholder {
+  color: #5864be;
+}
+
+.header-serarch-area .form-control:-moz-placeholder {
+/* Firefox 18- */
+  color: #5864be;
+}
+
+.header-serarch-area .form-control::-moz-placeholder {
+/* Firefox 19+ */
+  color: #5864be;
+}
+
+.header-serarch-area .form-control:-ms-input-placeholder {
+  color: #5864be;
+}
+
+/*Main Menu Part*/
+#cssmenu > ul > li:hover > a, #cssmenu > ul > li.active > a {
+  color: #5864be;
+}
+
+#cssmenu > ul > li.has-sub:hover > a::after {
+  border-color: #5864be;
+}
+
+#cssmenu ul ul li:hover > a, #cssmenu ul ul li a:hover {
+  color: #5864be;
+}
+
+/*Fitness Fraction Slider Area*/
+.ft-slide-left-button .btn-default span.icon {
+  color: #5864be;
+}
+
+.ft-slide-right-button .btn-default span.icon {
+  color: #5864be !important;
+}
+
+.ft-slide-left-button .btn-default:hover{
+  border:1px solid #5864be !important;
+}
+
+.ft-slide-right-button .btn-default:hover{
+  border:1px solid #5864be !important;
+}
+
+.ft-slide-left-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-slide-left-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-slide-right-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-slide-right-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+/*Fitness Home Getting Started Area*/
+.ft-getting-started-button .btn-default span.icon {
+  color: #5864be;
+}
+
+.ft-getting-started-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-getting-started-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.other-home-header-wraper .ft-header-bottom-fitness-level-title {
+  background: #5864be;
+}  
+
+/*Fitness Home Classes Area*/
+.ft-class-feat a {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.ft-class-feat-content:hover .ft-class-feat-content-info a {
+  color: #fff;
+}
+
+
+
+/*Fitness Discount Area*/
+.ft-discount-area {
+  background: #5864be;
+}
+
+.ft-discount-button .btn-default span.icon {
+  color: #5864be;
+}
+
+.ft-discount-button .btn-default:hover span.icon {
+  color: #5864be !important;
+}
+
+.ft-discount-button .btn-default:hover span.text {
+  color: #5864be !important;
+  border-right: 1px solid #5864be;
+}
+
+.ft-discount-button .btn-default:hover {
+  background: #fff !important;
+  border: 1px solid #5864be !important;
+  color: #5864be !important;
+}
+
+/*Course Content Part*/
+.ft-courses-main-content .ft-courses .ft-courses-hover-area::before {
+  background: none;
+}
+
+.ft-courses-main-content .ft-courses .right {
+  border-top: 2px solid #5864be;
+}
+
+.ft-courses-main-content .ft-courses .right .left {
+  background: #5864be;
+}
+
+/*Team Part*/
+	/*Hover*/
+.team-wrap:hover .team-info-wrap::before {
+  background: #5864be;
+}	
+  /*Active*/
+.team-wrap.team-active .team-info-wrap::before{
+  background: #5864be;
+}
+
+/*Testimonial Part*/
+.ft-testimonial .content-wrap .content .blq-icon {
+  background: #5864be;
+}
+
+/*Pricetable Part*/
+	/*Active*/
+.ft-pricetable-area .pricetable .info ul.active {
+  background: #5864be;
+}
+
+.ft-pricetable-area .pricetable .sign-up-link.active {
+  background: #5864be;
+}	
+	/*Hover*/
+.ft-pricetable-area .pricetable:hover .info ul {
+  background: #5864be;
+}
+
+.ft-pricetable-area .pricetable:hover .sign-up-link {
+  background: #5864be;
+}	
+
+/*Blog Part*/
+.ft-recent-post .recent-post:hover .images::after {
+  background: #5864be;
+}
+
+/*Newsletter Part*/
+.ft-newletter-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-newletter-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-newletter-button .btn-default span.icon {
+  color: #5864be;
+}
+
+.ft-footer ul li:hover .icon {
+  color: #5864be;
+}
+
+/*Footer Part*/
+.ft-footer ul li:hover a {
+  color: #5864be;
+}
+
+.ft-footer ul li:hover {
+  color: #5864be;
+}
+
+.footer-copyright-area .social a:hover {
+  color: #5864be;
+  border: 1px solid #5864be;
+}
+
+/*Contact Page*/
+	/*Contact Form button area*/
+.ft-contact-button .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.ft-contact-button .btn-default span.icon {
+  background: #5864be;
+}
+
+.ft-contact-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-contact-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-contact-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+/*Blog Details*/
+.ft-blog-post .content ul li, .ft-blog-post .content ul li a, .ft-blog-post .content ul li:hover, .ft-blog-post .content ul li:hover a {
+  color: #ff8c04;
+}
+
+.ft-blog-post .content blockquote span {
+  color: #e8a20c;
+}
+
+.ft-blog-post .media-body p span.reply a {
+  color: #e8a20c;
+}
+
+.ft-blog-post .admin-social-info a:hover{color:#e8a20c;}
+
+	/*Comments Form button area*/
+.ft-comments-button .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.ft-comments-button .btn-default span.icon {
+  background: #5864be;
+}
+
+.ft-comments-button .btn-default span.text {
+  border-right: 1px solid #ffcd47;
+}
+
+.ft-comments-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-comments-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-comments-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+/*About Us*/
+.ft-fitness-center .content ul li span {
+  color: #eb9500;
+}
+
+.ft-fitness-center .content ul li:hover a {
+  color: #eb9500;
+}
+
+.feature-class-about:hover .image {
+  border: 8px solid #5864be;
+}
+
+.feature-class-about:hover h6 {
+  color: #5864be;
+}
+
+.feature-class-about:hover .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be;
+}
+
+.ft-video-content-section ul li:hover a {
+  color: #5864be;
+}
+
+.ft-video-content-section ul li:hover span {
+  background: #5864be;
+}
+
+/*Contact Form button area*/
+.ft-registration-button .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.ft-registration-button .btn-default span.icon {
+  background: #5864be;
+}
+
+.ft-registration-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-registration-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-registration-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+/*Sidebar*/
+.sidebar-widget ul li:hover a {
+  color: #e8a20c;
+}
+
+.sidebar-widget ul li:hover span {
+  color: #e8a20c;
+}
+
+.popular-post-content:hover .content p.title a {
+  color: #e8a20c;
+}
+
+/*Class Page*/
+.ft-class-item:hover .image-wrap .image::after {
+  background: #e8a20c;
+}
+
+.ft-classes-slide-item:hover .image-wrap::after {
+  background: #e8a20c;
+}
+
+/*Class details Sidebar*/
+.ft-gallary-item:hover::after {
+  background: #e8a20c;
+}
+
+.class-details-sidebar-content .sidebar-content .popular-post-content .content {
+  border-left: 2px solid #e8a20c;
+}
+
+.class-details-sidebar-content .sidebar-content .popular-post-content:hover .image::after {
+  background: #e8a20c;
+}
+
+/*FAQ Content Search box*/
+.ft-section-search-option .input-group .input-group-btn .btn-default {
+  background: #5864be;
+  border-color: #5864be;
+}
+
+/*Home Counter Table Area*/
+.counter-wrap .counter-bg {
+  border-bottom: 5px solid #5864be;
+}
+
+.ft-section-service-hot-line-content a {
+  color: #5864be;
+}
+
+.ft-section-service-hot-line-content a:hover {
+  border: 1px solid #5864be;
+  background: #5864be;
+  ;
+}
+
+/*Career Page Sidebar Button*/
+.ft-sidebar-button .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.ft-sidebar-button .btn-default span.icon {
+  background: #5864be;
+}
+
+.ft-sidebar-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-sidebar-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-sidebar-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+/*Prices Page*/
+.affordable-price-wrap .icon span {
+  color: #5864be;
+  border: 2px solid #5864be;
+}
+
+/*404 Pages*/
+.section-404-bg a:hover {
+  border: 1px solid #5864be;
+  color: #5864be;
+}
+
+/*Comming Soon Page*/
+.coming-soon-header .page-title h3 {
+  color: #5864be;
+}
+
+.countdown_section {
+  border: 1px solid #5864be;
+  color: #5864be;
+}
+
+.countdown_amount {
+  color: #5864be;
+}
+
+/*Galarry V2*/
+.ft-bmi-calculator-form .nav-tabs>li.active>a, .ft-bmi-calculator-form .nav-tabs>li.active>a:focus, .ft-bmi-calculator-form .nav-tabs>li.active>a:hover {
+  background-color: #5864be;
+}
+
+.ft-bmi-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+.ft-bmi-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-bmi-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-bmi-button .btn-default span.icon {
+  color: #5864be;
+}
+
+/*Account Page Log In button area*/
+.ft-log-in-button .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.ft-log-in-button .btn-default span.icon {
+  background: #5864be;
+}
+
+.ft-log-in-button .btn-default span.text {
+  border-right: 1px solid #ffcd47;
+}
+
+.ft-log-in-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-log-in-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-log-in-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+/*Forgot your login info*/
+.ft-forgot-row .content a {
+  color: #5864be;
+}
+
+/*Cart Area*/
+.ft-porcess-checkout .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.ft-porcess-checkout .btn-default span.icon {
+  background: #5864be;
+}
+
+.ft-porcess-checkout .btn-default span.text {
+  border-right: 1px solid #ffcd47;
+}
+
+.ft-porcess-checkout .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-porcess-checkout .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-porcess-checkout .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .ft-proceed-checkout-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .ft-proceed-checkout-button .btn-default span.icon {
+  color: #5864be;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .ft-proceed-checkout-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .ft-proceed-checkout-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .ft-proceed-checkout-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+/*Product Details Page*/
+.ft-add-to-cart-button .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.ft-add-to-cart-button .btn-default span.icon {
+  background: #5864be;
+}
+
+.ft-add-to-cart-button .btn-default span.text {
+  border-right: 1px solid #ffcd47;
+}
+
+.ft-add-to-cart-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.ft-add-to-cart-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.ft-add-to-cart-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}
+
+/*Shop Page*/
+.shop-page-content .single-shop-item .meta p a {
+  color: #5864be;
+}
+
+.shop-page-wrapper .shop-page-content .ft-add-to-cart-button .btn-default {
+  background: #5864be;
+  border: 1px solid #5864be !important;
+}
+
+.shop-page-wrapper .shop-page-content .ft-add-to-cart-button .btn-default span.icon {
+  background: #5864be;
+}
+
+.shop-page-wrapper .shop-page-content .ft-add-to-cart-button .btn-default span.text {
+  border-right: 1px solid #ffcd47;
+}
+
+.shop-page-wrapper .shop-page-content .ft-add-to-cart-button .btn-default:hover span.text {
+  color: #5864be;
+  border-right: 1px solid #5864be;
+}
+
+.shop-page-wrapper .shop-page-content .ft-add-to-cart-button .btn-default:hover span.icon {
+  color: #5864be;
+}
+
+.shop-page-wrapper .shop-page-content .ft-add-to-cart-button .btn-default:hover {
+  border: 1px solid #5864be !important;
+}

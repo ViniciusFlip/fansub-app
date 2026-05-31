@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OMDA Security</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+:root{
+
+  --primary:#5864be;
+
+  --bg:#333333;
+  --card:#3d3d3d;
+
+  --text:#ffffff;
+  --muted:#bdbdbd;
+
+  --input:#454545;
+
+  --border:rgba(255,255,255,.06);
+
+}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top right, rgba(88,100,190,.22), transparent 30%),
+             radial-gradient(circle at bottom left, rgba(88,100,190,.18), transparent 30%),
+             var(--bg);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  position:relative;
+  color:var(--text);
+}
+
+/* BACKGROUND GRID */
+
+body::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-image:
+  linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+
+  background-size:40px 40px;
+  opacity:.6;
+}
+
+/* FLOATING GLOW */
+
+.glow{
+  position:absolute;
+  width:420px;
+  height:420px;
+  background:rgba(88,100,190,.25);
+  filter:blur(90px);
+  border-radius:50%;
+  top:-120px;
+  right:-120px;
+}
+
+/* LOGIN BOX */
+
+.login-container{
+  width:100%;
+  max-width:460px;
+  position:relative;
+  z-index:10;
+}
+
+.login-card{
+
+  background:rgba(61,61,61,.88);
+
+  backdrop-filter:blur(20px);
+
+  border:1px solid var(--border);
+
+  border-radius:34px;
+
+  padding:42px;
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.35),
+  inset 0 1px 0 rgba(255,255,255,.03);
+
+  position:relative;
+  overflow:hidden;
+
+}
+
+/* TOP GLOW */
+
+.login-card::before{
+  content:'';
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:rgba(88,100,190,.18);
+  border-radius:50%;
+  top:-70px;
+  right:-70px;
+  filter:blur(30px);
+}
+
+/* LOGO */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:36px;
+}
+
+.logo-icon{
+
+  width:64px;
+  height:64px;
+
+  border-radius:22px;
+
+  background:linear-gradient(145deg,#5864be,#6f7cff);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:26px;
+  font-weight:800;
+
+  box-shadow:0 10px 30px rgba(88,100,190,.35);
+
+}
+
+.logo-text h1{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.logo-text p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:4px;
+}
+
+/* SECURITY */
+
+.security-badge{
+
+  background:rgba(88,100,190,.14);
+
+  border:1px solid rgba(88,100,190,.25);
+
+  color:#cfd4ff;
+
+  padding:14px 18px;
+
+  border-radius:18px;
+
+  margin-bottom:28px;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  font-size:14px;
+
+}
+
+.security-icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:rgba(88,100,190,.2);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:18px;
+}
+
+/* FORM */
+
+.form-group{
+  margin-bottom:22px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:10px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.input-wrapper{
+  position:relative;
+}
+
+.form-control{
+
+  width:100%;
+
+  background:var(--input);
+
+  border:1px solid transparent;
+
+  outline:none;
+
+  padding:18px 18px 18px 56px;
+
+  border-radius:18px;
+
+  color:var(--text);
+
+  font-size:15px;
+
+}
+
+.form-control:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(88,100,190,.12);
+}
+
+.input-icon{
+  position:absolute;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+  opacity:.7;
+  font-size:18px;
+}
+
+/* OPTIONS */
+
+.options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:28px;
+}
+
+.checkbox{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.checkbox input{
+  accent-color:var(--primary);
+}
+
+.forgot{
+  color:#cfd4ff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* BUTTON */
+
+.login-btn{
+
+  width:100%;
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:linear-gradient(145deg,#5864be,#6f7cff);
+
+  color:#fff;
+
+  font-size:15px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  box-shadow:0 10px 30px rgba(88,100,190,.35);
+
+}
+
+.login-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:26px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+
+.footer span{
+  color:#d6dbff;
+}
+
+/* STATUS */
+
+.status{
+
+  margin-top:22px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+
+  color:#8dffb3;
+
+  font-size:13px;
+
+}
+
+.status-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#8dffb3;
+  box-shadow:0 0 10px #8dffb3;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+  body{
+    padding:20px;
+  }
+
+  .login-card{
+    padding:28px;
+  }
+
+  .logo{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<div class="login-container">
+
+  <div class="login-card">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+      <div class="logo-icon">
+        O
+      </div>
+
+      <div class="logo-text">
+        <h1>OMDA</h1>
+        <p>Administrative Security Panel</p>
+      </div>
+
+    </div>
+
+    <!-- SECURITY -->
+
+    <div class="security-badge">
+
+      <div class="security-icon">
+        🛡
+      </div>
+
+      <div>
+        Ambiente protegido com autenticação segura
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+
+    <form>
+
+      <div class="form-group">
+
+        <label>Email Administrativo</label>
+
+        <div class="input-wrapper">
+
+          <span class="input-icon">✉</span>
+
+          <input
+            type="email"
+            class="form-control"
+            placeholder="admin@omda.com"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Senha</label>
+
+        <div class="input-wrapper">
+
+          <span class="input-icon">🔒</span>
+
+          <input
+            type="password"
+            class="form-control"
+            placeholder="••••••••••"
+          >
+
+        </div>
+
+      </div>
+
+      <!-- OPTIONS -->
+
+      <div class="options">
+
+        <label class="checkbox">
+          <input type="checkbox">
+          Manter conectado
+        </label>
+
+        <a href="#" class="forgot">
+          Recuperar acesso
+        </a>
+
+      </div>
+
+      <!-- BUTTON -->
+
+      <button class="login-btn">
+        Acessar Painel Administrativo
+      </button>
+
+    </form>
+
+    <!-- STATUS -->
+
+    <div class="status">
+
+      <div class="status-dot"></div>
+
+      Servidor protegido e operacional
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+      OMDA Security Layer v2.4 <br>
+      Protected by <span>Encrypted Access Control</span>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

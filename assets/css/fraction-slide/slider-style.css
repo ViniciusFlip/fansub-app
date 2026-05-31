@@ -1,0 +1,70 @@
+/* SLIDER STYLES */
+	
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0px 30px;
+	/*margin:200px auto;*/;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+/*	height:400px; when responsive, comment this out */
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  .slider {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .slider {
+    width: 100%;
+  }
+}
+
+/* ELEMENT STYLES */
+
+
+
+.claim {
+  line-height: 100%;
+}
+
+.teaser {
+  padding: 0.5% 1.5%;
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.small {
+  width: 250px;
+  padding-left: 0;
+  padding-right: 0px;
+  text-align: center;
+}
+
+.light-green {
+  background: #95C542;
+}
+
+.green {
+  background: #7CB761;
+}
+
+.orange {
+  background: #EF7D00;
+}
+
+.turky {
+  background: #348E8A;
+}
+
+.white {
+  background: #fff;
+  color: #333;
+}

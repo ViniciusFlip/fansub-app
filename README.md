@@ -1,1 +1,1 @@
-# fansub-app
+# omda-app

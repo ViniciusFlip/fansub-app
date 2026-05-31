@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OMDA Fansub</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:
+      radial-gradient(circle at top, rgba(88,100,190,.18), transparent 40%),
+      #0f0f12;
+      overflow:hidden;
+    }
+
+    .glass{
+      background:rgba(255,255,255,.04);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .loading::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      width:35%;
+      background:#5864be;
+      animation:loading 2s infinite ease-in-out;
+    }
+
+    @keyframes loading{
+      0%{
+        transform:translateX(-100%);
+      }
+
+      100%{
+        transform:translateX(350%);
+      }
+    }
+
+    .fade-out{
+      animation:fadeOut .5s forwards;
+    }
+
+    @keyframes fadeOut{
+      to{
+        opacity:0;
+        visibility:hidden;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body class="min-h-screen flex items-center justify-center text-white px-6">
+
+  <!-- bg blur -->
+  <div class="absolute top-[-120px] left-[-120px] w-[320px] h-[320px] bg-[#5864be] opacity-20 blur-[140px] rounded-full"></div>
+
+  <div class="absolute bottom-[-140px] right-[-140px] w-[320px] h-[320px] bg-[#5864be] opacity-10 blur-[140px] rounded-full"></div>
+
+  <!-- container -->
+  <div id="welcomeScreen"
+       class="glass relative z-10 w-full max-w-5xl rounded-[34px] overflow-hidden">
+
+    <div class="grid lg:grid-cols-2 min-h-[650px]">
+
+      <!-- LEFT -->
+      <div class="p-8 lg:p-14 flex flex-col justify-center">
+
+        <!-- status -->
+        <div class="flex items-center gap-3 mb-6">
+
+          <div class="w-3 h-3 rounded-full bg-[#5864be] animate-pulse"></div>
+
+          <span class="uppercase tracking-[5px] text-xs text-[#5864be] font-semibold">
+            Reloading
+          </span>
+
+        </div>
+
+        <!-- title -->
+        <div class="mb-10">
+
+          <h1 class="text-5xl lg:text-7xl font-black leading-none">
+
+            OMDA
+
+            <span class="block text-[#5864be]">
+              Fansub
+            </span>
+
+          </h1>
+
+        </div>
+
+        <!-- categories -->
+        <div class="flex flex-wrap gap-3 mb-10">
+
+          
+
+          <span class="px-4 py-2 rounded-xl bg-white/5 text-sm border border-white/5">
+            Fansubs
+          </span>
+
+          <span class="px-4 py-2 rounded-xl bg-white/5 text-sm border border-white/5">
+            Torrents
+          </span>
+
+          <span class="px-4 py-2 rounded-xl bg-white/5 text-sm border border-white/5">
+            Mangas
+          </span>
+
+          <span class="px-4 py-2 rounded-xl bg-white/5 text-sm border border-white/5">
+            Fórum
+          </span>
+
+        </div>
+
+        <!-- countdown -->
+        <div class="grid grid-cols-4 gap-3 mb-10">
+
+          <div class="glass rounded-2xl p-4 text-center">
+
+            <div id="days"
+                 class="text-3xl font-black text-[#5864be]">
+              00
+            </div>
+
+            <span class="text-[10px] uppercase tracking-wider text-gray-400">
+              Dias
+            </span>
+
+          </div>
+
+          <div class="glass rounded-2xl p-4 text-center">
+
+            <div id="hours"
+                 class="text-3xl font-black text-[#5864be]">
+              00
+            </div>
+
+            <span class="text-[10px] uppercase tracking-wider text-gray-400">
+              Horas
+            </span>
+
+          </div>
+
+          <div class="glass rounded-2xl p-4 text-center">
+
+            <div id="minutes"
+                 class="text-3xl font-black text-[#5864be]">
+              00
+            </div>
+
+            <span class="text-[10px] uppercase tracking-wider text-gray-400">
+              Min
+            </span>
+
+          </div>
+
+          <div class="glass rounded-2xl p-4 text-center">
+
+            <div id="seconds"
+                 class="text-3xl font-black text-[#5864be]">
+              00
+            </div>
+
+            <span class="text-[10px] uppercase tracking-wider text-gray-400">
+              Seg
+            </span>
+
+          </div>
+
+        </div>
+
+        <!-- buttons -->
+        <div class="flex gap-4 mb-10">
+
+         
+
+          <button id="closeBtn"
+            class="bg-[#5864be]
+                   hover:bg-[#6975d1]
+                   transition-all duration-300
+                   px-7 py-4
+                   rounded-2xl
+                   font-semibold">
+
+             Entrar no site
+
+          </button>
+
+        </div>
+
+        <!-- loading -->
+        <div>
+
+          <div class="relative h-2 rounded-full overflow-hidden bg-white/10">
+
+            <div class="loading absolute inset-0"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="hidden lg:block relative overflow-hidden">
+
+        <!-- image -->
+        <img
+          src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1974&auto=format&fit=crop"
+          class="absolute inset-0 w-full h-full object-cover opacity-80"
+        >
+
+        <!-- overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f12] via-[#11111130] to-transparent"></div>
+
+        <!-- floating -->
+        <div class="absolute bottom-8 left-8 right-8 glass rounded-3xl p-6">
+
+          <div class="flex items-center justify-between mb-5">
+
+            <div>
+
+              <h3 class="font-bold text-xl">
+                Portal OMDA
+              </h3>
+
+              <span class="text-sm text-gray-400">
+                Nova experiência
+              </span>
+
+            </div>
+
+            <div class="w-12 h-12 rounded-2xl bg-[#5864be]/20 flex items-center justify-center text-[#5864be] text-xl">
+              ✦
+            </div>
+
+          </div>
+
+          <!-- content -->
+          <div class="grid grid-cols-2 gap-3 text-sm">
+
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5">
+              Fansubs
+            </div>
+
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5">
+              Torrents
+            </div>
+
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5">
+              Mangas
+            </div>
+
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5">
+              Fórum
+            </div>
+
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5">
+              CRC
+            </div>
+
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5">
+              Conquistas
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- footer -->
+    <div class="border-t border-white/5 px-8 py-5 flex items-center justify-between flex-wrap gap-4">
+
+      <span class="text-sm text-gray-500">
+        © OMDA Fansub
+      </span>
+
+      <a href="https://wa.me/5512981021517"
+         target="_blank"
+         class="text-sm text-[#5864be] hover:text-white transition-all duration-300">
+
+        UX: Thais Mariano
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // DATA LIBERAÇÃO
+    // Brasil GMT-3
+    const launchDate = new Date("2026-06-01T12:00:00-03:00").getTime();
+
+    const timer = setInterval(() => {
+
+      const now = new Date().getTime();
+
+      const distance = launchDate - now;
+
+      // finalizou
+      if(distance < 0){
+
+        clearInterval(timer);
+
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+      );
+
+      document.getElementById("days").innerHTML =
+        String(days).padStart(2, '0');
+
+      document.getElementById("hours").innerHTML =
+        String(hours).padStart(2, '0');
+
+      document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2, '0');
+
+      document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2, '0');
+
+    }, 1000);
+
+    
+    document.querySelectorAll('welcome-screen').forEach(btn => {
+
+      btn.addEventListener('click', () => {
+
+        const screen = document.getElementById('welcomeScreen');
+
+        screen.classList.add('fade-out');
+
+        setTimeout(() => {
+          // screen.style.display = 'none';
+          location.href='index-app.html'
+        }, 500);
+
+      });
+
+    });
+    // botão fechar
+    document.getElementById('closeBtn').addEventListener('click', () => {
+
+      const screen = document.getElementById('welcomeScreen');
+
+      screen.classList.add('fade-out');
+
+      setTimeout(() => {
+        screen.style.display = 'none';
+        location.href='index-app.html'
+      }, 500);
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1496 @@
+@media only screen and (min-width: 240px) and (max-width: 319px) {
+
+/*Index Page Version 1 Section*/
+  .ft-section-title {
+    min-height: 100%;
+  }
+
+  .slider-title-border{
+    width: 30px;
+    height: 1px;
+  }
+
+  .ft-class-des .left.carousel-control {
+    display: block;
+  }
+
+  .ft-carousel-control {
+    float: none;
+    display: inline-block;
+    margin-top: 0px;
+  }
+
+  .ft-discount-content-wrapper {
+    padding-left: 0px !important;
+    background-image: none !important;
+  }
+
+  .ft-discount-content {
+    width: 100%;
+  }
+
+  .ft-section-title-wrapper {
+    text-align: center;
+  }
+
+  .ft-testimonial .ft-carousel-control {
+    bottom: 0;
+  }
+
+  .ft-recent-post .recent-post .images {
+    margin-bottom: 30px;
+  }
+
+/*Contact Page Section*/
+  .other-home-header-wraper {
+    padding-bottom: 25px;
+  }
+
+  .title-bg {
+    float: none !important;
+    display: inline-block;
+  }
+
+  .ft-page-title h1 {
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+
+  .contact-form-area {
+    text-align: center;
+  }
+
+  .ft-contact-button {
+    float: none;
+    display: inline-block;
+  }
+
+  .ft-contact-form-area {
+    padding-bottom: 60px;
+  }
+
+  .ft-contact-info .icon {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-contact-info .content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-contact-info-area {
+    padding-bottom: 44px;
+  }
+
+/*Checkout Page Section*/
+  .checkout-content .ft-porcess-checkout .btn-default {
+    padding: 13px 18px;
+    letter-spacing: 0px;
+  }
+
+  .checkout-content .row span {
+    font-size: 11px;
+  }
+
+/*Account Page Section*/
+  .ft-account-login-area {
+    padding-bottom: 60px;
+  }
+
+  .login-area {
+    border-right: none;
+    padding-right: 0px;
+  }
+
+  .ft-account-simple-text-section-bg {
+    display: none;
+  }
+
+  .ft-account-simple-text-section-wrap {
+    height: 100%;
+  }
+
+  .ft-account-simple-text-section {
+    height: 100%;
+  }
+
+/*Product Details Section*/
+  .ft-sidebar-content-sidebar {
+    padding-right: 0px;
+    padding-bottom: 80px;
+  }
+
+  .ft-sidebar-content-content {
+    padding-left: 15px;
+  }
+
+  .popular-posts .content {
+    width: 100px;
+    margin-left: 15px;
+  }
+
+  .tags-wrap a {
+    padding: 10px 12px;
+  }
+
+  .meet-our-trainer .image {
+    padding-right: 20px;
+  }
+
+  .meet-our-trainer .image img {
+    width: 100%;
+  }
+
+  .product-details-box .img-holder img {
+    width: 100%;
+  }
+
+  .product-description {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .product-details-page-content .ft-add-to-cart-button {
+    text-align: center;
+    width: 100%;
+  }
+
+  .product-details-tab .nav-tabs li {
+    width: 100%;
+  }
+
+  .shop-page-content .single-shop-item img {
+    width: 100%;
+  }
+
+/*Blog Right Sidebar Page Section*/
+  .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .ft-blog-post .info .date-wrapper {
+    width: 100%;
+  }
+
+  .ft-blog-post .info .date {
+    border-right: none;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+  .ft-blog-post .info .title-info .info p span {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+
+  .ft-right-sidebar-content-container .ft-sidebar-content-sidebar {
+    padding-left: 0px;
+  }
+
+  .ft-blog-post .content p {
+    text-align: left;
+  }
+
+  .ft-blog-post .read-more {
+    margin-top: 20px;
+  }
+
+/*Blog Col2 Version 3 Page Section*/
+  .ft-blog-wrap-col-2 .ft-blog-post .info .date {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .info .title-info .title h5 {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .content p {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .read-more {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .read-more a {
+    float: none;
+  }
+
+/*Blog Fullwidth Version 4 Page Section*/
+  .ft-blog-wrap-fullwidth .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .ft-blog-wrap-fullwidth .ft-blog-post .info .date {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-fullwidth .ft-blog-post .info .title-info .title h5 {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-fullwidth .ft-blog-post .content p {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-fullwidth .ft-blog-post .read-more {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-blog-wrap-fullwidth .ft-blog-post .read-more a {
+    float: none;
+  }
+
+/*Blog Details Page Section*/
+  .ft-blog-post .content ul {
+    width: 100%;
+  }
+
+  .ft-blog-post .content p.left {
+    width: 100% !important;
+    padding: 0px !important;
+    text-align: left;
+  }
+
+  .ft-blog-post .content p.right {
+    width: 100% !important;
+    padding: 0px !important;
+    text-align: left;
+  }
+
+  .ft-blog-post .content blockquote {
+    text-align: left;
+  }
+
+  .ft-blog-post .adimin-info-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+/*Gallery Version 02 Page Section*/
+  .ft-bmi-calculator-wrap {
+    min-height: 925px;
+  }
+
+  .ft-bmi-calculator-title {
+    display: none;
+  }
+
+  .ft-bmi-calculator-form {
+    width: 100%;
+  }
+
+  .ft-bmi-calculator-form .nav-tabs>li {
+    width: 100%;
+  }
+
+/*About Page Section*/
+  .ft-fitness-center .content {
+    padding-left: 0px;
+    margin-top: 20px;
+  }
+
+  .ft-feature-class-about {
+    padding-bottom: 35px;
+  }
+
+  .feature-class-about {
+    margin-bottom: 30px;
+  }
+
+/*Service Page Section*/
+  .ft-service-hotline .content-wrap {
+    padding-left: 0px;
+  }
+
+  .ft-service-hotline .images {
+    margin-bottom: 30px;
+  }
+
+  .ft-service-hotline .ft-section-title-wrapper {
+    padding-bottom: 0px;
+  }
+
+  .ft-section-service-hot-line-content a {
+    font-size: 22px;
+    padding: 15px 33px;
+  }
+
+  .counter-wrap {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+/*Prices Page Section*/
+  .affordable-price-wrap .icon {
+    text-align: center;
+  }
+
+  .affordable-price-wrap .icon span {
+    float: none;
+    display: inline-block;
+  }
+
+  .affordable-price-wrap h6 {
+    text-align: center;
+  }
+
+  .affordable-price-wrap p {
+    text-align: center;
+  }
+
+/*Testimonial Page Section*/
+  .ft-page-title {
+    overflow: hidden;
+  }
+
+/*404 Page Section*/
+  .section-404-bg h1 {
+    font-size: 120px;
+  }
+
+  .section-404-bg a {
+    padding: 18px 36px;
+  }
+
+/*Comming Soon Page Section*/
+  .coming-soon-header .page-newsletter-section form .form-control {
+    margin-bottom: 20px;
+  }
+
+  .coming-soon-images {
+    margin-top: 30px;
+  }
+
+  .coming-soon-images .img-left {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+/*Classes Page Section*/
+  .ft-upcomming-classes .ft-carousel-control {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+
+/*Class Details Page Section*/
+  .pricing-plan-widget h4 {
+    background-image: none !important;
+  }
+
+  .class-details-sidebar-content h4 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-image: none !important;
+  }
+
+  .ft-class-registration-img-gallary .ft-class-registration-wrap {
+    height: 100%;
+  }
+
+  .ft-class-registration-wrap .ft-class-registration {
+    height: 100%;
+  }
+
+  .ft-registration-button .btn-default {
+    padding: 10px 2px;
+    letter-spacing: 0px;
+  }
+
+  .ft-gallary-item-wrap {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+
+/*Index Page Version 1 Section*/
+  .ft-section-title {
+    min-height: 100%;
+  }
+
+  .slider-title-border{
+    width: 30px;
+    height: 1px;
+  }
+
+  .ft-class-des .left.carousel-control {
+    display: block;
+  }
+
+  .ft-carousel-control {
+    float: none;
+    display: inline-block;
+    margin-top: 0px;
+  }
+
+  .ft-discount-content-wrapper {
+    padding-left: 0px !important;
+    background-image: none !important;
+  }
+
+  .ft-discount-content {
+    width: 100%;
+  }
+
+  .ft-section-title-wrapper {
+    text-align: center;
+  }
+
+  .ft-testimonial .ft-carousel-control {
+    bottom: 0;
+  }
+
+  .ft-testimonial .content-wrap .content::after {
+    display: none;
+  }
+
+  .ft-recent-post .recent-post .images {
+    margin-bottom: 30px;
+  }
+
+/*Contact Page Section*/
+  .title {
+    float: none !important;
+    display: inline-block;
+  }
+
+  .title-bg {
+    float: none !important;
+    display: inline-block;
+  }
+
+  .ft-page-title h1 {
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+
+  .contact-form-area {
+    text-align: center;
+  }
+
+  .ft-contact-button {
+    float: none;
+    display: inline-block;
+  }
+
+  .ft-contact-form-area {
+    padding-bottom: 60px;
+  }
+
+  .ft-contact-info .icon {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-contact-info .content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-contact-info-area {
+    padding-bottom: 44px;
+  }
+
+/*Checkout Page Section*/
+  .checkout-content .ft-porcess-checkout {
+    width: 100%;
+    text-align: center;
+  }
+
+/*Account Page Section*/
+  .ft-account-login-area {
+    padding-bottom: 60px;
+  }
+
+  .login-area {
+    border-right: none;
+    padding-right: 0px;
+  }
+
+  .ft-account-simple-text-section-bg {
+    display: none;
+  }
+
+  .ft-account-simple-text-section-wrap {
+    height: 100%;
+  }
+
+  .ft-account-simple-text-section {
+    height: 100%;
+  }
+
+/*Product Details Section*/
+  .ft-sidebar-content-sidebar {
+    padding-right: 0px;
+    padding-bottom: 80px;
+  }
+
+  .ft-sidebar-content-content {
+    padding-left: 15px;
+  }
+
+  .product-description {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .product-details-page-content .ft-add-to-cart-button {
+    text-align: center;
+    width: 100%;
+  }
+
+/*Blog Right Sidebar Page Section*/
+  .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .ft-blog-post .info .date-wrapper {
+    width: 100%;
+  }
+
+  .ft-blog-post .info .date {
+    border-right: none;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+  .ft-blog-post .info .title-info .info p span {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+
+  .ft-right-sidebar-content-container .ft-sidebar-content-sidebar {
+    padding-left: 0px;
+  }
+
+/*Blog Right Sidebar Page Section*/
+  .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .ft-blog-post .info .date-wrapper {
+    width: 100%;
+  }
+
+  .ft-blog-post .info .date {
+    border-right: none;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+  .ft-blog-post .info .title-info .info p span {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+
+  .ft-right-sidebar-content-container .ft-sidebar-content-sidebar {
+    padding-left: 0px;
+  }
+
+  .ft-blog-post .content p {
+    text-align: left;
+  }
+
+  .ft-blog-post .read-more {
+    margin-top: 20px;
+  }
+
+/*Blog Col2 Version 3 Page Section*/
+  .ft-blog-wrap-col-2 .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+/*Blog Fullwidth Version 4 Page Section*/
+  .ft-blog-wrap-fullwidth .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .ft-blog-wrap-fullwidth .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+/*Blog Details Page Section*/
+  .ft-blog-post .content ul {
+    width: 100%;
+  }
+
+  .ft-blog-post .content p.left {
+    width: 100% !important;
+    padding: 0px !important;
+    text-align: left;
+  }
+
+  .ft-blog-post .content p.right {
+    width: 100% !important;
+    padding: 0px !important;
+    text-align: left;
+  }
+
+  .ft-blog-post .content blockquote {
+    text-align: left;
+  }
+
+  .ft-blog-post .adimin-info-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+/*Gallery Version 02 Page Section*/
+  .ft-bmi-calculator-wrap {
+    min-height: 925px;
+  }
+
+  .ft-bmi-calculator-title {
+    display: none;
+  }
+
+  .ft-bmi-calculator-form {
+    width: 100%;
+  }
+
+/*About Page Section*/
+  .ft-fitness-center .content {
+    padding-left: 0px;
+    margin-top: 20px;
+  }
+
+  .ft-feature-class-about {
+    padding-bottom: 35px;
+  }
+
+  .feature-class-about {
+    margin-bottom: 30px;
+  }
+
+/*Service Page Section*/
+  .ft-service-hotline .content-wrap {
+    padding-left: 0px;
+  }
+
+  .ft-service-hotline .images {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .ft-service-hotline .ft-section-title-wrapper {
+    padding-bottom: 0px;
+  }
+
+  .ft-section-service-hot-line-content a {
+    font-size: 22px;
+    padding: 15px 33px;
+  }
+
+  .counter-wrap {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+/*Prices Page Section*/
+  .affordable-price-wrap .icon {
+    text-align: center;
+  }
+
+  .affordable-price-wrap .icon span {
+    float: none;
+    display: inline-block;
+  }
+
+  .affordable-price-wrap h6 {
+    text-align: center;
+  }
+
+  .affordable-price-wrap p {
+    text-align: center;
+  }
+
+/*404 Page Section*/
+  .section-404-bg a {
+    padding: 18px 85px;
+  }
+
+/*Comming Soon Page Section*/
+  .coming-soon-header .page-newsletter-section form .form-control {
+    margin-bottom: 20px;
+  }
+
+  .coming-soon-images {
+    margin-top: 30px;
+  }
+
+  .coming-soon-images .img-left {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .coming-soon-images .img-right {
+    text-align: center;
+  }
+
+/*Classes Page Section*/
+  .ft-upcomming-classes .ft-carousel-control {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+
+/*Class Details Page Section*/
+  .pricing-plan-widget h4 {
+    background-image: none !important;
+  }
+
+  .class-details-sidebar-content h4 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-image: none !important;
+  }
+
+  .ft-class-registration-img-gallary .ft-class-registration-wrap {
+    height: 100%;
+  }
+
+  .ft-class-registration-wrap .ft-class-registration {
+    height: 100%;
+  }
+
+
+  .ft-gallary-item-wrap {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+
+/*Index Page Version 1 Section*/
+  .ft-section-title {
+    min-height: 100%;
+  }
+
+  .slider-title-border{
+    width: 100px;
+    height: 2px;
+  }
+
+  .ft-class-des .left.carousel-control {
+    display: block;
+  }
+
+  .ft-carousel-control {
+    float: none;
+    display: inline-block;
+    margin-top: 0px;
+  }
+
+  .ft-discount-content-wrapper {
+    padding-left: 0px !important;
+    background-image: none !important;
+  }
+
+  .ft-discount-content {
+    width: 100%;
+  }
+
+  .ft-section-title-wrapper {
+    text-align: center;
+  }
+
+  .ft-testimonial .ft-carousel-control {
+    bottom: 0;
+  }
+
+  .ft-testimonial .content-wrap .content::after {
+    display: none;
+  }
+
+  .ft-recent-post .recent-post .images {
+    margin-bottom: 30px;
+  }	
+
+/*Contact Page Section*/
+  .title {
+    float: none !important;
+    display: inline-block;
+  }
+
+  .title-bg {
+    float: none !important;
+    display: inline-block;
+  }
+
+  .ft-page-title h1 {
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+
+  .ft-header-bottom-fitness-level-title {
+    display: none;
+  }
+
+  #cssmenu {
+    border: 1px solid #bcbcbc !important;
+  }
+
+  .contact-form-area {
+    text-align: center;
+  }
+
+  .ft-contact-button {
+    float: none;
+    display: inline-block;
+  }
+
+  .ft-contact-form-area {
+    padding-bottom: 60px;
+  }
+
+  .ft-contact-info .icon {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-contact-info .content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-contact-info-area {
+    padding-bottom: 44px;
+  }
+
+/*Checkout Page Section*/
+  .checkout-content .ft-porcess-checkout {
+    width: 100%;
+    text-align: center;
+  }
+
+/*Account Page Section*/
+  .ft-account-login-area {
+    padding-bottom: 60px;
+  }
+
+  .login-area {
+    border-right: none;
+    padding-right: 0px;
+  }
+
+  .ft-account-simple-text-section-bg {
+    display: none;
+  }
+
+  .ft-account-simple-text-section-wrap {
+    height: 100%;
+  }
+
+  .ft-account-simple-text-section {
+    height: 100%;
+  }
+
+/*Product Details Section*/
+  .ft-sidebar-content-sidebar {
+    padding-right: 0px;
+    padding-bottom: 80px;
+  }
+
+  .ft-sidebar-content-content {
+    padding-left: 15px;
+  }
+
+  .product-description {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .product-details-page-content .ft-add-to-cart-button {
+    text-align: center;
+    width: 100%;
+  }
+
+/*Blog Right Sidebar Page Section*/
+  .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .ft-blog-post .info .date-wrapper {
+    width: 100%;
+  }
+
+  .ft-blog-post .info .date {
+    border-right: none;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+  .ft-blog-post .info .title-info .info p span {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+
+  .ft-right-sidebar-content-container .ft-sidebar-content-sidebar {
+    padding-left: 0px;
+  }
+
+  .ft-blog-post .content p {
+    text-align: left;
+  }
+
+  .ft-blog-post .read-more {
+    margin-top: 20px;
+  }
+
+/*Blog Col2 Version 3 Page Section*/
+  .ft-blog-wrap-col-2 .ft-blog-post .image {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .image img {
+    display: inline-block;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+/*Blog Fullwidth Version 4 Page Section*/
+  .ft-blog-wrap-fullwidth .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+/*Blog Details Page Section*/
+  .ft-blog-post .content ul {
+    width: 100%;
+  }
+
+  .ft-blog-post .content p.left {
+    width: 100% !important;
+    padding: 0px !important;
+    text-align: left;
+  }
+
+  .ft-blog-post .content p.right {
+    width: 100% !important;
+    padding: 0px !important;
+    text-align: left;
+  }
+
+  .ft-blog-post .content blockquote {
+    text-align: left;
+  }
+
+  .ft-blog-post .adimin-info-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+/*Gallery Version 02 Page Section*/
+  .ft-bmi-calculator-wrap {
+    min-height: 925px;
+  }
+
+  .ft-bmi-calculator-title {
+    display: none;
+  }
+
+  .ft-bmi-calculator-form {
+    width: 100%;
+  }
+
+/*About Page Section*/
+  .ft-fitness-center .content {
+    padding-left: 0px;
+    margin-top: 20px;
+  }
+
+  .ft-feature-class-about {
+    padding-bottom: 35px;
+  }
+
+  .feature-class-about {
+    margin-bottom: 30px;
+  }
+
+/*Service Page Section*/
+  .ft-service-hotline .content-wrap {
+    padding-left: 0px;
+  }
+
+  .ft-service-hotline .images {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .ft-service-hotline .ft-section-title-wrapper {
+    padding-bottom: 0px;
+  }
+
+  .ft-section-service-hot-line-content a {
+    font-size: 22px;
+    padding: 15px 33px;
+  }
+
+  .counter-wrap {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+/*Prices Page Section*/
+  .affordable-price-wrap .icon {
+    text-align: center;
+  }
+
+  .affordable-price-wrap .icon span {
+    float: none;
+    display: inline-block;
+  }
+
+  .affordable-price-wrap h6 {
+    text-align: center;
+  }
+
+  .affordable-price-wrap p {
+    text-align: center;
+  }
+
+/*Tesimonial Page Section*/
+  .ft-testimonial .content-wrap .content::after {
+    display: none;
+  }
+
+/*Comming Soon Page Section*/
+  .coming-soon-header .page-newsletter-section form .form-control {
+    margin-bottom: 20px;
+  }
+
+  .coming-soon-images {
+    margin-top: 30px;
+  }
+
+  .coming-soon-images .img-left {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .coming-soon-images .img-right {
+    text-align: center;
+  }
+
+/*Classes Page Section*/
+  .ft-upcomming-classes .ft-carousel-control {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+
+/*Class Details Page Section*/
+  .pricing-plan-widget h4 {
+    background-image: none !important;
+  }
+
+  .class-details-sidebar-content h4 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-image: none !important;
+  }
+
+  .ft-class-registration-img-gallary .ft-class-registration-wrap {
+    height: 100%;
+  }
+
+  .ft-class-registration-wrap .ft-class-registration {
+    height: 100%;
+  }
+
+  .ft-gallary-item-wrap {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+/*Index Page Version 1 Section*/
+/*.ft-section-title{min-height: 100%;}*/
+  .home-header-warpper{
+    padding-top: 0px;
+  }
+  .ft-slide-left-button .btn-default{
+    padding: 10px 10px;
+  }
+  .ft-slide-left-button .btn-default span.text{
+    padding-right: 5px;
+  }
+  .ft-slide-left-button .btn-default span.icon{
+    padding-left: 5px;
+  }
+  .ft-slide-right-button .btn-default{
+    padding: 10px 10px;
+  }
+  .ft-slide-right-button .btn-default span.text{
+    padding-right: 5px;
+  }
+  .ft-slide-right-button .btn-default span.icon{
+    padding-left: 5px;
+  }
+  .section-header{
+    position: relative !important;
+  }
+  #cssmenu ul ul ul{
+    margin-left: -90%;
+  }
+  .ft-class-des .left.carousel-control {
+    display: block;
+  }
+
+  .ft-discount-image {
+    min-height: 354px;
+  }
+
+  .ft-carousel-control {
+    float: none;
+    display: inline-block;
+    margin-top: 0px;
+  }
+
+  .ft-discount-content-wrapper {
+    padding-left: 0px !important;
+    background-image: none !important;
+  }
+
+  .ft-discount-content {
+    width: 100%;
+    padding-left: 30px;
+  }
+/*.ft-section-title-wrapper{text-align: center;}*/
+  .ft-testimonial .ft-carousel-control {
+    bottom: 0;
+  }
+
+  .ft-testimonial .content-wrap .content::after {
+    display: none;
+  }
+
+  .ft-recent-post .recent-post .images {
+    margin-bottom: 30px;
+  }	
+
+/*Contact Page Section*/
+  .ft-menu {
+    text-align: center;
+  }
+
+  #cssmenu {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #bcbcbc !important;
+  }
+
+  .ft-page-title h1 {
+    margin-top: 22px;
+  }
+
+  .ft-page-title {
+    min-height: 149px;
+  }
+
+  .ft-header-bottom-fitness-level-title {
+    width: 75%;
+  }
+
+  .ft-contact-info .icon {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ft-contact-info .content {
+    width: 100%;
+  }
+
+  .ft-contact-info-area {
+    padding-bottom: 46px;
+  }
+
+/*Account Page Section*/
+  .ft-account-simple-text-section {
+    height: 238px;
+  }
+
+/*Product Details Section*/
+  .ft-sidebar-content-sidebar {
+    padding-right: 0px;
+    padding-bottom: 80px;
+  }
+
+  .ft-sidebar-content-content {
+    padding-left: 15px;
+  }
+
+  .product-description {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .product-details-page-content .ft-add-to-cart-button {
+    text-align: center;
+    width: 100%;
+  }
+
+/*Shop Page*/
+  .meet-our-trainer .image {
+    width: 100%;
+  }
+
+  .shop-page-content .single-shop-item img {
+    width: 100%;
+  }
+
+/*Blog Right Sidebar Page Section*/
+  .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .ft-blog-post .info .date-wrapper {
+    width: 100%;
+  }
+
+  .ft-blog-post .info .date {
+    border-right: none;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+  .ft-blog-post .info .title-info .info p span {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+
+  .ft-blog-post .content p {
+    text-align: left;
+  }
+
+  .ft-blog-post .read-more {
+    margin-top: 20px;
+  }
+
+/*Blog Col2 Version 3 Page Section*/
+  .ft-blog-wrap-col-2 .ft-blog-post .image {
+    text-align: center;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .image img {
+    display: inline-block;
+  }
+
+  .ft-blog-wrap-col-2 .ft-blog-post .info .title-info {
+    margin-left: 0px;
+  }
+
+/*Blog Fullwidth Version 4 Page Section*/
+  .ft-blog-wrap-fullwidth .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+/*About Page Section*/
+  .ft-feature-class-about {
+    padding-bottom: 35px;
+  }
+
+  .feature-class-about {
+    margin-bottom: 30px;
+  }
+
+/*Class Details Page Section*/
+  .pricing-plan-widget h4 {
+    background-image: none !important;
+  }
+
+  .class-details-sidebar-content h4 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-image: none !important;
+  }
+
+  .ft-class-registration-img-gallary .ft-class-registration-wrap {
+    height: 100%;
+  }
+
+  .ft-class-registration-wrap .ft-class-registration {
+    height: 100%;
+  }
+
+  .ft-gallary-item-wrap {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+
+  .ft-slide-left-button .btn-default{
+    padding: 10px 15px;
+  }
+  .ft-slide-left-button .btn-default span.text{
+    padding-right: 10px;
+  }
+  .ft-slide-left-button .btn-default span.icon{
+    padding-left: 10px;
+  }
+  .ft-slide-right-button .btn-default{
+    padding: 10px 15px;
+  }
+  .ft-slide-right-button .btn-default span.text{
+    padding-right: 10px;
+  }
+  .ft-slide-right-button .btn-default span.icon{
+    padding-left: 10px;
+  }
+
+/*Contact Page Section*/
+  #cssmenu > ul > li > a {
+    padding: 20px 15px 37px 15px !important;
+  }
+
+/*Product Details Section*/
+  .ft-sidebar-content-sidebar {
+    padding-right: 0px;
+    padding-bottom: 80px;
+  }
+
+  .ft-sidebar-content-content {
+    padding-left: 15px;
+  }
+
+  .product-description {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+/*Blog Right Sidebar Page Section*/
+  .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+  .meet-our-trainer .image img {
+    width: 100%;
+  }
+
+  .popular-posts .content {
+    width: 110px;
+    margin-left: 20px;
+  }
+
+  .ft-blog-post .info .title-info {
+    width: 84%;
+  }
+
+/*Blog Col2 Version 3 Page Section*/
+  .ft-blog-wrap-col-2 .ft-blog-post .info .title-info {
+    width: 75%;
+  }
+
+/*Blog Fullwidth Version 4 Page Section*/
+  .ft-blog-wrap-fullwidth .ft-blog-post .image {
+    min-height: 100%;
+  }
+
+/*Class Details Page Section*/
+  .pricing-plan-widget h4 {
+    background-image: none !important;
+  }
+
+  .class-details-sidebar-content h4 {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-image: none !important;
+  }
+
+  .ft-class-registration-img-gallary .ft-class-registration-wrap {
+    height: 100%;
+  }
+
+  .ft-class-registration-wrap .ft-class-registration {
+    height: 100%;
+  }
+
+  .ft-gallary-item-wrap {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .ft-class-des .left img{
+    height: 390px;
+  }
+}	
+@media only screen and (min-width: 1401px) and (max-width: 4000px) {
+  .ft-right-sidebar-class-details-container {
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(90deg, #efeff3 53.9%, #e4e4e6 46.1%);
+ /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(90deg, #efeff3 53.9%, #e4e4e6 46.1%);
+ /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(90deg, #efeff3 53.9%, #e4e4e6 46.1%);
+ /* For Firefox 3.6 to 15 */
+  background: linear-gradient(90deg, #efeff3 53.9%, #e4e4e6 46.1%);
+ /* Standard syntax */;
+  } 
+  .ft-discount-content-wrapper{
+    padding-top: 80px;
+    padding-bottom: 77px;
+  } 
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .tp-caption {
+    display: none !important;
+  }
+}
