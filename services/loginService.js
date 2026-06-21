@@ -24,7 +24,7 @@ loginForm.addEventListener('submit', async (e) => {
 
         alert('Login realizado!')
 
-        window.location.href = "https://rosybrown-albatross-641862.hostingersite.com/omda-adm/painel-adm.html"
+        window.location.href = "/admin/hub/"
 
     } catch (error) {
 

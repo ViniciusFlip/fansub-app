@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<title>OMDA Ops</title>
+
+<style>
+body{
+    background:#050505;
+}
+
+.blob{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:9999px;
+    filter:blur(120px);
+    opacity:.3;
+}
+
+.card{
+    backdrop-filter:blur(30px);
+   background:rgba(88,100,190,.08);
+border:1px solid rgba(115,128,223,.18);
+box-shadow:
+0 0 40px rgba(88,100,190,.15),
+inset 0 1px 0 rgba(255,255,255,.05);
+}
+.blob{
+    background:#5864be;
+}
+
+.blob2{
+    background:#7380df;
+}
+</style>
+</head>
+ 
+    <body class="min-h-[100dvh] flex items-center justify-center overflow-hidden px-4"> 
+<body class="min-h-[100dvh] flex items-center justify-center overflow-hidden px-4">
+
+<header class="absolute top-0 left-0 right-0 h-16 px-6 flex items-center justify-between">
+
+```
+<div class="text-xs text-zinc-500 tracking-[0.3em]">
+    OMDA
+</div>
+
+<div class="flex items-center gap-2">
+    <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+
+    <span class="text-[10px] uppercase tracking-widest text-zinc-600">
+        Online
+    </span>
+</div>
+```
+
+</header>
+
+<div class="blob top-[-150px] left-[-150px]"></div>
+<div class="blob bottom-[-200px] right-[-200px] blob2"></div>
+
+<div class="card w-full max-w-md rounded-3xl p-6 sm:p-8 relative">
+
+```
+<form id="loginForm" class="space-y-6">
+
+    <div id="stepEmail">
+
+        <div class="relative">
+
+            <input
+                id="email"
+                type="email"
+                placeholder=" "
+                class="peer w-full h-14 rounded-2xl bg-white/5 border border-white/10 px-5 text-white outline-none focus:border-[#7380df] focus:ring-2 focus:ring-[#5864be]/20"
+            >
+
+            <label
+                for="email"
+                class="absolute left-5 top-4 text-zinc-400 transition-all duration-300 peer-focus:text-xs peer-focus:top-2 peer-focus:text-[#7380df] peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:top-2"
+            >
+                Email
+            </label>
+
+            <button
+                type="button"
+                id="nextBtn"
+                class="absolute right-2 top-2 w-10 h-10 rounded-full text-white flex items-center justify-center transition hover:scale-105"
+                style="background:linear-gradient(135deg,#7380df,#5864be)"
+            >
+                →
+            </button>
+
+        </div>
+
+        <p id="emailStatus" class="text-xs text-zinc-400 pl-2"></p>
+
+    </div>
+
+    <div id="stepPassword" class="hidden">
+
+        <div class="relative">
+
+            <input
+                id="password"
+                type="password"
+                placeholder=" "
+                class="peer w-full h-14 rounded-2xl bg-white/5 border border-white/10 px-5 text-white outline-none focus:border-[#7380df] focus:ring-2 focus:ring-[#5864be]/20"
+            >
+
+            <label
+                for="password"
+                class="absolute left-5 top-4 text-zinc-400 transition-all duration-300 peer-focus:text-xs peer-focus:top-2 peer-focus:text-[#7380df] peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:top-2"
+            >
+                Senha
+            </label>
+
+        </div>
+
+        <button
+        id="loginBtn"
+            type="submit"
+            class="w-full h-12 rounded-2xl text-white mt-4"
+            style="background:linear-gradient(135deg,#7380df,#5864be)"
+        >
+            Entrar
+        </button>
+
+       
+        <button
+            type="button"
+            class="w-full h-12 rounded-2xl bg-white/5 border border-white/10 text-white mt-3"
+        >
+            Continuar com Google
+        </button>
+
+        <button
+            type="button"
+            class="w-full text-zinc-400 text-sm mt-3"
+        >
+            Não lembro minha senha
+        </button>
+
+    </div>
+
+</form>
+
+<div class="text-center text-[11px] text-zinc-500 mt-8">
+    OMDA Tracker • v1.0.0
+</div>
+```
+
+</div>
+
+<div
+class="absolute top-0 left-0 right-0 h-px"
+style="background:linear-gradient(90deg,transparent,rgba(88,100,190,.7),transparent)">
+</div>
+
+<footer class="absolute bottom-5 left-0 right-0 text-center">
+
+```
+<span class="text-[10px] uppercase tracking-[0.25em] text-zinc-600">
+    Protected Session
+</span>
+```
+
+</footer>
+
+</body>
+
+<script>
+
+const email = document.getElementById('email');
+const status = document.getElementById('emailStatus');
+
+email.addEventListener('input',()=>{
+
+    const valid =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+
+    if(email.value.length === 0){
+        status.textContent='';
+        return;
+    }
+
+    status.textContent =
+    valid ? '✓ válido' : 'email inválido';
+
+});
+
+document
+.getElementById('nextBtn')
+.addEventListener('click',()=>{
+
+    const valid =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+
+    if(!valid){
+        email.focus();
+        return;
+    }
+
+    document
+    .getElementById('stepEmail')
+    .classList.add('hidden');
+
+    document
+    .getElementById('stepPassword')
+    .classList.remove('hidden');
+
+});
+
+</script>
+<script 
+type="module"
+src="./sysops.js">
+</script>
+</body>
+</html>
