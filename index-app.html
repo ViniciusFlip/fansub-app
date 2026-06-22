@@ -38,17 +38,103 @@
     
   </head>
   <body class="bg-gray-900 lg:bg-gray"> 
-
+<div id="loadingBar"></div>
 	<style>
+
+		  #loadingBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            z-index: 99999;
+            opacity: 1;
+            transition: width .25s linear, opacity .3s ease;
+
+            background: linear-gradient(
+                90deg,
+                #60a5fa,
+                #818cf8,
+                #a78bfa
+            );
+
+            box-shadow: 0 0 12px rgba(96, 165, 250, .5);
+        }
+
+      
 		@media(max-width:1200px){
 		nav.md\:flex.ml-8.items-center.gap-6.text-2xl.text-white {
     display: none !important;
 }
 }
 	</style>
-	<div class="  bg-purple-900   text-white py-4">
+	 
+	<div class="  bg-[#5864be]   text-white py-4">
 
-  <div class="container max-w-7xl mx-auto px-4">
+    <script>
+        const loadingBar = document.getElementById("loadingBar");
+
+        let progress = 0;
+        let loadingInterval;
+
+        function startLoading() {
+
+            progress = 0;
+
+            loadingBar.style.opacity = "1";
+            loadingBar.style.width = "0%";
+
+            loadingInterval = setInterval(() => {
+
+                if (progress < 90) {
+
+                    progress += Math.random() * 8;
+
+                    loadingBar.style.width = progress + "%";
+
+                }
+
+            }, 100);
+
+        }
+
+        function finishLoading() {
+
+            clearInterval(loadingInterval);
+
+            loadingBar.style.width = "100%";
+
+            setTimeout(() => {
+
+                loadingBar.style.opacity = "0";
+
+                setTimeout(() => {
+
+                    loadingBar.style.width = "0%";
+                    loadingBar.style.opacity = "1";
+
+                }, 300);
+
+            }, 250);
+
+        }
+
+        function simularLogin() {
+
+            startLoading();
+
+            // Simula uma requisição de 3 segundos
+            setTimeout(() => {
+
+                finishLoading();
+
+                console.log("Login realizado!");
+
+            }, 3000);
+
+        }
+    </script>
+  <div id="loginPopup" class="hidden container max-w-7xl mx-auto px-4">
 
     <!-- MOBILE / DESKTOP FLEX -->
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -113,7 +199,7 @@ placeholder-gray-500 placeholder-opacity-100" />
 
     <!-- BUTTON -->
     <button
-  class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg transition flex items-center justify-center text-white"
+  class="px-6 py-3 bg-[#2c3260] hover:bg-[#2c3260] rounded-lg transition flex items-center justify-center text-white"
   type="submit"
 >
   <i data-lucide="log-in" class="w-6 h-6"></i>
@@ -130,6 +216,12 @@ placeholder-gray-500 placeholder-opacity-100" />
   </div>
 
 </div>
+
+<script>
+	function toggleLogin() {
+    document.getElementById("loginPopup").classList.toggle("hidden");
+}
+	</script>
 <header 
 	
 	class="
@@ -186,7 +278,7 @@ placeholder-gray-500 placeholder-opacity-100" />
         </button>
 
         <!-- USER -->
-        <button class="p-2 text-white hover:bg-gray-800 rounded-lg">
+        <button onclick="toggleLogin()" class="p-2 text-white hover:bg-gray-800 rounded-lg">
           <i data-lucide="user" class="w-8 h-8"></i>
         </button>
 
@@ -292,53 +384,10 @@ placeholder-gray-500 placeholder-opacity-100" />
 					</div>
 	      		</div>
 	      	</div>
-	      	<div class="header-cart-area">
-	      		<div class="container">
-	      			<div class="pull-left" style="margin-top: 15px; color:#fff;">Não tem conta? <a href="cadastrar.html"> Clique aqui </a>e registre - Perdeu sua senha?</div>
-		      		<div class="pull-right cart col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		      		<p style="display: block; float: left; text-align: right; color: #fff;">Acessar painel</p>
-						 
-<form method="post" id="loginForm">
-
-    <div class="input-group">
-
-        <input
-            type="password"
-            id="password"
-            class="form-control"
-            placeholder="*****"
-        >
-
-        <input
-            type="text"
-            id="email"
-            class="form-control"
-            placeholder="login..."
-        >
-
-        <span class="input-group-btn">
-
-            <button
-                class="btn btn-default"
-                type="submit"
-            >
-                <i class="fa fa-user"></i>
-            </button>
-
-        </span>
-
-    </div>
-
-</form>
- 
-
-
-					</div>
-				</div>	
-	      	</div>
+	    
 
  
-	        <div class="header  hidden">
+	        <div class="header   hidden  ">
 	          <div class="container"> 
 	            <div class="row">
 			      <!-- Logo Area -->
@@ -1382,7 +1431,12 @@ placeholder-gray-500 placeholder-opacity-100" />
             </div>                
           </div>  
         </div>
-      </div>           
+      </div>    
+	  
+	  <div
+    id="loadingBar"
+    class="fixed top-0 left-0 h-1 w-0 bg-[#5864be] transition-all duration-500 z-[9999]">
+</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
