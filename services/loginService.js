@@ -24,7 +24,7 @@ loginForm.addEventListener('submit', async (e) => {
 
         alert('Login realizado!')
 
-        window.location.href = "/admin/hub/"
+        window.location.href = "./admin/hub/"
 
     } catch (error) {
 
