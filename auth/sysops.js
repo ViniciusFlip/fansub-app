@@ -53,9 +53,11 @@ result.user.uid
 )
 
 
-
-window.location.href="/admin/hub/"
-
+    simularLogin() 
+       
+         setTimeout(() => {
+        window.location.href = "/admin/hub/";
+    }, 3000);
 
 
 }catch(err){
