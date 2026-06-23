@@ -22,12 +22,15 @@ loginForm.addEventListener('submit', async (e) => {
             password
         )
 
-        alert('Login realizado!')
-
-        window.location.href = "./admin/hub/"
-
+        
+        simularLogin() 
+       
+         setTimeout(() => {
+        window.location.href = "/admin/hub/";
+    }, 3000);
+        // alert('Login realizado!')
     } catch (error) {
-
+      
         console.error(error)
 
         alert('Login inválido')
