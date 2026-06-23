@@ -56,7 +56,7 @@ result.user.uid
     simularLogin() 
        
          setTimeout(() => {
-        window.location.href = "/admin/hub/";
+        window.location.href = "https://viniciusflip.github.io/fansub-app/admin/hub/";
     }, 3000);
 
 
