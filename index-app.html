@@ -60,7 +60,37 @@
 
             box-shadow: 0 0 12px rgba(96, 165, 250, .5);
         }
+/* Esconde no desktop */
+.mobile-user-header{
+    display:none;
+}
 
+/* Mostra apenas no mobile */
+@media (max-width:768px){
+
+    .mobile-user-header{
+        display:block;
+        position:absolute;
+        right:60px; /* ajuste conforme posição do menu hamburguer */
+        top:50%;
+        transform:translateY(-50%);
+        z-index:9999;
+		   color: white;
+    display: flex;
+    font-size: 30px;
+    top: 69px;
+    }
+
+    .mobile-user-header a{
+        color:#fff;
+        font-size:22px;
+        text-decoration:none;
+    }
+
+    .header{
+        position:relative;
+    }
+}
       
 		@media(max-width:1200px){
 		nav.md\:flex.ml-8.items-center.gap-6.text-2xl.text-white {
@@ -396,8 +426,16 @@ placeholder-gray-500 placeholder-opacity-100" />
 	                <div class="ft-logo">
 	                  <a href="index-2.html"><img src="assets/images/ft-logo.png" alt="Ft-Logo"></a>
 	                </div>
-	              </div>  
+			
 
+ 
+	              </div>  
+		<!-- User Mobile -->
+<div class="mobile-user-header"  onclick="toggleLogin()">
+  
+        <i class="fa fa-user"></i>
+    
+</div>
 	              <!-- Navigation Area -->
 	      
 	              <div class="menu-responsive col-lg-8 col-md-8 col-sm-8 col-xs-12">  
@@ -421,6 +459,7 @@ placeholder-gray-500 placeholder-opacity-100" />
 	                        </ul>
 	                      </li>
 	                      <li><a href="top10.html">TOP 10</a></li>
+						  
 	                    </ul>
 	                  </nav>
 	                </div> 
@@ -436,7 +475,7 @@ placeholder-gray-500 placeholder-opacity-100" />
 	                    </a>
 	                  </div>
 	                  <div class="ft-icon-wrap">
-	                    <a id="ft-cart-icon" href="#" title="Click This Button"  class="icon img-circle">
+	                    <a  onclick="toggleLogin()" href="#" title="Click This Button"  class="icon img-circle">
 	                      <i class="fa fa-user"></i>
 	                    </a>
 	                  </div>
