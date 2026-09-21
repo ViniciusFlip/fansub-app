@@ -83,7 +83,7 @@
       </div>
 
       <!-- Stats -->
-      <div class="grid grid-cols-2 gap-3">
+      <div class="hidden grid grid-cols-2 gap-3">
 
         <div
           class="rounded-2xl border border-white/5 bg-white/[0.03] p-3">
@@ -176,32 +176,34 @@
     <span><i data-lucide="home"></i></span>
     <span class="sidebar-text">Home</span>
     </a>
-
+<a href="#" data-page="uploads"
+   class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="cloud-upload" class="text-blue-500"></i></span>
+    <span class="sidebar-text">Enviar Torrent</span>
+</a>
     <a href="#" data-page="torrents"
-      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+      class="hidden sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
     <span><i data-lucide="download"></i></span>
     <span class="sidebar-text">Baixar Torrents</span>
     </a>
-    <a href="#" data-page="uploads"
-      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
-    <span><i data-lucide="upload"></i></span>
-    <span class="sidebar-text">Uploads</span>
-    </a>
+   <a href="#" data-page="downloads"
+   class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="download-cloud" class="text-green-500"></i></span>
+    <span class="sidebar-text">Baixar Torrents</span>
+</a>
     <a href="#" data-page="usuarios"
       class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
-    <span><i data-lucide="download"></i></span>
+    <span><i data-lucide="users"></i>
+    
+    </span>
     <span class="sidebar-text">Usuários</span>
     </a>
     <a href="#" data-page="perfil"
-      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+      class="hidden sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
     <span><i data-lucide="user"></i></span>
     <span class="sidebar-text">Perfil</span>
     </a>
-      <a href="#" data-page="detalhe"
-      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
-    <span><i data-lucide="user"></i></span>
-    <span class="sidebar-text">Sinopse</span>
-    </a>
+   
      <a href="/"
    class="sidebar-item group flex items-center justify-between gap-3 p-3 rounded-xl bg-black border border-slate-800 hover:border-lime-400/40 hover:bg-slate-950 transition-all duration-300">
 
@@ -211,10 +213,7 @@
             <i data-lucide="radar" class="w-5 h-5 text-lime-400"></i>
             <img src="assets/images/icon-omda1.png" alt="" srcset="">
         </span>
-
-        <span class="sidebar-text font-semibold tracking-wide text-white">
-            PORTAL FANSUB
-        </span>
+ 
 
     </div>
 
@@ -239,7 +238,19 @@
     </span>
 
 </button>
-    <div class="sidebar-dropdown">
+ <button
+    class="sidebar-item w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+
+    <span>
+        <i data-lucide="file-text" class="text-blue-500"></i>
+    </span>
+
+    <span class="sidebar-text">
+        Sinopse
+    </span>
+
+</button>
+    <div class="hidden sidebar-dropdown">
       <button
         type="button"
         class="dropdown-toggle sidebar-item w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-800 transition">
