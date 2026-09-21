@@ -1,320 +1,407 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OMDA Ops</title>
+  <title>Entrar — Portal OMDA</title>
 
-<style>
-body{
-    background:#050505;
-}
+  <script src="https://cdn.tailwindcss.com"></script>
 
-.blob{
-    position:absolute;
-    width:500px;
-    height:500px;
-    border-radius:9999px;
-    filter:blur(120px);
-    opacity:.3;
-}
-
-.card{
-    backdrop-filter:blur(30px);
-   background:rgba(88,100,190,.08);
-border:1px solid rgba(115,128,223,.18);
-box-shadow:
-0 0 40px rgba(88,100,190,.15),
-inset 0 1px 0 rgba(255,255,255,.05);
-}
-.blob{
-    background:#5864be;
-}
-
-.blob2{
-    background:#7380df;
-}
-</style>
-</head>
- 
-    <body class="min-h-[100dvh] flex items-center justify-center overflow-hidden px-4"> 
-<body class="min-h-[100dvh] flex items-center justify-center overflow-hidden px-4">
-
-<div id="loadingBar"></div>
-	<style>
-
-		  #loadingBar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            z-index: 99999;
-            opacity: 1;
-            transition: width .25s linear, opacity .3s ease;
-
-            background: linear-gradient(
-                90deg,
-                #60a5fa,
-                #818cf8,
-                #a78bfa
-            );
-
-            box-shadow: 0 0 12px rgba(96, 165, 250, .5);
-        }
-
-      
-		@media(max-width:1200px){
-		nav.md\:flex.ml-8.items-center.gap-6.text-2xl.text-white {
-    display: none !important;
-}
-}
-	</style>
-<header class="absolute top-0 left-0 right-0 h-16 px-6 flex items-center justify-between">
-
-```
-<div class="text-xs text-zinc-500 tracking-[0.3em]">
-    OMDA
-</div>
-
-<div class="flex items-center gap-2">
-    <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-
-    <span class="text-[10px] uppercase tracking-widest text-zinc-600">
-        Online
-    </span>
-</div>
-```
-
-</header>
-
-<div class="blob top-[-150px] left-[-150px]"></div>
-<div class="blob bottom-[-200px] right-[-200px] blob2"></div>
-
-<div class="card w-full max-w-md rounded-3xl p-6 sm:p-8 relative">
-
-```
-<form id="loginForm" class="space-y-6">
-
-    <div id="stepEmail">
-
-        <div class="relative">
-
-            <input
-                id="email"
-                type="email"
-                placeholder=" "
-                class="peer w-full h-14 rounded-2xl bg-white/5 border border-white/10 px-5 text-white outline-none focus:border-[#7380df] focus:ring-2 focus:ring-[#5864be]/20"
-            >
-
-            <label
-                for="email"
-                class="absolute left-5 top-4 text-zinc-400 transition-all duration-300 peer-focus:text-xs peer-focus:top-2 peer-focus:text-[#7380df] peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:top-2"
-            >
-                Email
-            </label>
-
-            <button
-                type="button"
-                id="nextBtn"
-                class="absolute right-2 top-2 w-10 h-10 rounded-full text-white flex items-center justify-center transition hover:scale-105"
-                style="background:linear-gradient(135deg,#7380df,#5864be)"
-            >
-                →
-            </button>
-
-        </div>
-
-        <p id="emailStatus" class="text-xs text-zinc-400 pl-2"></p>
-
-    </div>
-
-    <div id="stepPassword" class="hidden">
-
-        <div class="relative">
-
-            <input
-                id="password"
-                type="password"
-                placeholder=" "
-                class="peer w-full h-14 rounded-2xl bg-white/5 border border-white/10 px-5 text-white outline-none focus:border-[#7380df] focus:ring-2 focus:ring-[#5864be]/20"
-            >
-
-            <label
-                for="password"
-                class="absolute left-5 top-4 text-zinc-400 transition-all duration-300 peer-focus:text-xs peer-focus:top-2 peer-focus:text-[#7380df] peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:top-2"
-            >
-                Senha
-            </label>
-
-        </div>
-
-        <button
-        id="loginBtn"
-            type="submit"
-            class="w-full h-12 rounded-2xl text-white mt-4"
-            style="background:linear-gradient(135deg,#7380df,#5864be)"
-        >
-            Entrar
-        </button>
-
-       
-        <button
-            type="button"
-            class="w-full h-12 rounded-2xl bg-white/5 border border-white/10 text-white mt-3"
-        >
-            Continuar com Google
-        </button>
-
-        <button
-            type="button"
-            class="w-full text-zinc-400 text-sm mt-3"
-        >
-            Não lembro minha senha
-        </button>
-
-    </div>
-
-</form>
-
-<div class="text-center text-[11px] text-zinc-500 mt-8">
-    OMDA Tracker • v1.0.0
-</div>
-```
-
-</div>
-
-<div
-class="absolute top-0 left-0 right-0 h-px"
-style="background:linear-gradient(90deg,transparent,rgba(88,100,190,.7),transparent)">
-</div>
-
-<footer class="absolute bottom-5 left-0 right-0 text-center">
-
-```
-<span class="text-[10px] uppercase tracking-[0.25em] text-zinc-600">
-    Protected Session
-</span>
-```
-
-</footer>
-
-</body>
-
-<script>
-
-const email = document.getElementById('email');
-const status = document.getElementById('emailStatus');
-
-email.addEventListener('input',()=>{
-
-    const valid =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
-
-    if(email.value.length === 0){
-        status.textContent='';
-        return;
-    }
-
-    status.textContent =
-    valid ? '✓ válido' : 'email inválido';
-
-});
-
-document
-.getElementById('nextBtn')
-.addEventListener('click',()=>{
-
-    const valid =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
-
-    if(!valid){
-        email.focus();
-        return;
-    }
-
-    document
-    .getElementById('stepEmail')
-    .classList.add('hidden');
-
-    document
-    .getElementById('stepPassword')
-    .classList.remove('hidden');
-
-});
-
-</script>
   <script>
-        const loadingBar = document.getElementById("loadingBar");
 
-        let progress = 0;
-        let loadingInterval;
+    tailwind.config = {
 
-        function startLoading() {
+      theme: {
 
-            progress = 0;
+        extend: {
 
-            loadingBar.style.opacity = "1";
-            loadingBar.style.width = "0%";
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          },
 
-            loadingInterval = setInterval(() => {
+          colors: {
 
-                if (progress < 90) {
+            ink: '#050505',
+            surface: '#101010',
+            line: '#242424',
+            soft: '#8A8A8A',
+            accent: '#013bff'
 
-                    progress += Math.random() * 8;
-
-                    loadingBar.style.width = progress + "%";
-
-                }
-
-            }, 100);
+          }
 
         }
 
-        function finishLoading() {
+      }
 
-            clearInterval(loadingInterval);
+    }
 
-            loadingBar.style.width = "100%";
+  </script>
 
-            setTimeout(() => {
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-                loadingBar.style.opacity = "0";
+  <style>
 
-                setTimeout(() => {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-                    loadingBar.style.width = "0%";
-                    loadingBar.style.opacity = "1";
+    body {
+      background: #050505;
+    }
 
-                }, 300);
+    ::selection {
+      background: #fff;
+      color: #000;
+    }
 
-            }, 250);
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
 
-        }
+    .background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        function simularLogin() {
+    .overlay {
+      position: absolute;
+      inset: 0;
 
-            startLoading();
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, .58),
+          rgba(0, 0, 0, .82)
+        );
+    }
 
-            // Simula uma requisição de 3 segundos
-            setTimeout(() => {
+    .glass {
 
-                finishLoading();
+      background: rgba(16, 16, 16, .78);
 
-                console.log("Login realizado!");
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
 
-            }, 3000);
+    .input {
 
-        }
-    </script>
-<script 
-type="module"
-src="./sysops.js">
-</script>
+      width: 100%;
+      height: 52px;
 
+      padding: 0 16px;
+
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+
+      outline: none;
+
+      background: rgba(255,255,255,.045);
+      color: white;
+
+      font-size: 13px;
+
+      transition:
+        border-color .2s ease,
+        background .2s ease;
+    }
+
+    .input::placeholder {
+      color: rgba(255,255,255,.30);
+    }
+
+    .input:focus {
+
+      border-color: rgba(1,59,255,.7);
+
+      background: rgba(255,255,255,.07);
+    }
+
+    .button {
+
+      transition:
+        transform .2s ease,
+        opacity .2s ease,
+        background .2s ease;
+    }
+
+    .button:active {
+      transform: scale(.96);
+    }
+
+    .button:disabled {
+
+      opacity: .5;
+      cursor: wait;
+    }
+
+  </style>
+
+</head>
+
+
+<body class="min-h-screen bg-ink font-sans text-white antialiased">
+
+
+  <!-- BACKGROUND -->
+
+  <div class="background">
+
+    <img
+      src="../assets/images/naruto.webp"
+      alt=""
+    >
+
+    <div class="overlay"></div>
+
+  </div>
+
+
+  <!-- PAGE -->
+
+  <main
+    class="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-8"
+  >
+
+
+    <!-- VOLTAR PARA O SITE -->
+
+    <div class="mb-4 w-full max-w-[440px]">
+
+      <a
+        href="../"
+        class="group inline-flex items-center gap-2 text-[11px] font-medium text-white/40 transition hover:text-white"
+      >
+
+        <i
+          data-lucide="arrow-left"
+          class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5"
+        ></i>
+
+        <span>
+          Voltar para o site
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <!-- CARD -->
+
+    <section
+      class="glass w-full max-w-[440px] rounded-[28px] border border-white/10 p-6 shadow-2xl sm:p-8"
+    >
+
+
+      <!-- HEADER -->
+
+      <div class="mb-7">
+
+        <div
+          class="mb-5 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white text-black"
+        >
+
+          <i
+            data-lucide="log-in"
+            class="h-4 w-4"
+          ></i>
+
+        </div>
+
+
+        <h1
+          class="text-[28px] font-bold leading-tight tracking-[-.03em]"
+        >
+          Entrar na sua conta
+        </h1>
+
+
+        <p
+          class="mt-2 text-[13px] leading-5 text-white/40"
+        >
+          Acesse sua conta para continuar no Portal OMDA.
+        </p>
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <form
+        id="loginForm"
+        class="space-y-4"
+      >
+
+
+        <!-- EMAIL -->
+
+        <div>
+
+          <label
+            for="email"
+            class="mb-2 block text-[11px] font-medium text-white/45"
+          >
+            E-mail
+          </label>
+
+          <input
+            id="email"
+            type="email"
+            autocomplete="email"
+            placeholder="seu@email.com"
+            class="input"
+            required
+          >
+
+        </div>
+
+
+        <!-- SENHA -->
+
+        <div>
+
+          <label
+            for="password"
+            class="mb-2 block text-[11px] font-medium text-white/45"
+          >
+            Senha
+          </label>
+
+          <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Sua senha"
+            class="input"
+            required
+          >
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <button
+          id="loginButton"
+          type="submit"
+          class="button mt-2 flex h-[52px] w-full items-center justify-center gap-3 rounded-[14px] bg-accent text-[13px] font-semibold text-white hover:bg-blue-600 disabled:hover:bg-accent"
+        >
+
+          <span>
+            Entrar
+          </span>
+
+          <i
+            data-lucide="arrow-up-right"
+            class="h-4 w-4"
+          ></i>
+
+        </button>
+
+      </form>
+
+
+      <!-- GOOGLE -->
+
+      <div class="my-5 flex items-center gap-3">
+
+        <div class="h-px flex-1 bg-white/10"></div>
+
+        <span class="text-[10px] text-white/25">
+          ou
+        </span>
+
+        <div class="h-px flex-1 bg-white/10"></div>
+
+      </div>
+
+
+      <button
+        id="continueWithGoogle"
+        type="button"
+        class="button flex h-[52px] w-full items-center justify-center gap-3 rounded-[14px] border border-white/10 bg-white/[.04] text-[13px] font-medium text-white transition hover:bg-white/[.08]"
+      >
+
+        <i
+          data-lucide="chrome"
+          class="h-4 w-4"
+        ></i>
+
+        <span>
+          Continuar com Google
+        </span>
+
+      </button>
+
+
+      <!-- STATUS -->
+
+      <p
+        id="loginStatus"
+        role="status"
+        aria-live="polite"
+        class="mt-4 min-h-[18px] text-center text-[11px] text-white/40"
+      ></p>
+
+
+      <!-- CADASTRO -->
+
+      <div
+        class="mt-6 border-t border-white/10 pt-6 text-center"
+      >
+
+        <span class="text-[12px] text-white/30">
+          Ainda não possui uma conta?
+        </span>
+
+        <a
+          href="./cadastro.html"
+          class="ml-1 text-[12px] font-medium text-white transition hover:text-accent"
+        >
+          Criar conta
+        </a>
+
+      </div>
+
+
+      <!-- VERSION -->
+
+      <div
+        class="mt-6 text-center text-[9px] text-white/20"
+      >
+        PORTAL OMDA • v1.0.0
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- LOGIN -->
+
+  <script
+    type="module"
+    src="./sysops.js?v=2.2.0"
+  ></script>
+
+
+  <!-- LUCIDE -->
+
+  <script>
+
+    lucide.createIcons();
+
+  </script>
 
 </body>
+
 </html>

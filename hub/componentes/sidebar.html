@@ -1,0 +1,291 @@
+<!-- SIDEBAR -->
+<aside
+  id="sidebar"
+  class="
+  z-50
+  fixed xl:sticky
+  xl:top-0
+  xl:self-start
+  xl:h-full
+  w-[90%]
+  myThme
+  
+  border-r
+  -translate-x-full
+  xl:translate-x-0
+  transition-all
+  duration-300"
+ 
+  >
+  
+  <div onclick="toggleSidebar()" class="sidebar-header flex items-center justify-center p-4 ">
+ 
+   <!-- Ícone -->
+    <img
+      class="sidebar-logo-icon h-11 transition-all duration-300 hidden xl:block m-auto"
+      src="assets/images/omda-icon-dark.png"
+      alt="Logo">
+ 
+    <img
+      class="sidebar-logo-full h-11 transition-all duration-300 xl:hidden m-auto"
+      src="assets/images/ft-logo-dark.png"
+      alt="Logo">
+ 
+  </div>
+
+ <div class="user-card">
+  <a href="#"
+    class="group relative block overflow-hidden  
+    ">
+
+    <!-- Glow -->
+    <div
+      class="absolute inset-0  ">
+    </div>
+
+    <div class="relative p-5">
+
+      <!-- Avatar -->
+      <div class="flex flex-col items-center">
+
+        <div
+          class="relative w-20 h-20 rounded-3xl bg-[#5864be]/20 p-1 shadow-lg shadow-[#5864be]/30">
+
+          <img
+            src="assets/capa/avatar.png"
+            class="hidden w-full h-full rounded-2xl object-cover">
+
+        </div>
+
+        <h3
+          class="mt-4 text-lg font-bold tracking-wide text-white"
+          data-user-name></h3>
+
+        <span
+          data-user-role
+          class="mt-2 px-3 py-1 rounded-full text-[11px]
+          bg-[#5864be]/15
+          border border-[#5864be]/30
+          text-[#b7c2ff]
+          uppercase tracking-widest">
+        </span>
+
+        <span
+          class="mt-2 text-xs text-zinc-500"
+          data-user-email>
+        </span>
+
+      </div>
+
+      <!-- Divider -->
+      <div
+        class="my-5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 gap-3">
+
+        <div
+          class="rounded-2xl border border-white/5 bg-white/[0.03] p-3">
+
+          <div class="flex items-center gap-2 text-green-400">
+
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+
+            <span class="font-bold">
+              2.22
+            </span>
+
+          </div>
+
+          <div class="mt-1 text-[11px] uppercase tracking-wider text-zinc-500">
+            Ratio
+          </div>
+
+        </div>
+
+        <div
+          class="rounded-2xl border border-white/5 bg-white/[0.03] p-3">
+
+          <div class="flex items-center gap-2 text-yellow-400">
+
+            <i data-lucide="coins" class="w-4 h-4"></i>
+
+            <span class="font-bold">
+              19.57
+            </span>
+
+          </div>
+
+          <div class="mt-1 text-[11px] uppercase tracking-wider text-zinc-500">
+            Otabills
+          </div>
+
+        </div>
+
+        <div
+          class="rounded-2xl border border-white/5 bg-white/[0.03] p-3">
+
+          <div class="flex items-center gap-2 text-cyan-400">
+
+            <i data-lucide="upload" class="w-4 h-4"></i>
+
+            <span class="font-bold">
+              4.3 TB
+            </span>
+
+          </div>
+
+          <div class="mt-1 text-[11px] uppercase tracking-wider text-zinc-500">
+            Upload
+          </div>
+
+        </div>
+
+        <div
+          class="rounded-2xl border border-white/5 bg-white/[0.03] p-3">
+
+          <div class="flex items-center gap-2 text-red-400">
+
+            <i data-lucide="download" class="w-4 h-4"></i>
+
+            <span class="font-bold">
+              1.9 TB
+            </span>
+
+          </div>
+
+          <div class="mt-1 text-[11px] uppercase tracking-wider text-zinc-500">
+            Download
+          </div>
+
+        </div>
+
+      </div>
+
+    
+
+    </div>
+
+  </a>
+</div>
+  <!-- MENU -->
+  <nav class="p-3 space-y-2">
+    <a href="#" data-page="home"
+      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="home"></i></span>
+    <span class="sidebar-text">Home</span>
+    </a>
+
+    <a href="#" data-page="torrents"
+      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="download"></i></span>
+    <span class="sidebar-text">Baixar Torrents</span>
+    </a>
+    <a href="#" data-page="uploads"
+      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="upload"></i></span>
+    <span class="sidebar-text">Uploads</span>
+    </a>
+    <a href="#" data-page="usuarios"
+      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="download"></i></span>
+    <span class="sidebar-text">Usuários</span>
+    </a>
+    <a href="#" data-page="perfil"
+      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="user"></i></span>
+    <span class="sidebar-text">Perfil</span>
+    </a>
+      <a href="#" data-page="detalhe"
+      class="sidebar-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+    <span><i data-lucide="user"></i></span>
+    <span class="sidebar-text">Sinopse</span>
+    </a>
+     <a href="/"
+   class="sidebar-item group flex items-center justify-between gap-3 p-3 rounded-xl bg-black border border-slate-800 hover:border-lime-400/40 hover:bg-slate-950 transition-all duration-300">
+
+    <div class="flex items-center gap-3">
+
+        <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-lime-400/10">
+            <i data-lucide="radar" class="w-5 h-5 text-lime-400"></i>
+            <img src="assets/images/icon-omda1.png" alt="" srcset="">
+        </span>
+
+        <span class="sidebar-text font-semibold tracking-wide text-white">
+            PORTAL FANSUB
+        </span>
+
+    </div>
+
+    <i
+        data-lucide="external-link"
+        class="sidebar-text w-4 h-4 text-slate-500 group-hover:text-lime-400 transition-colors">
+    </i>
+
+</a>
+<hr class="border-slate-800 my-3">
+
+<button
+    onclick="toggleTheme()"
+    class="sidebar-item w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 transition">
+
+    <span>
+        <i id="themeIcon" data-lucide="moon"></i>
+    </span>
+
+    <span class="sidebar-text">
+        Aparência
+    </span>
+
+</button>
+    <div class="sidebar-dropdown">
+      <button
+        type="button"
+        class="dropdown-toggle sidebar-item w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-800 transition">
+        <div class="flex items-center gap-3">
+          <i data-lucide="settings"></i>
+          <span class="sidebar-text">Configurações</span>
+        </div>
+        <i
+          data-lucide="chevron-down"
+          class="dropdown-arrow sidebar-text transition duration-300">
+        </i>
+      </button>
+      <div class="dropdown-menu">
+        <a href="#" data-page="geral"
+          class="dropdown-item">
+        Geral
+        </a>
+        <a href="#" data-page="categorias"
+          class="dropdown-item">
+        Categorias
+        </a>
+        <a href="#" data-page="aparencia"
+          class="dropdown-item">
+        Aparência
+        </a>
+        <a href="#" data-page="seo"
+          class="dropdown-item">
+        SEO
+        </a>
+        <a href="#" data-page="api"
+          class="dropdown-item">
+        API
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-header flex items-center justify-between p-4 border-b border-theme  ">
+    <span class="sidebar-logo text-lg font-bold">
+      <div class="flex-1 flex justify-center block">
+      </div>
+    </span>
+    <button
+      onclick="toggleSidebar()"
+      class="rounded-lg hover:bg-slate-800 transition"
+      >
+    <i id="sidebarToggleIcon" data-lucide="panel-left-open"></i>
+    </button>
+  </div>
+</aside>

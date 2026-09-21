@@ -10,12 +10,12 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyCfvYGoeIDbxvFC5KomCSrVlVfk_RCR94o",
-  authDomain: "omda-build.firebaseapp.com",
-  projectId: "omda-build",
-  storageBucket: "omda-build.firebasestorage.app",
-  messagingSenderId: "37877100605",
-  appId: "1:37877100605:web:e4218b7515f8e80a9bba54"
+  apiKey: "AIzaSyCUdvLKNzNyqmhRuPGl3OW16QDK4G8j2-A",
+  authDomain: "engineomda.firebaseapp.com",
+  projectId: "engineomda",
+  storageBucket: "engineomda.firebasestorage.app",
+  messagingSenderId: "151196305319",
+  appId: "1:151196305319:web:f146670c5edc4cd0339882"
 
 }
 

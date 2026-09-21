@@ -1,0 +1,213 @@
+<!-- SIDEBAR -->
+<aside
+  id="sidebar"
+  class="z-50 fixed xl:sticky xl:top-0 xl:self-start xl:h-full w-[90%] bg-ink border-r border-line -translate-x-full xl:translate-x-0 transition-all duration-300"
+>
+
+  <!-- HEADER -->
+  <div
+    onclick="toggleSidebar()"
+    class="sidebar-header flex items-center justify-center p-4 border-b border-line cursor-pointer"
+  >
+
+    <img
+      class="sidebar-logo-icon h-10 transition-all duration-300 hidden xl:block m-auto"
+      src="assets/images/icon-omda1.png"
+      alt="Logo"
+    >
+
+    <img
+      class="sidebar-logo-full h-10 transition-all duration-300 xl:hidden m-auto"
+      src="assets/images/ft-logo.png"
+      alt="Logo"
+    >
+
+  </div>
+
+
+  <!-- MENU -->
+  <nav class="p-3 space-y-1.5">
+
+    <!-- HOME -->
+    <a
+      href="#"
+      data-page="home"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="home" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        Home
+      </span>
+    </a>
+
+
+    <!-- FANSUBS -->
+    <a
+      href="#"
+      data-page="fansubs"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="users" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        Fansubs
+      </span>
+    </a>
+
+
+    <!-- MANGAS -->
+    <a
+      href="#"
+      data-page="mangas"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        Mangas
+      </span>
+    </a>
+
+
+    <!-- CONQUISTAS -->
+    <a
+      href="#"
+      data-page="conquistas"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="trophy" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        Conquistas
+      </span>
+    </a>
+
+
+    <!-- CRC -->
+    <a
+      href="#"
+      data-page="crc"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        CRC
+      </span>
+    </a>
+
+
+    <!-- FÓRUM -->
+    <a
+      href="#"
+      data-page="forum"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="message-square" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        Fórum
+      </span>
+    </a>
+
+
+    <!-- TORRENTS -->
+    <a
+      href="#"
+      data-page="torrents"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="download" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        Torrents
+      </span>
+    </a>
+
+
+    <!-- TOP 10 -->
+    <a
+      href="#"
+      data-page="top10"
+      class="sidebar-item group flex items-center gap-3 p-3 rounded-xl text-white/45 transition-all duration-200 hover:bg-surface hover:text-white"
+    >
+      <span class="flex items-center justify-center w-5">
+        <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+      </span>
+
+      <span class="sidebar-text text-sm">
+        Top 10
+      </span>
+    </a>
+
+
+    <!-- OMDA TRACKER -->
+    <a
+      href="/hub"
+      class="sidebar-item group flex items-center justify-between gap-3 p-3 mt-3 rounded-xl bg-surface border border-line hover:border-white/15 transition-all duration-300"
+    >
+
+      <div class="flex items-center gap-3">
+
+        <span
+          class="flex items-center justify-center w-9 h-9 rounded-lg bg-black border border-line"
+        >
+          <img
+            src="assets/images/omda-icon-dark.png"
+            class="w-5 h-5"
+            alt=""
+          >
+        </span>
+
+        <span class="sidebar-text text-sm font-semibold tracking-wide text-white">
+          OMDA TRACKER
+        </span>
+
+      </div>
+
+      <i
+        data-lucide="external-link"
+        class="sidebar-text w-4 h-4 text-white/25 group-hover:text-white/60 transition-colors"
+      ></i>
+
+    </a>
+
+  </nav>
+
+
+  <!-- FOOTER -->
+  <div
+    class="sidebar-header flex items-center justify-between p-4 border-t border-line"
+  >
+
+    <span class="sidebar-logo text-sm font-semibold text-white/40"></span>
+
+    <button
+      onclick="toggleSidebar()"
+      class="flex h-9 w-9 items-center justify-center rounded-xl border border-line bg-surface text-white/45 transition hover:text-white hover:border-white/20"
+    >
+      <i
+        id="sidebarToggleIcon"
+        data-lucide="menu"
+        class="w-4 h-4"
+      ></i>
+    </button>
+
+  </div>
+
+</aside>

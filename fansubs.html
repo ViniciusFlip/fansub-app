@@ -1,444 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Omda - Fansubs</title>
+<html lang="pt-BR">
 
-    <!-- Bootstrap -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Theme CSS Area -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/color.css">
-    <link rel="stylesheet" href="assets/css/css-menu/css-menu.css">
-    <link rel="stylesheet" href="assets/css/custom-responsive.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+  <title>Fansubs — Portal OMDA</title>
 
-    <!-- Fraction Slider CSS Area -->
-    <link rel="stylesheet" href="assets/css/fraction-slide/slider-style.css" type="text/css" /> 
-    <link rel="stylesheet" href="assets/css/fraction-slide/fractionslider.css" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Owl Carosel CSS Area -->
-    <link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.css" type="text/css" /> 
-    <link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.css" type="text/css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#050505',
+            surface: '#101010',
+            line: '#242424',
+            soft: '#8A8A8A',
+            text: '#FFFFFF',
+            textMuted: '#B3B3B3',
+            accent: '#013bff'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 
-    <!-- FontAwesome CSS Area -->
-    <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>     
-    <div class="wrapper">
-      <div class="home-header-warpper other-home-header-wraper stellar" data-stellar-background-ratio="0.5" data-stellar-vertical-offset=""> 
-        <div class="section-header navbar-fixed-top">
-          <div class="header-serarch-area">
-            <div class="container">
-              <div class="pull-right search  col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                <form method="post">
-              <div class="input-group">
-                  <input type="text" class="form-control" placeholder="buscar por...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                  </span>
-                </div><!-- /input-group -->
-            </form>    
-          </div>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body class="min-h-screen bg-ink font-sans text-white antialiased">
+
+  <main class="w-full">
+
+    <section class="py-16 md:py-24">
+
+      <div class="mx-auto w-full max-w-[1200px] px-4 md:px-6">
+
+        <!-- Título -->
+
+        <div class="mb-10 md:mb-14">
+
+          <span
+            class="text-[10px] font-medium uppercase tracking-[0.25em] text-accent"
+          >
+            Comunidade
+          </span>
+
+          <h1
+            class="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl"
+          >
+            Fansubs
+          </h1>
+
+          <p
+            class="mt-3 max-w-xl text-sm leading-6 text-soft md:text-base"
+          >
+            Conheça os fansubs parceiros da comunidade OMDA.
+          </p>
+
+        </div>
+
+        <!-- Grid -->
+
+        <div
+          id="grid"
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        >
+
+          <!-- Item 01 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-01.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
             </div>
-          </div>
-          <div class="header-cart-area">
-            <div class="container">
-              <div class="pull-left" style="margin-top: 15px; color:#fff;">Não tem conta? Clique aqui e registre - Perdeu sua senha?</div>
-              <div class="pull-right cart col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <p style="display: block; float: left; text-align: right; color: #fff;">Acessar painel</p>
-            <form method="post">
-              <div class="input-group">
-                  <input type="password" class="form-control" placeholder="*****">
-                  <input type="text" class="form-control" placeholder="login...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fa fa-user"></i></button>
-                  </span>
-                </div><!-- /input-group -->
-            </form>
-          </div>
-        </div>  
-          </div>
 
-          <div class="header">
-            <div class="container"> 
-              <div class="row">
-            <!-- Logo Area -->
-                <div class="logo-responsive col-lg-2 col-md-2 col-sm-2 col-xs-12">  
-                  <div class="ft-logo">
-                    <a href="index.html"><img src="assets/images/ft-logo.png" alt="Ft-Logo"></a>
-                  </div>
-                </div>  
+            <div class="border-t border-line p-5">
 
-                <!-- Navigation Area -->
-        
-                <div class="menu-responsive col-lg-8 col-md-8 col-sm-8 col-xs-12">  
-                  <div class="ft-menu">
-                    <nav id="cssmenu">
-                      <ul>
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Fansubs</a></li>
-                        <li class="has-sub"><a href='#'>Torrents</a>
-                          <ul>
-                             <li><a href="#">Recentes</a></li>
-                          </ul>
-                        </li>
-                        <li><a href='#'>Mangas</a></li>
-                        <li><a href='#'>Conquistas</a></li>
-                        <li><a href='#'>CRC</a></li>
-                        <li class="has-sub"><a href="#">Fórum</a>
-                          <ul>
-                             <li><a href="#">Regras</a></li>
-                             <li><a href="#">FAQ</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">TOP 10</a></li>
-                      </ul>
-                    </nav>
-                  </div> 
-                </div>
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
 
-          <!-- Search & Cart Area -->
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
 
-                <div class="ft-serach-cart-pd-off col-lg-1 col-md-1 col-sm-1 col-xs-12"> 
-                  <div class="ft-serach-cart">
-                    <div class="ft-icon-wrap">
-                      <a id="ft-search-icon" href="#" title="Click This Button" class="icon img-circle">
-                        <i class="fa fa-search"></i>
-                      </a>
-                    </div>
-                    <div class="ft-icon-wrap">
-                      <a id="ft-cart-icon" href="#" title="Click This Button"  class="icon img-circle">
-                        <i class="fa fa-user"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div> 
-              </div> 
-            </div> 
-          </div>
-
-      </div>    
-
-        <!-- Page Title Section -->
-        <div class="ft-page-title">
-          <div class="container">
-            <h1>Fansubs</h1>
-            <p><span><a href="index.html">Home</a> <i class="fa fa-angle-right"></i> <a href="fansubs.html">Fansubs</a></span></p>
-          </div>
-        </div>
-
-        <div class="ft-header-bottom-fitness-level-title">
-          <p>Omda Fansub de Qualidade</p>
-        </div> 
-      </div> 
-      <div class="ft-main-content">
-        <div class="ft-class-isotop-section ft-gallery-v1">
-          <div class="container">
-            
-
-            <div class="row">
-              <div id="grid">
-                <div class="ft-item building medication mix col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-01.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix fitness col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-02.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix martial col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-03.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix yogs col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-04.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix yogs col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-05.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix boxing col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-01.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix martial col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-02.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix martial col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-04.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="ft-item mix martial col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <a class="ft-class-item" href="#">
-                    <div class="image-wrap">
-                      <div class="image">
-                        <img src="assets/images/ft-class-item-img-03.jpg" alt="ft-class-item-img">
-                      </div>
-                      <div class="title-details">
-                        <h6>Nome do Fansub</h6>
-                        <p>www.nomedofansub.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                </div>
-              </div>
-            </div>  
-          </div>  
-        </div>
-      </div> 
-      <div class="footer-wraper">
-      <!-- Newsletter section Starting Point -->
-        <div class="ft-newsletter-area">
-          <div class="container">
-            <div class="row">
-              <div class="newsletter-text col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="ft-newsletter-des">
-                  <h4>Assine nosso newletter</h4>
-                  <p>fique por dentro das atualizações</p>
-                </div>
-              </div>
-              <div class="newsletter-content col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                <form method="post">
-                  <div class="ft-newletter-form-wrap">
-                    <div class="row">
-                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="ft-newletter-form">
-                          <input type="email" name="newletter" id="newletter" class="newletter form-control" placeholder="digite seu email" required>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="ft-newletter-button">
-                          <button type="submit" class="btn btn-default">
-                            <span class="text">Assinar</span>
-                            <span class="icon"><i class="fa fa-arrow-circle-right"></i></span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>  
-              </div>
             </div>
-          </div>
-        </div>
-        <!-- Footer Part Starting section -->
-        <div class="ft-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="footer-left-wrapper">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                      <div class="ft-footer-left">
-                        <h5>Entre em contato</h5>
-                        <ul>
-                          <li>
-                            <div class="icon"><i class="fa fa-envelope-o"></i></div>
-                            <div class="item">Contato Adm: geno@omda.com.br</div>
-                          </li>
-                          <li>
-                            <div class="icon"><i class="fa fa-envelope-o"></i></div>
-                            <div class="item">Donates: donate@omda.com.br</div>
-                          </li>
-                        
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                      <div class="ft-footer-middle">
-                        <h5>Institucional</h5>
-                        <ul>
-                          <li>
-                            <div class="left-table">
-                              Quem Somos
-                            </div>
-                            
-                          </li>
-                          <li>
-                            <div class="left-table">
-                              Notícias    
-                            </div>
-                            
-                          </li>
-                          <li>
-                            <div class="left-table">
-                              Regras    
-                            </div>
-                           
-                          </li>
-                          <li>
-                            <div class="left-table">
-                              Doações        
-                            </div>
-                            
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="ft-footer-right-bg col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="ft-footer-right">
-                  <h5>ADMINISTRAÇÃO</h5>
-                   <ul>
-                          <li>
-                            <div class="left-table">
-                              Gennosuke<br>genno@omda.com.br
-                            </div>
-                            
-                          </li>
-                          <li>
-                            <div class="left-table">
-                              Rukie<br>rukie@omda.com.br    
-                            </div>
-                            
-                          </li>
-                          
-                        </ul>
-                </div>
-              </div>
-                  </div>
-                </div> 
-                <div class="footer-copyright-area">
-                  <div class="row">
-                    <div class="copyright-left col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                      <div class="social">
-                        <a href="#" class="img-circle">
-                          <span><i class="fa fa-facebook"></i></span>
-                        </a>
-                        <a href="#" class="img-circle">
-                          <span><i class="fa fa-twitter"></i></span>
-                        </a>
-                        <a href="#" class="img-circle">
-                          <span><i class="fa fa-google-plus"></i></span>
-                        </a>
-                        <a href="#" class="img-circle">
-                          <span><i class="fa fa-linkedin"></i></span>
-                        </a>
-                    </div>
-                    </div>
-                    <div class="copyright-right col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                      <p>copyright &#169; 2017. Omda Fansubs. <span>Criado por Agência Fuse</span></p>
-                    </div>
-                  </div>
-                </div> 
-              </div>
-              
-            </div>                
-          </div>  
-        </div>
-      </div>            
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Scroling Header JS Area-->
-    <script src="assets/js/classie.js"></script>
-    <script src="assets/js/cbpAnimatedHeader.js"></script>
-    <!-- Parallax BG JS Area -->
-    <script src="assets/js/jquery.stellar.js"></script>
 
-    <!-- Owl Carosel JS Area -->
-    <script src="assets/js/owl.carousel.js"></script>
-    <!-- CSS Menu JS Area -->
-    <script src="assets/js/css-menu.js"></script>
-    <!-- Shuffle Plugin JS Area -->
-    <script src="assets/js/jquery.shuffle.min.js"></script> 
-    <!-- Comming Soon Countdown JS Area -->
-    <script src="assets/js/jquery.countdown.min.js"></script>
-    <!-- Counter Section JS Area -->
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/counter.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
+          </a>
 
-    <!-- mix it js -->
-    <script src="assets/js/jquery.mixitup.min.js"></script>
-    <!-- Fitness Custom JS Area -->
-    <script src="assets/js/custom.js"></script>
-  </body>
+
+          <!-- Item 02 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-02.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- Item 03 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-03.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- Item 04 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-04.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- Item 05 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-05.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- Item 06 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-01.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- Item 07 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-02.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- Item 08 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-04.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+
+          <!-- Item 09 -->
+
+          <a
+            href="#"
+            class="group block overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+          >
+
+            <div class="relative aspect-[4/3] overflow-hidden">
+
+              <img
+                src="assets/images/ft-class-item-img-03.jpg"
+                alt="Nome do Fansub"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
+              ></div>
+
+            </div>
+
+            <div class="border-t border-line p-5">
+
+              <h2 class="text-base font-semibold text-white">
+                Nome do Fansub
+              </h2>
+
+              <p class="mt-1 text-sm text-soft">
+                www.nomedofansub.com
+              </p>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
 </html>
