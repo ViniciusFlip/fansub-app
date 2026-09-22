@@ -924,95 +924,316 @@ async function loadPage(
 
 function initTorrentUpload() {
 
-    const form =
-        document.getElementById(
-            "torrentUploadForm"
+    const form = document.getElementById("torrentUploadForm");
+    const fileInput = document.getElementById("torrentFile");
+    const dropZone = document.getElementById("dropZone");
+    const selectedFile = document.getElementById("selectedFile");
+    const fileName = document.getElementById("fileName");
+    const fileSize = document.getElementById("fileSize");
+    const removeFile = document.getElementById("removeFile");
+    const publishBtn = document.getElementById("publishBtn");
+
+    if (!form || !fileInput) return;
+
+    if (form.dataset.initialized === "true") return;
+
+    form.dataset.initialized = "true";
+
+
+    // ==============================
+    // ARQUIVO
+    // ==============================
+
+    function selectFile(file) {
+
+        if (!file) return;
+
+        if (!file.name.toLowerCase().endsWith(".torrent")) {
+
+            alert("Apenas arquivos .torrent");
+
+            return;
+        }
+
+        fileInput.files = createFileList(file);
+
+        fileName.textContent = file.name;
+
+        fileSize.textContent =
+            `${(file.size / 1024 / 1024).toFixed(2)} MB`;
+
+        selectedFile.classList.remove("hidden");
+
+        publishBtn.disabled = false;
+
+        dropZone.classList.add(
+            "border-[#5864be]",
+            "bg-[#5864be]/5"
         );
-
-
-    const fileInput =
-        document.getElementById(
-            "torrentFile"
-        );
-
-
-    if (
-        !form ||
-        !fileInput
-    ) {
-        return;
     }
 
 
-    // Evita duplicar evento
+    function createFileList(file) {
 
-    if (
-        fileInput.dataset.initialized === "true"
-    ) {
-        return;
+        const dataTransfer = new DataTransfer();
+
+        dataTransfer.items.add(file);
+
+        return dataTransfer.files;
     }
 
 
-    fileInput.dataset.initialized = "true";
+    // ==============================
+    // SELECIONAR
+    // ==============================
+
+    fileInput.addEventListener("change", () => {
+
+        if (!fileInput.files.length) return;
+
+        selectFile(fileInput.files[0]);
+
+    });
 
 
-    fileInput.addEventListener(
-        "change",
-        async () => {
+    // ==============================
+    // DROP
+    // ==============================
 
-            if (
-                !fileInput.files.length
-            ) {
-                return;
-            }
+    dropZone.addEventListener("dragover", (event) => {
 
+        event.preventDefault();
 
-            const formData =
-                new FormData();
+        dropZone.classList.add("border-[#5864be]");
+
+    });
 
 
-            formData.append(
-                "torrent",
-                fileInput.files[0]
+    dropZone.addEventListener("dragleave", () => {
+
+        dropZone.classList.remove("border-[#5864be]");
+
+    });
+
+
+    dropZone.addEventListener("drop", (event) => {
+
+        event.preventDefault();
+
+        dropZone.classList.remove("border-[#5864be]");
+
+        const file = event.dataTransfer.files[0];
+
+        selectFile(file);
+
+    });
+
+
+    // ==============================
+    // REMOVER
+    // ==============================
+
+    removeFile?.addEventListener("click", () => {
+
+        fileInput.value = "";
+
+        selectedFile.classList.add("hidden");
+
+        publishBtn.disabled = true;
+
+        dropZone.classList.remove(
+            "border-[#5864be]",
+            "bg-[#5864be]/5"
+        );
+
+    });
+
+
+    // ==============================
+    // PUBLICAR
+    // ==============================
+
+    form.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        if (!fileInput.files.length) {
+
+            alert("Selecione um arquivo .torrent");
+
+            return;
+        }
+
+        const file = fileInput.files[0];
+
+        const formData = new FormData();
+
+        formData.append("torrent", file);
+
+        // Dados opcionais
+        formData.append(
+            "title",
+            document.getElementById("title")?.value || ""
+        );
+
+        formData.append(
+            "description",
+            document.getElementById("description")?.value || ""
+        );
+
+        formData.append(
+            "category",
+            document.getElementById("category")?.value || "Anime"
+        );
+
+        formData.append(
+            "tags",
+            document.getElementById("tags")?.value || ""
+        );
+
+        formData.append(
+            "gold",
+            document.getElementById("gold")?.checked || false
+        );
+
+        formData.append(
+            "adult",
+            document.getElementById("adult")?.checked || false
+        );
+
+
+        // ==============================
+        // UI
+        // ==============================
+
+        publishBtn.disabled = true;
+
+        publishBtn.textContent = "Enviando...";
+
+        const progress =
+            document.getElementById("uploadProgress");
+
+        const progressBar =
+            document.getElementById("progressBar");
+
+        const progressPercent =
+            document.getElementById("progressPercent");
+
+        progress?.classList.remove("hidden");
+
+
+        try {
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open(
+                "POST",
+                "http://173.212.201.74:3000/api/upload"
             );
 
 
-            try {
+            // PROGRESSO REAL
 
-                const response =
-                    await fetch(
-                        "/api/upload",
-                        {
-                            method: "POST",
-                            body: formData
-                        }
+            xhr.upload.addEventListener(
+                "progress",
+                (event) => {
+
+                    if (!event.lengthComputable) return;
+
+                    const percent =
+                        Math.round(
+                            (event.loaded / event.total) * 100
+                        );
+
+                    if (progressBar)
+                        progressBar.style.width = `${percent}%`;
+
+                    if (progressPercent)
+                        progressPercent.textContent = `${percent}%`;
+
+                }
+            );
+
+
+            xhr.onload = () => {
+
+                try {
+
+                    const result =
+                        JSON.parse(xhr.responseText);
+
+                    if (xhr.status >= 200 && xhr.status < 300) {
+
+                        publishBtn.textContent =
+                            "Torrent publicado ✓";
+
+                        if (progressBar)
+                            progressBar.style.width = "100%";
+
+                        if (progressPercent)
+                            progressPercent.textContent = "100%";
+
+                        console.log(
+                            "Torrent:",
+                            result
+                        );
+
+                    } else {
+
+                        throw new Error(
+                            result.message || "Erro no upload"
+                        );
+
+                    }
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    publishBtn.disabled = false;
+
+                    publishBtn.textContent =
+                        "Publicar Torrent";
+
+                    alert(
+                        error.message ||
+                        "Erro ao enviar torrent."
                     );
 
+                }
 
-                const result =
-                    await response.json();
+            };
 
 
-                console.log(
-                    "Resposta do servidor:",
-                    result
+            xhr.onerror = () => {
+
+                publishBtn.disabled = false;
+
+                publishBtn.textContent =
+                    "Publicar Torrent";
+
+                alert(
+                    "Não foi possível conectar ao servidor."
                 );
 
+            };
 
-            } catch (error) {
 
-                console.error(
-                    "Erro no upload:",
-                    error
-                );
+            xhr.send(formData);
 
-            }
+        } catch (error) {
+
+            console.error(error);
+
+            publishBtn.disabled = false;
+
+            publishBtn.textContent =
+                "Publicar Torrent";
 
         }
-    );
 
+    });
 }
-
 
 // =====================================================
 // NOTIFICAÇÕES

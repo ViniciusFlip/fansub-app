@@ -1,10 +1,9 @@
-<div class="p-4 max-w-7xl mx-auto">
+<div class="p-4 sm:p-5 lg:p-6 max-w-7xl mx-auto">
 
 <form id="torrentUploadForm" enctype="multipart/form-data">
 
     <!-- HEADER -->
-    <div class="mb-8">
-
+    <div class="mb-6 md:mb-8">
         <p class="text-xs uppercase tracking-[0.2em] text-[#5864be] font-semibold mb-2">
             TORRENT
         </p>
@@ -13,40 +12,40 @@
             Publicar Torrent
         </h1>
 
-        <p class="text-zinc-500 mt-2">
-            Envie seu arquivo e preencha as informações do conteúdo.
+        <p class="text-sm md:text-base text-zinc-500 mt-2">
+            Envie o arquivo e complete as informações do conteúdo.
         </p>
-
     </div>
 
 
-    <!-- GRID -->
-    <div class="grid lg:grid-cols-3 gap-6">
+    <!-- MOBILE FLOW -->
+    <div class="lg:hidden flex items-center gap-2 mb-5">
+        <div id="stepFile" class="flex-1 h-1.5 rounded-full bg-[#5864be] transition"></div>
+        <div id="stepInfo" class="flex-1 h-1.5 rounded-full bg-white/10 transition"></div>
+    </div>
+
+
+    <div class="grid lg:grid-cols-3 gap-5 lg:gap-6">
 
 
         <!-- ========================= -->
         <!-- UPLOAD -->
         <!-- ========================= -->
 
-        <div class="lg:col-span-2 bg-[#171717] rounded-[28px] border border-white/10 overflow-hidden">
+        <section class="lg:col-span-2 bg-[#171717] rounded-[24px] md:rounded-[28px] border border-white/10 overflow-hidden">
 
-            <div class="p-5 md:p-6">
+            <div class="p-4 sm:p-5 md:p-6">
 
                 <div
                     id="dropZone"
                     class="
-                        relative
-                        rounded-[28px]
-                        border-2
-                        border-dashed
-                        border-[#5864be]/30
+                        relative rounded-[22px] md:rounded-[28px]
+                        border-2 border-dashed border-[#5864be]/30
                         bg-[linear-gradient(145deg,var(--card),var(--card2))]
-                        p-8 md:p-14
-                        text-center
-                        transition-all
-                        duration-300
-                        cursor-pointer
-                        hover:border-[#5864be]
+                        p-5 sm:p-8 md:p-14
+                        text-center transition-all duration-300
+                        cursor-pointer hover:border-[#5864be]
+                        active:scale-[0.99]
                     "
                 >
 
@@ -54,204 +53,102 @@
                     <div
                         id="uploadIcon"
                         class="
-                            w-20
-                            h-20
-                            mx-auto
-                            mb-6
-                            rounded-[24px]
-                            bg-[#5864be]/10
-                            border
-                            border-[#5864be]/20
-                            flex
-                            items-center
-                            justify-center
+                            w-16 h-16 sm:w-20 sm:h-20
+                            mx-auto mb-5 sm:mb-6
+                            rounded-[20px] sm:rounded-[24px]
+                            bg-[#5864be]/10 border border-[#5864be]/20
+                            flex items-center justify-center
                             transition-all
                         "
                     >
-
-                        <svg
-                            class="w-9 h-9 text-[#5864be]"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M12 16V4m0 0L7 9m5-5 5 5M4 20h16"
-                            />
+                        <svg class="w-8 h-8 sm:w-9 sm:h-9 text-[#5864be]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 16V4m0 0L7 9m5-5 5 5M4 20h16"/>
                         </svg>
-
                     </div>
 
-
-                    <!-- TÍTULO -->
-                    <h2
-                        id="uploadTitle"
-                        class="text-2xl font-bold mb-3"
-                    >
+                    <h2 id="uploadTitle" class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
                         Upload Torrent
                     </h2>
 
-
-                    <!-- DESCRIÇÃO -->
-                    <p
-                        id="uploadDescription"
-                        class="text-zinc-500 max-w-md mx-auto mb-8"
-                    >
-                        Arraste seu arquivo
-                        <strong class="text-zinc-300">.torrent</strong>
-                        aqui ou selecione manualmente.
+                    <p id="uploadDescription" class="text-sm sm:text-base text-zinc-500 max-w-md mx-auto mb-6 sm:mb-8">
+                        Toque aqui para selecionar seu arquivo
+                        <strong class="text-zinc-300">.torrent</strong>.
+                        No computador, você também pode arrastar.
                     </p>
 
 
-                    <!-- ARQUIVO SELECIONADO -->
+                    <!-- ARQUIVO -->
                     <div
                         id="selectedFile"
                         class="
-                            hidden
-                            max-w-lg
-                            mx-auto
-                            mb-6
-                            p-4
-                            rounded-2xl
-                            bg-black/20
-                            border
-                            border-white/10
-                            text-left
+                            hidden max-w-lg mx-auto mb-5 sm:mb-6
+                            p-3.5 sm:p-4 rounded-2xl
+                            bg-black/20 border border-white/10 text-left
                         "
                     >
+                        <div class="flex items-center gap-3 sm:gap-4">
 
-                        <div class="flex items-center gap-4">
-
-                            <div
-                                class="
-                                    w-11
-                                    h-11
-                                    shrink-0
-                                    rounded-xl
-                                    bg-[#5864be]/10
-                                    flex
-                                    items-center
-                                    justify-center
-                                "
-                            >
-
-                                <svg
-                                    class="w-5 h-5 text-[#5864be]"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.8"
-                                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                                    />
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.8"
-                                        d="M14 2v6h6M8 13h8M8 17h5"
-                                    />
+                            <div class="
+                                w-11 h-11 shrink-0 rounded-xl
+                                bg-[#5864be]/10 flex items-center justify-center
+                            ">
+                                <svg class="w-5 h-5 text-[#5864be]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                        d="M14 2v6h6M8 13h8M8 17h5"/>
                                 </svg>
-
                             </div>
-
 
                             <div class="min-w-0 flex-1">
-
-                                <p
-                                    id="fileName"
-                                    class="font-medium truncate"
-                                >
+                                <p id="fileName" class="font-medium truncate">
                                     arquivo.torrent
                                 </p>
-
-                                <p
-                                    id="fileSize"
-                                    class="text-xs text-zinc-500 mt-1"
-                                >
+                                <p id="fileSize" class="text-xs text-zinc-500 mt-1">
                                     0 MB
                                 </p>
-
                             </div>
-
 
                             <button
                                 type="button"
                                 id="removeFile"
+                                aria-label="Remover arquivo"
                                 class="
-                                    w-9
-                                    h-9
-                                    rounded-xl
-                                    flex
-                                    items-center
-                                    justify-center
-                                    text-zinc-500
-                                    hover:text-white
-                                    hover:bg-white/5
+                                    w-9 h-9 shrink-0 rounded-xl
+                                    flex items-center justify-center
+                                    text-zinc-500 hover:text-white hover:bg-white/5
                                     transition
                                 "
                             >
-
-                                <svg
-                                    class="w-4 h-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.8"
-                                        d="M6 6l12 12M18 6 6 18"
-                                    />
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                        d="M6 6l12 12M18 6 6 18"/>
                                 </svg>
-
                             </button>
 
                         </div>
-
                     </div>
 
 
                     <!-- BOTÃO -->
                     <label
                         class="
-                            inline-flex
-                            items-center
-                            justify-center
-                            gap-2
-                            h-12
-                            px-6
-                            rounded-2xl
-                            bg-[#5864be]
-                            text-white
-                            font-semibold
-                            cursor-pointer
-                            hover:opacity-90
-                            transition
+                            w-full sm:w-auto inline-flex
+                            items-center justify-center gap-2
+                            h-12 px-5 sm:px-6
+                            rounded-2xl bg-[#5864be]
+                            text-white font-semibold
+                            cursor-pointer hover:opacity-90
+                            transition active:scale-[0.98]
                         "
                     >
-
-                        <svg
-                            class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.8"
-                                d="M12 16V4m0 0L7 9m5-5 5 5M4 20h16"
-                            />
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 16V4m0 0L7 9m5-5 5 5M4 20h16"/>
                         </svg>
 
-                        Selecionar arquivo
+                        <span id="selectButtonText">Selecionar arquivo</span>
 
                         <input
                             id="torrentFile"
@@ -260,11 +157,9 @@
                             accept=".torrent"
                             class="hidden"
                         >
-
                     </label>
 
-
-                    <p class="text-xs text-zinc-600 mt-5">
+                    <p class="text-xs text-zinc-600 mt-4">
                         Somente arquivos .torrent
                     </p>
 
@@ -275,467 +170,312 @@
                 <div
                     id="uploadStatus"
                     class="
-                        hidden
-                        mt-5
-                        p-4
-                        rounded-2xl
-                        border
-                        border-white/10
+                        hidden mt-4 sm:mt-5 p-4
+                        rounded-2xl border border-white/10
                         bg-black/10
                     "
                 >
-
                     <div class="flex items-start gap-3">
-
                         <div
                             id="statusIcon"
                             class="
-                                w-9
-                                h-9
-                                shrink-0
-                                rounded-xl
-                                bg-white/5
-                                flex
-                                items-center
-                                justify-center
+                                w-9 h-9 shrink-0 rounded-xl
+                                bg-white/5 flex items-center justify-center
                             "
                         ></div>
 
                         <div class="min-w-0">
-
-                            <p
-                                id="statusTitle"
-                                class="font-semibold"
-                            >
+                            <p id="statusTitle" class="font-semibold">
                                 Preparando...
                             </p>
 
-                            <p
-                                id="statusMessage"
-                                class="text-sm text-zinc-500 mt-1"
-                            >
+                            <p id="statusMessage" class="text-sm text-zinc-500 mt-1">
                                 Aguarde.
                             </p>
-
                         </div>
-
                     </div>
-
                 </div>
 
 
                 <!-- PROGRESSO -->
-                <div
-                    id="uploadProgress"
-                    class="hidden mt-5"
-                >
+                <div id="uploadProgress" class="hidden mt-5">
 
                     <div class="flex items-center justify-between mb-2">
-
                         <span class="text-xs text-zinc-500">
                             Enviando para o servidor
                         </span>
 
-                        <span
-                            id="progressPercent"
-                            class="text-xs font-semibold text-[#5864be]"
-                        >
+                        <span id="progressPercent" class="text-xs font-semibold text-[#5864be]">
                             0%
                         </span>
-
                     </div>
 
-
                     <div class="h-2 rounded-full bg-black/30 overflow-hidden">
-
                         <div
                             id="progressBar"
-                            class="
-                                h-full
-                                w-0
-                                bg-[#5864be]
-                                rounded-full
-                                transition-all
-                                duration-200
-                            "
+                            class="h-full w-0 bg-[#5864be] rounded-full transition-all duration-200"
                         ></div>
-
                     </div>
 
                 </div>
 
             </div>
-
-        </div>
+        </section>
 
 
         <!-- ========================= -->
         <!-- INFORMAÇÕES -->
         <!-- ========================= -->
 
-        <div class="bg-[#171717] rounded-[28px] border border-white/10">
+        <section
+            id="infoPanel"
+            class="
+                bg-[#171717] rounded-[24px] md:rounded-[28px]
+                border border-white/10
+                transition-all
+            "
+        >
 
-            <div class="p-5 md:p-6">
+            <div class="p-4 sm:p-5 md:p-6">
 
-                <div class="mb-7">
+                <div class="mb-6 md:mb-7">
+                    <div class="flex items-start justify-between gap-4">
 
-                    <h2 class="text-xl font-bold">
-                        Informações
-                    </h2>
+                        <div>
+                            <h2 class="text-xl font-bold">
+                                Informações
+                            </h2>
 
-                    <p class="text-sm text-zinc-500 mt-1">
-                        Dados do conteúdo.
-                    </p>
+                            <p class="text-sm text-zinc-500 mt-1">
+                                Dados do conteúdo.
+                            </p>
+                        </div>
 
-                </div>
-
-
-                <!-- TÍTULO -->
-                <div class="mb-5">
-
-                    <label
-                        for="title"
-                        class="block text-sm font-medium mb-2"
-                    >
-                        Título
-                    </label>
-
-                    <input
-                        id="title"
-                        name="title"
-                        type="text"
-                        required
-                        placeholder="Ex: Frieren [1080p][H265]"
-                        class="
-                            w-full
-                            h-12
-                            px-4
-                            rounded-2xl
-                            bg-black/10
-                            border
-                            border-white/10
-                            outline-none
-                            focus:border-[#5864be]
-                            transition
-                        "
-                    >
-
-                </div>
-
-
-                <!-- DESCRIÇÃO -->
-                <div class="mb-5">
-
-                    <label
-                        for="description"
-                        class="block text-sm font-medium mb-2"
-                    >
-                        Descrição
-                    </label>
-
-                    <textarea
-                        id="description"
-                        name="description"
-                        rows="5"
-                        placeholder="Descreva o conteúdo..."
-                        class="
-                            w-full
-                            p-4
-                            rounded-2xl
-                            bg-black/10
-                            border
-                            border-white/10
-                            outline-none
-                            resize-none
-                            focus:border-[#5864be]
-                            transition
-                        "
-                    ></textarea>
-
-                </div>
-
-
-                <!-- CATEGORIA -->
-                <div class="mb-5">
-
-                    <label
-                        class="block text-sm font-medium mb-3"
-                    >
-                        Categoria
-                    </label>
-
-                    <input
-                        type="hidden"
-                        id="category"
-                        name="category"
-                        value="Anime"
-                    >
-
-                    <div
-                        id="categoryList"
-                        class="grid grid-cols-2 gap-2"
-                    >
-
+                        <!-- MOBILE -->
                         <button
                             type="button"
-                            data-category="Anime"
+                            id="mobileInfoToggle"
                             class="
-                                categoryBtn
-                                h-11
-                                rounded-xl
-                                bg-[#5864be]
-                                text-white
-                                text-sm
-                                font-medium
-                                transition
+                                lg:hidden w-10 h-10 shrink-0
+                                rounded-xl bg-white/5
+                                border border-white/10
+                                flex items-center justify-center
+                                text-zinc-400
                             "
+                            aria-expanded="true"
+                            aria-label="Recolher informações"
                         >
-                            Anime
-                        </button>
-
-                        <button
-                            type="button"
-                            data-category="Filme"
-                            class="
-                                categoryBtn
-                                h-11
-                                rounded-xl
-                                bg-black/10
-                                border
-                                border-white/10
-                                text-sm
-                                font-medium
-                                hover:border-[#5864be]
-                                transition
-                            "
-                        >
-                            Filme
-                        </button>
-
-                        <button
-                            type="button"
-                            data-category="OVA"
-                            class="
-                                categoryBtn
-                                h-11
-                                rounded-xl
-                                bg-black/10
-                                border
-                                border-white/10
-                                text-sm
-                                font-medium
-                                hover:border-[#5864be]
-                                transition
-                            "
-                        >
-                            OVA
-                        </button>
-
-                        <button
-                            type="button"
-                            data-category="Música"
-                            class="
-                                categoryBtn
-                                h-11
-                                rounded-xl
-                                bg-black/10
-                                border
-                                border-white/10
-                                text-sm
-                                font-medium
-                                hover:border-[#5864be]
-                                transition
-                            "
-                        >
-                            Música
+                            <svg id="infoChevron" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                    d="m6 9 6 6 6-6"/>
+                            </svg>
                         </button>
 
                     </div>
-
                 </div>
 
 
-                <!-- TAGS -->
-                <div class="mb-6">
+                <div id="infoContent" class="space-y-5">
 
-                    <label
-                        for="tags"
-                        class="block text-sm font-medium mb-2"
-                    >
-                        Tags
-                    </label>
+                    <!-- TÍTULO -->
+                    <div>
+                        <label for="title" class="block text-sm font-medium mb-2">
+                            Título
+                        </label>
 
-                    <input
-                        id="tags"
-                        name="tags"
-                        type="text"
-                        placeholder="1080p, H265, BluRay..."
+                        <input
+                            id="title"
+                            name="title"
+                            type="text"
+                            required
+                            autocomplete="off"
+                            placeholder="Ex: Frieren [1080p][H265]"
+                            class="
+                                w-full h-12 px-4 rounded-2xl
+                                bg-black/10 border border-white/10
+                                outline-none focus:border-[#5864be]
+                                transition
+                            "
+                        >
+                    </div>
+
+
+                    <!-- DESCRIÇÃO -->
+                    <div>
+                        <label for="description" class="block text-sm font-medium mb-2">
+                            Descrição
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="4"
+                            placeholder="Descreva o conteúdo..."
+                            class="
+                                w-full p-4 rounded-2xl
+                                bg-black/10 border border-white/10
+                                outline-none resize-none
+                                focus:border-[#5864be] transition
+                            "
+                        ></textarea>
+                    </div>
+
+
+                    <!-- CATEGORIA -->
+                    <div>
+                        <label class="block text-sm font-medium mb-3">
+                            Categoria
+                        </label>
+
+                        <input
+                            type="hidden"
+                            id="category"
+                            name="category"
+                            value="Anime"
+                        >
+
+                        <div id="categoryList" class="grid grid-cols-2 gap-2">
+
+                            <button type="button" data-category="Anime"
+                                class="categoryBtn h-11 rounded-xl bg-[#5864be] text-white text-sm font-medium transition">
+                                Anime
+                            </button>
+
+                            <button type="button" data-category="Filme"
+                                class="categoryBtn h-11 rounded-xl bg-black/10 border border-white/10 text-sm font-medium hover:border-[#5864be] transition">
+                                Filme
+                            </button>
+
+                            <button type="button" data-category="OVA"
+                                class="categoryBtn h-11 rounded-xl bg-black/10 border border-white/10 text-sm font-medium hover:border-[#5864be] transition">
+                                OVA
+                            </button>
+
+                            <button type="button" data-category="Música"
+                                class="categoryBtn h-11 rounded-xl bg-black/10 border border-white/10 text-sm font-medium hover:border-[#5864be] transition">
+                                Música
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                    <!-- TAGS -->
+                    <div>
+                        <label for="tags" class="block text-sm font-medium mb-2">
+                            Tags
+                        </label>
+
+                        <input
+                            id="tags"
+                            name="tags"
+                            type="text"
+                            placeholder="1080p, H265, BluRay..."
+                            autocomplete="off"
+                            class="
+                                w-full h-12 px-4 rounded-2xl
+                                bg-black/10 border border-white/10
+                                outline-none focus:border-[#5864be]
+                                transition
+                            "
+                        >
+                    </div>
+
+
+                    <!-- OPÇÕES -->
+                    <div class="space-y-3">
+
+                        <label class="
+                            flex items-center justify-between gap-4
+                            p-4 rounded-2xl bg-black/10
+                            border border-white/5 cursor-pointer
+                        ">
+                            <div class="min-w-0">
+                                <p class="font-medium text-sm">
+                                    Gold Coin
+                                </p>
+                                <p class="text-xs text-zinc-500 mt-1">
+                                    Benefício especial por 48h.
+                                </p>
+                            </div>
+
+                            <input
+                                id="gold"
+                                name="gold"
+                                type="checkbox"
+                                value="true"
+                                class="sr-only peer"
+                            >
+
+                            <div class="
+                                relative w-11 h-6 shrink-0 rounded-full
+                                bg-zinc-700 peer-checked:bg-[#5864be]
+                                transition
+                                after:content-[''] after:absolute
+                                after:top-1 after:left-1
+                                after:w-4 after:h-4 after:bg-white
+                                after:rounded-full after:transition
+                                peer-checked:after:translate-x-5
+                            "></div>
+                        </label>
+
+
+                        <label class="
+                            flex items-center justify-between gap-4
+                            p-4 rounded-2xl bg-black/10
+                            border border-white/5 cursor-pointer
+                        ">
+                            <div class="min-w-0">
+                                <p class="font-medium text-sm">
+                                    Conteúdo restrito
+                                </p>
+                                <p class="text-xs text-zinc-500 mt-1">
+                                    Marca conteúdo +18.
+                                </p>
+                            </div>
+
+                            <input
+                                id="adult"
+                                name="adult"
+                                type="checkbox"
+                                value="true"
+                                class="sr-only peer"
+                            >
+
+                            <div class="
+                                relative w-11 h-6 shrink-0 rounded-full
+                                bg-zinc-700 peer-checked:bg-[#5864be]
+                                transition
+                                after:content-[''] after:absolute
+                                after:top-1 after:left-1
+                                after:w-4 after:h-4 after:bg-white
+                                after:rounded-full after:transition
+                                peer-checked:after:translate-x-5
+                            "></div>
+                        </label>
+
+                    </div>
+
+
+                    <!-- PUBLICAR -->
+                    <button
+                        id="publishBtn"
+                        type="submit"
+                        disabled
                         class="
-                            w-full
-                            h-12
-                            px-4
-                            rounded-2xl
-                            bg-black/10
-                            border
-                            border-white/10
-                            outline-none
-                            focus:border-[#5864be]
+                            w-full h-12 rounded-2xl
+                            bg-[#5864be] text-white font-semibold
+                            disabled:opacity-30 disabled:cursor-not-allowed
+                            hover:opacity-90 active:scale-[0.99]
                             transition
                         "
                     >
+                        Publicar Torrent
+                    </button>
 
                 </div>
-
-
-                <!-- OPÇÕES -->
-                <div class="space-y-3 mb-7">
-
-                    <!-- GOLD -->
-                    <label
-                        class="
-                            flex
-                            items-center
-                            justify-between
-                            p-4
-                            rounded-2xl
-                            bg-black/10
-                            border
-                            border-white/5
-                            cursor-pointer
-                        "
-                    >
-
-                        <div>
-
-                            <p class="font-medium text-sm">
-                                Gold Coin
-                            </p>
-
-                            <p class="text-xs text-zinc-500 mt-1">
-                                Benefício especial por 48h.
-                            </p>
-
-                        </div>
-
-                        <input
-                            id="gold"
-                            name="gold"
-                            type="checkbox"
-                            value="true"
-                            class="sr-only peer"
-                        >
-
-                        <div
-                            class="
-                                relative
-                                w-11
-                                h-6
-                                rounded-full
-                                bg-zinc-700
-                                peer-checked:bg-[#5864be]
-                                transition
-                                after:content-['']
-                                after:absolute
-                                after:top-1
-                                after:left-1
-                                after:w-4
-                                after:h-4
-                                after:bg-white
-                                after:rounded-full
-                                after:transition
-                                peer-checked:after:translate-x-5
-                            "
-                        ></div>
-
-                    </label>
-
-
-                    <!-- ADULTO -->
-                    <label
-                        class="
-                            flex
-                            items-center
-                            justify-between
-                            p-4
-                            rounded-2xl
-                            bg-black/10
-                            border
-                            border-white/5
-                            cursor-pointer
-                        "
-                    >
-
-                        <div>
-
-                            <p class="font-medium text-sm">
-                                Conteúdo restrito
-                            </p>
-
-                            <p class="text-xs text-zinc-500 mt-1">
-                                Marca conteúdo +18.
-                            </p>
-
-                        </div>
-
-                        <input
-                            id="adult"
-                            name="adult"
-                            type="checkbox"
-                            value="true"
-                            class="sr-only peer"
-                        >
-
-                        <div
-                            class="
-                                relative
-                                w-11
-                                h-6
-                                rounded-full
-                                bg-zinc-700
-                                peer-checked:bg-[#5864be]
-                                transition
-                                after:content-['']
-                                after:absolute
-                                after:top-1
-                                after:left-1
-                                after:w-4
-                                after:h-4
-                                after:bg-white
-                                after:rounded-full
-                                after:transition
-                                peer-checked:after:translate-x-5
-                            "
-                        ></div>
-
-                    </label>
-
-                </div>
-
-
-                <!-- PUBLICAR -->
-                <button
-                    id="publishBtn"
-                    type="submit"
-                    disabled
-                    class="
-                        w-full
-                        h-12
-                        rounded-2xl
-                        bg-[#5864be]
-                        text-white
-                        font-semibold
-                        disabled:opacity-30
-                        disabled:cursor-not-allowed
-                        hover:opacity-90
-                        transition
-                    "
-                >
-                    Publicar Torrent
-                </button>
-
             </div>
-
-        </div>
+        </section>
 
     </div>
 
@@ -743,4 +483,458 @@
 
 </div>
 
- 
+
+<script>
+const form = document.getElementById("torrentUploadForm");
+const input = document.getElementById("torrentFile");
+const dropZone = document.getElementById("dropZone");
+const selectedFile = document.getElementById("selectedFile");
+const fileName = document.getElementById("fileName");
+const fileSize = document.getElementById("fileSize");
+const removeFile = document.getElementById("removeFile");
+const publishBtn = document.getElementById("publishBtn");
+
+const uploadStatus = document.getElementById("uploadStatus");
+const statusIcon = document.getElementById("statusIcon");
+const statusTitle = document.getElementById("statusTitle");
+const statusMessage = document.getElementById("statusMessage");
+
+const uploadProgress = document.getElementById("uploadProgress");
+const progressBar = document.getElementById("progressBar");
+const progressPercent = document.getElementById("progressPercent");
+
+const selectButtonText = document.getElementById("selectButtonText");
+
+const infoPanel = document.getElementById("infoPanel");
+const infoContent = document.getElementById("infoContent");
+const mobileInfoToggle = document.getElementById("mobileInfoToggle");
+const infoChevron = document.getElementById("infoChevron");
+
+const stepFile = document.getElementById("stepFile");
+const stepInfo = document.getElementById("stepInfo");
+
+let selectedTorrent = null;
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function formatSize(bytes) {
+    if (!bytes) return "0 KB";
+
+    const mb = bytes / 1024 / 1024;
+
+    if (mb < 1) {
+        return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+    }
+
+    return `${mb.toFixed(2)} MB`;
+}
+
+
+function setStatus(title, message, type = "info") {
+    uploadStatus.classList.remove("hidden");
+
+    statusTitle.textContent = title;
+    statusMessage.textContent = message;
+
+    const icons = {
+        info: `
+            <svg class="w-4 h-4 text-[#5864be]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                    d="M12 8h.01M11 12h1v4h1M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/>
+            </svg>
+        `,
+        success: `
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                    d="m5 12 4 4L19 6"/>
+            </svg>
+        `,
+        error: `
+            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                    d="M12 9v4m0 4h.01M10.3 3.7 2.9 16.5A2 2 0 0 0 4.6 19.5h14.8a2 2 0 0 0 1.7-3L13.7 3.7a2 2 0 0 0-3.4 0Z"/>
+            </svg>
+        `
+    };
+
+    statusIcon.innerHTML = icons[type] || icons.info;
+}
+
+
+function updatePublishState() {
+    const valid = selectedTorrent && document.getElementById("title").value.trim();
+
+    publishBtn.disabled = !valid;
+
+    if (valid) {
+        stepFile.classList.add("bg-[#5864be]");
+        stepFile.classList.remove("bg-white/10");
+        stepInfo.classList.add("bg-[#5864be]");
+        stepInfo.classList.remove("bg-white/10");
+    } else {
+        stepInfo.classList.remove("bg-[#5864be]");
+        stepInfo.classList.add("bg-white/10");
+    }
+}
+
+
+function selectTorrent(file) {
+    if (!file) return;
+
+    if (!file.name.toLowerCase().endsWith(".torrent")) {
+        setStatus(
+            "Arquivo inválido",
+            "Selecione somente um arquivo com extensão .torrent.",
+            "error"
+        );
+
+        input.value = "";
+        selectedTorrent = null;
+        selectedFile.classList.add("hidden");
+        updatePublishState();
+        return;
+    }
+
+    selectedTorrent = file;
+
+    fileName.textContent = file.name;
+    fileSize.textContent = formatSize(file.size);
+
+    selectedFile.classList.remove("hidden");
+    selectButtonText.textContent = "Trocar arquivo";
+
+    setStatus(
+        "Torrent pronto",
+        "Agora complete as informações e publique.",
+        "success"
+    );
+
+    updatePublishState();
+
+    // Mobile: leva o usuário direto para a próxima etapa.
+    if (window.innerWidth < 1024) {
+        setTimeout(() => {
+            infoPanel.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 120);
+    }
+}
+
+
+/* =========================
+   FILE PICKER
+========================= */
+
+input.addEventListener("change", () => {
+    selectTorrent(input.files[0]);
+});
+
+
+removeFile.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    input.value = "";
+    selectedTorrent = null;
+
+    selectedFile.classList.add("hidden");
+    selectButtonText.textContent = "Selecionar arquivo";
+
+    uploadStatus.classList.add("hidden");
+    uploadProgress.classList.add("hidden");
+
+    progressBar.style.width = "0%";
+    progressPercent.textContent = "0%";
+
+    updatePublishState();
+});
+
+
+/* =========================
+   DRAG & DROP
+========================= */
+
+["dragenter", "dragover"].forEach(eventName => {
+    dropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        dropZone.classList.add("border-[#5864be]", "bg-[#5864be]/5");
+    });
+});
+
+
+["dragleave", "drop"].forEach(eventName => {
+    dropZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        dropZone.classList.remove("border-[#5864be]", "bg-[#5864be]/5");
+    });
+});
+
+
+dropZone.addEventListener("drop", (event) => {
+    const file = event.dataTransfer.files[0];
+
+    if (!file) return;
+
+    try {
+        const transfer = new DataTransfer();
+        transfer.items.add(file);
+        input.files = transfer.files;
+    } catch (error) {
+        // O arquivo ainda será usado diretamente.
+    }
+
+    selectTorrent(file);
+});
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+document.querySelectorAll(".categoryBtn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document.querySelectorAll(".categoryBtn").forEach(btn => {
+            btn.classList.remove("bg-[#5864be]", "text-white");
+            btn.classList.add("bg-black/10", "border", "border-white/10");
+        });
+
+        button.classList.remove("bg-black/10", "border", "border-white/10");
+        button.classList.add("bg-[#5864be]", "text-white");
+
+        document.getElementById("category").value =
+            button.dataset.category;
+    });
+
+});
+
+
+/* =========================
+   MOBILE INFO TOGGLE
+========================= */
+
+mobileInfoToggle.addEventListener("click", () => {
+
+    const isOpen = mobileInfoToggle.getAttribute("aria-expanded") === "true";
+
+    mobileInfoToggle.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+    );
+
+    infoContent.classList.toggle("hidden", isOpen);
+    infoChevron.classList.toggle("rotate-180", !isOpen);
+
+    mobileInfoToggle.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Expandir informações"
+            : "Recolher informações"
+    );
+
+});
+
+
+/* =========================
+   FORM
+========================= */
+
+document.getElementById("title").addEventListener("input", updatePublishState);
+
+
+form.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    if (!selectedTorrent) {
+        setStatus(
+            "Arquivo necessário",
+            "Selecione um arquivo .torrent antes de publicar.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const title = document.getElementById("title").value.trim();
+
+    if (!title) {
+        document.getElementById("title").focus();
+
+        setStatus(
+            "Título necessário",
+            "Informe um título para o torrent.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    publishBtn.disabled = true;
+    publishBtn.textContent = "Enviando...";
+
+    uploadProgress.classList.remove("hidden");
+
+    progressBar.style.width = "0%";
+    progressPercent.textContent = "0%";
+
+    setStatus(
+        "Enviando torrent",
+        "Aguarde enquanto o arquivo é enviado para o servidor.",
+        "info"
+    );
+
+
+    const formData = new FormData();
+
+    formData.append("torrent", selectedTorrent);
+    formData.append("title", title);
+    formData.append(
+        "description",
+        document.getElementById("description").value.trim()
+    );
+    formData.append(
+        "category",
+        document.getElementById("category").value
+    );
+    formData.append(
+        "tags",
+        document.getElementById("tags").value.trim()
+    );
+    formData.append(
+        "gold",
+        document.getElementById("gold").checked
+    );
+    formData.append(
+        "adult",
+        document.getElementById("adult").checked
+    );
+
+
+    try {
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open(
+            "POST",
+            "http://173.212.201.74:3000/api/upload"
+        );
+
+
+        xhr.upload.addEventListener("progress", (event) => {
+
+            if (!event.lengthComputable) return;
+
+            const percent = Math.round(
+                (event.loaded / event.total) * 100
+            );
+
+            progressBar.style.width = `${percent}%`;
+            progressPercent.textContent = `${percent}%`;
+
+        });
+
+
+        const response = await new Promise((resolve, reject) => {
+
+            xhr.onload = () => {
+
+                let data = {};
+
+                try {
+                    data = JSON.parse(xhr.responseText);
+                } catch (error) {
+                    data = {
+                        message: xhr.responseText
+                    };
+                }
+
+                resolve({
+                    ok: xhr.status >= 200 && xhr.status < 300,
+                    status: xhr.status,
+                    data
+                });
+
+            };
+
+            xhr.onerror = () => {
+                reject(
+                    new Error(
+                        "Não foi possível conectar ao servidor."
+                    )
+                );
+            };
+
+            xhr.ontimeout = () => {
+                reject(
+                    new Error(
+                        "O servidor demorou demais para responder."
+                    )
+                );
+            };
+
+            xhr.timeout = 120000;
+
+            xhr.send(formData);
+
+        });
+
+
+        if (!response.ok) {
+            throw new Error(
+                response.data.message ||
+                "Erro ao enviar torrent."
+            );
+        }
+
+
+        progressBar.style.width = "100%";
+        progressPercent.textContent = "100%";
+
+        setStatus(
+            "Torrent publicado",
+            response.data.message ||
+            "O arquivo foi enviado com sucesso.",
+            "success"
+        );
+
+        publishBtn.textContent = "Publicado ✓";
+
+
+        // Limpa somente após sucesso.
+        form.reset();
+
+        input.value = "";
+        selectedTorrent = null;
+
+        selectedFile.classList.add("hidden");
+        selectButtonText.textContent = "Selecionar arquivo";
+
+        updatePublishState();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        setStatus(
+            "Falha no upload",
+            error.message ||
+            "Não foi possível enviar o torrent.",
+            "error"
+        );
+
+        publishBtn.disabled = false;
+        publishBtn.textContent = "Tentar novamente";
+
+    }
+
+});
+</script>
