@@ -1,67 +1,87 @@
+ 
+// hub/services/notification.service.js
+
 import {
     addDoc,
     collection,
-    Timestamp
+    query,
+    orderBy,
+    limit,
+    onSnapshot,
+    doc,
+    updateDoc,
+    deleteDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import { db } from "../firebase/config.js";
 import { onUserAuthenticated } from "./sessionService.js";
 
+const notificationsRef = collection(db, "notifications");
+const allowedRoles = ["adm", "ops"];
 
-async function createNotification(user) {
+// CREATE
+export async function createNotification(user, notification = {}) {
+    if (!user?.uid) throw new Error("Usuário inválido.");
 
-    try {
+    if (!allowedRoles.includes(user.role)) return null;
 
-        // console.log("Usuário autenticado:", user);
-
-
-        // Verifica se é sysops
-        if (user.role !== "sysops") {
-            // console.log("Usuário não é sysops. Notificação ignorada.");
-            return;
-        }
-
-
-        // console.log("Usuário sysops detectado:");
-        console.log({
-            uid: user.uid,
-            nome: user.name,
-            email: user.email,
-            role: user.role
-        });
-
-
-        const docRef = await addDoc(collection(db, "notifications"), {
-
-            type: "login",
-            title: "Novo login SysOps",
-            message: `${user.name} entrou no sistema.`,
-
-            userId: user.uid,
-            userName: user.name,
-            userRole: user.role,
-
-            createdAt: new Date()
-
-        });
-
-
-        // console.log("Notificação criada:", docRef.id);
-
-
-    } catch (error) {
-
-        console.error("Erro ao criar notificação:", error);
-
-    }
-
+    return addDoc(notificationsRef, {
+        type: notification.type || "system",
+        title: notification.title || "Notificação",
+        message: notification.message || "Nova notificação.",
+        userId: user.uid,
+        userName: user.name || user.email || "Usuário",
+        userRole: user.role,
+        read: false,
+        createdAt: serverTimestamp()
+    });
 }
 
+// READ: acompanha notificações em tempo real
+export function listenNotifications(callback, onError = console.error) {
+    const q = query(
+        notificationsRef,
+        orderBy("createdAt", "desc"),
+        limit(50)
+    );
+
+    return onSnapshot(q, callback, onError);
+}
+
+// UPDATE: marca como lida
+export async function markNotificationAsRead(notificationId) {
+    if (!notificationId) throw new Error("ID da notificação obrigatório.");
+
+    await updateDoc(doc(db, "notifications", notificationId), {
+        read: true
+    });
+}
+
+// DELETE
+export async function deleteNotification(notificationId) {
+    if (!notificationId) throw new Error("ID da notificação obrigatório.");
+
+    await deleteDoc(doc(db, "notifications", notificationId));
+}
+
+// TESTE: cria uma notificação real no Firestore
+export async function testNotification(user) {
+    return createNotification(user, {
+        type: "test",
+        title: "Teste de notificação",
+        message: "O serviço de notificações está funcionando."
+    });
+}
+
+// LOGIN: gera notificação para adm e ops
 onUserAuthenticated(async (user) => {
-    
-    await createNotification(user);
-    
+    if (!allowedRoles.includes(user?.role)) return;
 
-    // console.log("Notificação criada!");
-
+    await createNotification(user, {
+        type: "login",
+        title: "Novo login administrativo",
+        message: `${user.name || user.email || "Usuário"} entrou no sistema.`
+    });
 });
+ 

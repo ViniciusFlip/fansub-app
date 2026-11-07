@@ -1,0 +1,647 @@
+  
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Torrents</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    colors: {
+                        ink: '#050505',
+                        surface: '#101010',
+                        line: '#242424',
+                        soft: '#8A8A8A',
+                        accent: '#013bff'
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+
+<body class="min-h-screen bg-[#050505] text-white p-5">
+
+
+<main class="max-w-7xl mx-auto">
+
+
+    <!-- VOLTAR -->
+
+    <button
+        onclick="history.back()"
+        class="mb-6 inline-flex items-center gap-2 rounded-xl border border-[#242424] bg-[#101010] px-4 py-2.5 text-sm font-medium text-[#8A8A8A] transition hover:border-[#013bff]/40 hover:text-white"
+    >
+
+        ←
+
+        <span>
+            Voltar
+        </span>
+
+    </button>
+
+
+
+    <!-- HEADER -->
+
+    <div class="flex items-center justify-between gap-4 mb-6">
+
+        <div>
+
+            <h1 class="text-2xl font-semibold">
+                Torrents
+            </h1>
+
+            <p
+                id="contadorTorrents"
+                class="text-sm text-[#8A8A8A] mt-1"
+            >
+                Carregando...
+            </p>
+
+        </div>
+
+
+        <button
+            id="btnLimpar"
+            type="button"
+            class="inline-flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-2.5 text-sm font-medium text-red-400 transition hover:bg-red-500/20 hover:text-red-300"
+        >
+
+            🗑
+
+            <span>
+                Limpar tudo
+            </span>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- TABELA -->
+
+    <section>
+
+        <div
+            class="bg-[#171717] rounded-[28px] overflow-hidden border border-white/10 shadow-2xl"
+        >
+
+
+            <!-- HEADER DA TABELA -->
+
+            <div
+                class="px-6 py-5 border-b border-white/10 flex items-center justify-between"
+            >
+
+                <div>
+
+                    <h2 class="text-xl font-bold text-white">
+                        Últimos Torrents
+                    </h2>
+
+                    <p class="text-sm text-zinc-400">
+                        Torrents enviados recentemente
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="btnAtualizar"
+                    type="button"
+                    class="px-5 py-3 rounded-xl bg-[#5864be] text-white font-medium hover:opacity-90 transition"
+                >
+                    Atualizar
+                </button>
+
+            </div>
+
+
+
+            <!-- TABLE -->
+
+            <div class="overflow-x-auto mt-5">
+
+                <table class="w-full min-w-[1050px]">
+
+
+                    <thead>
+
+                        <tr class="bg-[#252525] border-b border-white/10">
+
+                            <th class="px-5 py-4 text-left text-sm font-semibold text-zinc-400">
+                                Nome
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-zinc-400">
+                                Tipo
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-zinc-400">
+                                ↓
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-green-400">
+                                S
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-orange-400">
+                                L
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-zinc-400">
+                                C
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-zinc-400">
+                                Tamanho
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-zinc-400">
+                                Grupo
+                            </th>
+
+                            <th class="px-4 py-4 text-center text-sm font-semibold text-zinc-400">
+                                Uploader
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tabelaTorrents">
+
+                        <tr>
+
+                            <td
+                                colspan="9"
+                                class="px-5 py-10 text-center text-zinc-500"
+                            >
+                                Carregando torrents...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script type="module">
+
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        onSnapshot,
+        query,
+        orderBy,
+        getDocs,
+        deleteDoc
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+    // ================================
+    // FIREBASE
+    // ================================
+
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyCUdvLKNzNyqmhRuPGl3OW16QDK4G8j2-A",
+        authDomain: "engineomda.firebaseapp.com",
+        projectId: "engineomda",
+        storageBucket: "engineomda.firebasestorage.app",
+        messagingSenderId: "151196305319",
+        appId: "1:151196305319:web:f146670c5edc4cd0339882"
+
+    };
+
+
+    const app =
+        initializeApp(firebaseConfig);
+
+
+    const db =
+        getFirestore(app);
+
+
+
+    // ================================
+    // ELEMENTOS
+    // ================================
+
+    const tabela =
+        document.getElementById(
+            "tabelaTorrents"
+        );
+
+
+    const contador =
+        document.getElementById(
+            "contadorTorrents"
+        );
+
+
+    const btnLimpar =
+        document.getElementById(
+            "btnLimpar"
+        );
+
+
+    const btnAtualizar =
+        document.getElementById(
+            "btnAtualizar"
+        );
+
+
+
+    // ================================
+    // FIRESTORE
+    // ================================
+
+    const torrentsRef =
+        collection(
+            db,
+            "torrents"
+        );
+
+
+    const torrentsQuery =
+        query(
+            torrentsRef,
+            orderBy(
+                "criadoEm",
+                "desc"
+            )
+        );
+
+
+
+    // ================================
+    // RENDERIZAR
+    // ================================
+
+    function renderizarTorrents(snapshot) {
+
+        tabela.innerHTML = "";
+
+        contador.textContent =
+            `${snapshot.size} torrents`;
+
+
+        if (snapshot.empty) {
+
+            tabela.innerHTML = `
+
+                <tr>
+
+                    <td
+                        colspan="9"
+                        class="px-5 py-12 text-center text-zinc-500"
+                    >
+
+                        Nenhum torrent enviado.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+            return;
+        }
+
+
+        snapshot.forEach((doc) => {
+
+            const torrent =
+                doc.data();
+
+
+            const item =
+                document.createElement("tr");
+
+
+            item.className = `
+                border-b
+                border-white/5
+                hover:bg-white/5
+                transition
+            `;
+
+
+            item.innerHTML = `
+
+                <!-- NOME -->
+
+                <td class="px-5 py-4">
+
+                    <div class="flex items-center gap-3">
+
+                        <div
+                            class="w-10 h-10 rounded-xl bg-[#5864be]/20 flex items-center justify-center shrink-0"
+                        >
+
+                            <img
+                                src="assets/images/free.gif"
+                                alt=""
+                                class="w-7 h-7 object-contain"
+                            >
+
+                        </div>
+
+
+                        <div class="min-w-0">
+
+                            <p
+                                class="font-semibold text-white truncate max-w-[380px]"
+                            >
+                                ${torrent.nome || ""}
+                            </p>
+
+
+                            <p
+                                class="text-xs text-zinc-500 truncate max-w-[380px]"
+                            >
+                                ${torrent.arquivo || ""}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <!-- TIPO -->
+
+                <td class="text-center text-zinc-300">
+                    ${torrent.tipo || ""}
+                </td>
+
+
+                <!-- DOWNLOAD -->
+
+                <td class="text-center">
+
+                    <button
+                        type="button"
+                        class="w-9 h-9 rounded-lg bg-[#5864be] text-white hover:opacity-90 transition"
+                        title="Download"
+                    >
+                        ↓
+                    </button>
+
+                </td>
+
+
+                <!-- SEEDS -->
+
+                <td class="text-center font-bold text-green-400">
+                    ${torrent.seeds || ""}
+                </td>
+
+
+                <!-- LEECHERS -->
+
+                <td class="text-center font-bold text-orange-400">
+                    ${torrent.leechers || ""}
+                </td>
+
+
+                <!-- COMPLETIONS -->
+
+                <td class="text-center text-zinc-300">
+                    ${torrent.completions || ""}
+                </td>
+
+
+                <!-- TAMANHO -->
+
+                <td class="text-center text-zinc-300">
+                    ${torrent.tamanho || ""}
+                </td>
+
+
+                <!-- GRUPO -->
+
+                <td class="text-center text-[#93a0ff] font-medium">
+                    ${torrent.grupo || ""}
+                </td>
+
+
+                <!-- UPLOADER -->
+
+                <td class="text-center text-zinc-300">
+                    ${torrent.uploader || ""}
+                </td>
+
+            `;
+
+
+            tabela.appendChild(item);
+
+        });
+
+    }
+
+
+
+    // ================================
+    // TEMPO REAL
+    // ================================
+
+    let ultimoSnapshot = null;
+
+
+    onSnapshot(
+
+        torrentsQuery,
+
+        (snapshot) => {
+
+            ultimoSnapshot =
+                snapshot;
+
+            renderizarTorrents(
+                snapshot
+            );
+
+        },
+
+        (erro) => {
+
+            console.error(erro);
+
+            contador.textContent =
+                "Erro";
+
+
+            tabela.innerHTML = `
+
+                <tr>
+
+                    <td
+                        colspan="9"
+                        class="px-5 py-12 text-center text-red-400"
+                    >
+
+                        Erro ao carregar torrents.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+
+    );
+
+
+
+    // ================================
+    // ATUALIZAR
+    // ================================
+
+    btnAtualizar.addEventListener(
+        "click",
+        () => {
+
+            if (ultimoSnapshot) {
+
+                renderizarTorrents(
+                    ultimoSnapshot
+                );
+
+            }
+
+        }
+    );
+
+
+
+    // ================================
+    // LIMPAR TUDO
+    // ================================
+
+    btnLimpar.addEventListener(
+        "click",
+        async () => {
+
+            const confirmar =
+                confirm(
+                    "Tem certeza que deseja apagar TODOS os torrents?"
+                );
+
+
+            if (!confirmar) {
+                return;
+            }
+
+
+            btnLimpar.disabled = true;
+
+            btnLimpar.innerHTML = `
+                <span>Apagando...</span>
+            `;
+
+
+            try {
+
+                const snapshot =
+                    await getDocs(
+                        torrentsRef
+                    );
+
+
+                if (snapshot.empty) {
+
+                    alert(
+                        "Não existem torrents para apagar."
+                    );
+
+                    return;
+                }
+
+
+                const exclusoes =
+                    snapshot.docs.map(
+                        (doc) =>
+                            deleteDoc(
+                                doc.ref
+                            )
+                    );
+
+
+                await Promise.all(
+                    exclusoes
+                );
+
+
+                alert(
+                    "Todos os torrents foram apagados."
+                );
+
+
+            } catch (erro) {
+
+                console.error(erro);
+
+                alert(
+                    "Não foi possível apagar os torrents."
+                );
+
+            } finally {
+
+                btnLimpar.disabled = false;
+
+                btnLimpar.innerHTML = `
+                    🗑
+                    <span>Limpar tudo</span>
+                `;
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
+ 

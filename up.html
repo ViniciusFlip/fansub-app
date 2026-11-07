@@ -1,0 +1,549 @@
+  
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Upload Torrent</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+
+                    colors: {
+                        ink: '#050505',
+                        surface: '#101010',
+                        line: '#242424',
+                        soft: '#8A8A8A',
+                        accent: '#013bff'
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+</head>
+
+
+<body class="min-h-screen bg-[#050505] text-white">
+
+
+    <main class="mx-auto w-full max-w-2xl p-4 sm:p-6 lg:p-8">
+
+
+        <!-- VOLTAR -->
+
+        <button
+            type="button"
+            onclick="history.back()"
+            class="mb-6 inline-flex items-center gap-2 rounded-xl border border-[#242424] bg-[#101010] px-4 py-2.5 text-sm font-medium text-[#8A8A8A] transition hover:border-[#013bff]/40 hover:text-white"
+        >
+
+            <i
+                data-lucide="arrow-left"
+                class="h-4 w-4"
+            ></i>
+
+            Voltar
+
+        </button>
+
+
+
+        <!-- CARD -->
+
+        <section
+            class="rounded-3xl border border-[#242424] bg-[#101010] p-5 shadow-2xl shadow-black/20 sm:p-7"
+        >
+
+
+            <!-- HEADER -->
+
+            <div class="mb-7">
+
+                <div
+                    class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#013bff]/10 text-[#013bff]"
+                >
+
+                    <i
+                        data-lucide="upload"
+                        class="h-6 w-6"
+                    ></i>
+
+                </div>
+
+
+                <h1 class="text-2xl font-bold tracking-tight text-white">
+                    Enviar torrent
+                </h1>
+
+
+                <p class="mt-1 text-sm text-[#8A8A8A]">
+                    Adicione o nome e o arquivo .torrent.
+                </p>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form
+                id="torrentForm"
+                class="space-y-5"
+            >
+
+
+                <!-- NOME -->
+
+                <div>
+
+                    <label
+                        for="nome"
+                        class="mb-2 block text-sm font-medium text-zinc-300"
+                    >
+                        Nome
+                    </label>
+
+
+                    <input
+                        id="nome"
+                        type="text"
+                        required
+                        placeholder="Nome do torrent"
+                        class="w-full rounded-xl border border-[#242424] bg-[#050505] px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-[#013bff] focus:ring-4 focus:ring-[#013bff]/10"
+                    >
+
+                </div>
+
+
+
+                <!-- ARQUIVO -->
+
+                <div>
+
+                    <label
+                        for="arquivo"
+                        class="mb-2 block text-sm font-medium text-zinc-300"
+                    >
+                        Arquivo .torrent
+                    </label>
+
+
+                    <input
+                        id="arquivo"
+                        type="file"
+                        accept=".torrent"
+                        required
+                        class="w-full cursor-pointer rounded-xl border border-[#242424] bg-[#050505] text-sm text-[#8A8A8A] transition file:mr-4 file:cursor-pointer file:border-0 file:bg-[#013bff]/10 file:px-4 file:py-3 file:font-medium file:text-[#013bff] hover:border-[#333]"
+                    >
+
+                </div>
+
+
+
+                <!-- ENVIAR -->
+
+                <button
+                    id="btnEnviar"
+                    type="submit"
+                    class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#013bff] py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#013bff]/10 transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+
+                    <i
+                        data-lucide="send"
+                        class="h-4 w-4"
+                    ></i>
+
+                    Enviar
+
+                </button>
+
+            </form>
+
+
+
+            <!-- TESTE -->
+
+            <button
+                id="btnTeste"
+                type="button"
+                class="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-[#242424] bg-[#050505] py-3 text-sm font-medium text-[#8A8A8A] transition hover:border-[#333] hover:text-white"
+            >
+
+                <i
+                    data-lucide="flask-conical"
+                    class="h-4 w-4"
+                ></i>
+
+                Testar Envio
+
+            </button>
+
+
+
+            <!-- VER TODOS -->
+
+            <button
+                type="button"
+                onclick="window.location.href='down.html'"
+                class="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-3 text-sm font-semibold text-emerald-400 transition hover:border-emerald-400/50 hover:bg-emerald-500/20 hover:text-emerald-300"
+            >
+
+                <i
+                    data-lucide="terminal"
+                    class="h-4 w-4"
+                ></i>
+
+                Ver todos os torrents
+
+                <i
+                    data-lucide="arrow-up-right"
+                    class="h-4 w-4"
+                ></i>
+
+            </button>
+
+
+
+            <!-- STATUS -->
+
+            <p
+                id="status"
+                class="mt-4 min-h-5 text-center text-sm text-[#8A8A8A]"
+            ></p>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- LUCIDE -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+
+    <!-- FIREBASE -->
+
+    <script type="module">
+
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+        import {
+            getFirestore,
+            collection,
+            addDoc,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+        /* =========================
+           FIREBASE
+        ========================= */
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyCUdvLKNzNyqmhRuPGl3OW16QDK4G8j2-A",
+
+            authDomain: "engineomda.firebaseapp.com",
+
+            projectId: "engineomda",
+
+            storageBucket: "engineomda.firebasestorage.app",
+
+            messagingSenderId: "151196305319",
+
+            appId: "1:151196305319:web:f146670c5edc4cd0339882"
+
+        };
+
+
+        const app =
+            initializeApp(firebaseConfig);
+
+
+        const db =
+            getFirestore(app);
+
+
+
+        /* =========================
+           ELEMENTOS
+        ========================= */
+
+        const form =
+            document.getElementById("torrentForm");
+
+
+        const nome =
+            document.getElementById("nome");
+
+
+        const arquivo =
+            document.getElementById("arquivo");
+
+
+        const btnEnviar =
+            document.getElementById("btnEnviar");
+
+
+        const btnTeste =
+            document.getElementById("btnTeste");
+
+
+        const status =
+            document.getElementById("status");
+
+
+
+        /* =========================
+           LUCIDE
+        ========================= */
+
+        lucide.createIcons();
+
+
+
+        /* =========================
+           TESTE FIREBASE
+        ========================= */
+
+        btnTeste.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    btnTeste.disabled = true;
+
+                    status.textContent =
+                        "Enviando teste...";
+
+
+                    const ref =
+                        await addDoc(
+                            collection(
+                                db,
+                                "torrents"
+                            ),
+                            {
+
+                                nome:
+                                    "Torrent de teste",
+
+                                arquivo:
+                                    "teste.torrent",
+
+                                criadoEm:
+                                    serverTimestamp()
+
+                            }
+                        );
+
+
+                    status.textContent =
+                        "Teste enviado com sucesso.";
+
+
+                    console.log(
+                        "ID criado:",
+                        ref.id
+                    );
+
+
+                } catch (erro) {
+
+                    console.error(erro);
+
+                    status.textContent =
+                        "Erro ao testar Firebase.";
+
+                } finally {
+
+                    btnTeste.disabled = false;
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================
+           ENVIO
+        ========================= */
+
+        form.addEventListener(
+            "submit",
+            async (e) => {
+
+                e.preventDefault();
+
+
+                const nomeValor =
+                    nome.value.trim();
+
+
+                const arquivoSelecionado =
+                    arquivo.files[0];
+
+
+                if (!nomeValor) {
+
+                    status.textContent =
+                        "Digite o nome.";
+
+                    nome.focus();
+
+                    return;
+
+                }
+
+
+                if (!arquivoSelecionado) {
+
+                    status.textContent =
+                        "Selecione um arquivo.";
+
+                    return;
+
+                }
+
+
+                if (
+                    !arquivoSelecionado.name
+                        .toLowerCase()
+                        .endsWith(".torrent")
+                ) {
+
+                    status.textContent =
+                        "Selecione um arquivo .torrent.";
+
+                    return;
+
+                }
+
+
+                try {
+
+                    btnEnviar.disabled = true;
+
+
+                    btnEnviar.innerHTML = `
+
+                        <i
+                            data-lucide="loader-circle"
+                            class="h-4 w-4 animate-spin"
+                        ></i>
+
+                        Enviando...
+
+                    `;
+
+
+                    lucide.createIcons();
+
+
+                    status.textContent =
+                        "Enviando dados...";
+
+
+                    const ref =
+                        await addDoc(
+                            collection(
+                                db,
+                                "torrents"
+                            ),
+                            {
+
+                                nome:
+                                    nomeValor,
+
+                                arquivo:
+                                    arquivoSelecionado.name,
+
+                                criadoEm:
+                                    serverTimestamp()
+
+                            }
+                        );
+
+
+                    status.textContent =
+                        "Torrent enviado com sucesso.";
+
+
+                    console.log(
+                        "ID criado:",
+                        ref.id
+                    );
+
+
+                    form.reset();
+
+
+                } catch (erro) {
+
+                    console.error(erro);
+
+                    status.textContent =
+                        "Erro ao enviar.";
+
+                } finally {
+
+                    btnEnviar.disabled = false;
+
+
+                    btnEnviar.innerHTML = `
+
+                        <i
+                            data-lucide="send"
+                            class="h-4 w-4"
+                        ></i>
+
+                        Enviar
+
+                    `;
+
+
+                    lucide.createIcons();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+ 

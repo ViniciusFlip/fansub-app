@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OMDA — Loading</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JFXPETX86G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JFXPETX86G');
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+#loading {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #07152b 0%,
+            #02050b 42%,
+            #000 78%
+        );
+
+    color: #fff;
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.space {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    opacity: .35;
+
+    animation:
+        starFloat linear infinite;
+}
+
+@keyframes starFloat {
+
+    from {
+        transform: translateY(20px);
+        opacity: .15;
+    }
+
+    50% {
+        opacity: .8;
+    }
+
+    to {
+        transform: translateY(-120px);
+        opacity: .05;
+    }
+
+}
+
+
+/* =====================================================
+   CENA
+===================================================== */
+
+.scene {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   PERSONAGENS
+===================================================== */
+
+.character {
+
+    position: absolute;
+
+    bottom: 5%;
+
+    width: min(42vw, 420px);
+    height: min(76vh, 720px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        filter .25s ease;
+}
+
+.character img {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: bottom center;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* POSIÇÃO */
+
+#goku {
+    left: 5%;
+}
+
+#vegeta {
+    right: 5%;
+}
+
+
+/* =====================================================
+   IMAGENS NORMAIS
+===================================================== */
+
+.normal {
+    opacity: 1;
+}
+
+.ssj {
+    opacity: 0;
+}
+
+
+/* =====================================================
+   TRANSFORMAÇÃO
+===================================================== */
+
+.transforming .normal {
+
+    animation:
+        normalTransform .8s forwards;
+}
+
+.transforming .ssj {
+
+    animation:
+        ssjTransform .8s forwards;
+}
+
+
+@keyframes normalTransform {
+
+    0% {
+
+        opacity: 1;
+
+        filter:
+            brightness(1);
+
+        transform:
+            scale(1);
+    }
+
+    45% {
+
+        opacity: 1;
+
+        filter:
+            brightness(2)
+            blur(2px);
+
+        transform:
+            scale(1.015);
+    }
+
+    75% {
+
+        opacity: .3;
+
+        filter:
+            brightness(5)
+            blur(6px);
+
+        transform:
+            scale(1.04);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        filter:
+            brightness(1);
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+@keyframes ssjTransform {
+
+    0% {
+
+        opacity: 0;
+
+        filter:
+            brightness(5)
+            blur(8px);
+
+        transform:
+            scale(1.05);
+    }
+
+    55% {
+
+        opacity: .2;
+
+        filter:
+            brightness(5)
+            blur(5px);
+
+        transform:
+            scale(1.04);
+    }
+
+    80% {
+
+        opacity: .85;
+
+        filter:
+            brightness(2);
+
+        transform:
+            scale(1.015);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        filter:
+            brightness(1);
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   AURA
+===================================================== */
+
+.aura {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 7%;
+
+    width: 80%;
+    height: 92%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+
+            rgba(255,255,255,.9) 0%,
+            rgba(255,220,80,.55) 16%,
+            rgba(255,180,0,.35) 35%,
+            rgba(255,140,0,.12) 58%,
+            transparent 75%
+        );
+
+    filter:
+        blur(12px);
+}
+
+
+.powering .aura {
+
+    animation:
+        auraCharge 2.8s forwards;
+}
+
+
+@keyframes auraCharge {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scale(.65);
+    }
+
+    40% {
+
+        opacity: .25;
+
+        transform:
+            translateX(-50%)
+            scale(.85);
+    }
+
+    75% {
+
+        opacity: .55;
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
+    }
+
+    100% {
+
+        opacity: .9;
+
+        transform:
+            translateX(-50%)
+            scale(1.18);
+    }
+
+}
+
+
+/* =====================================================
+   PODER MÁXIMO
+===================================================== */
+
+.max-power .aura {
+
+    opacity: 1;
+
+    animation:
+        maxAura .35s infinite alternate;
+}
+
+
+@keyframes maxAura {
+
+    from {
+
+        transform:
+            translateX(-50%)
+            scale(1.05);
+
+        filter:
+            blur(14px);
+    }
+
+    to {
+
+        transform:
+            translateX(-50%)
+            scale(1.22);
+
+        filter:
+            blur(5px);
+    }
+
+}
+
+
+/* =====================================================
+   PARTÍCULAS
+===================================================== */
+
+.energy-particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+.energy {
+
+    position: absolute;
+
+    bottom: 8%;
+    left: 50%;
+
+    width: 4px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #ffe76a;
+
+    box-shadow:
+
+        0 0 8px #fff,
+        0 0 18px #ffd000;
+
+    opacity: 0;
+}
+
+
+.powering .energy {
+
+    animation:
+        energyRise 1.5s linear infinite;
+}
+
+
+@keyframes energyRise {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, 0)
+            scale(.5);
+    }
+
+    15% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+
+            translate(
+                calc(-50% + var(--x)),
+                calc(-1 * var(--y))
+            )
+
+            scale(1.2);
+    }
+
+}
+
+
+/* =====================================================
+   HUD
+===================================================== */
+
+.hud {
+
+    position: absolute;
+
+    z-index: 20;
+
+    left: 50%;
+    bottom: 5%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(520px, 80vw);
+
+    text-align: center;
+}
+
+
+.status {
+
+    margin-bottom: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: .35em;
+
+    font-weight: 700;
+
+    color:
+        rgba(255,255,255,.75);
+}
+
+
+.power-wrap {
+
+    height: 5px;
+
+    width: 100%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px rgba(0,100,255,.15);
+}
+
+
+.power {
+
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #0066ff,
+            #00aaff,
+            #fff,
+            #ffd000
+        );
+
+    box-shadow:
+
+        0 0 12px #008cff,
+        0 0 30px rgba(0,140,255,.6);
+
+    transition:
+        width .08s linear;
+}
+
+
+.percent {
+
+    margin-top: 9px;
+
+    font-size: 10px;
+
+    letter-spacing: .2em;
+
+    color:
+        rgba(255,255,255,.35);
+}
+
+
+/* =====================================================
+   ATAQUES
+===================================================== */
+
+.attack {
+
+    position: absolute;
+
+    z-index: 15;
+
+    bottom: 42%;
+
+    width: 0;
+    height: 24px;
+
+    border-radius: 999px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            white 18%,
+            #7dd3fc 45%,
+            #2563eb 75%,
+            transparent
+        );
+
+    box-shadow:
+
+        0 0 12px white,
+        0 0 35px #008cff,
+        0 0 80px #0066ff;
+}
+
+
+#gokuAttack {
+
+    left: 17%;
+
+    transform-origin:
+        left center;
+
+    transform:
+        rotate(-7deg);
+}
+
+
+#vegetaAttack {
+
+    right: 17%;
+
+    transform-origin:
+        right center;
+
+    transform:
+        rotate(7deg);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            white 18%,
+            #c4b5fd 45%,
+            #7c3aed 75%,
+            transparent
+        );
+
+    box-shadow:
+
+        0 0 12px white,
+        0 0 35px #8b5cf6,
+        0 0 80px #7c3aed;
+}
+
+
+.attacking #gokuAttack,
+.attacking #vegetaAttack {
+
+    animation:
+        beamFire .65s forwards;
+}
+
+
+@keyframes beamFire {
+
+    0% {
+
+        width: 0;
+
+        opacity: 0;
+    }
+
+    15% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        width: 66%;
+
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   IMPACTO
+===================================================== */
+
+.impact {
+
+    position: absolute;
+
+    z-index: 25;
+
+    left: 50%;
+    top: 48%;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    background: white;
+
+    opacity: 0;
+
+    box-shadow:
+
+        0 0 30px white,
+        0 0 80px #60a5fa,
+        0 0 150px #fff;
+}
+
+
+.impact.active {
+
+    animation:
+        impact .8s forwards;
+}
+
+
+@keyframes impact {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    25% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(4);
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(18);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(50);
+    }
+
+}
+
+
+/* =====================================================
+   FLASH
+===================================================== */
+
+.flash {
+
+    position: absolute;
+
+    z-index: 30;
+
+    inset: 0;
+
+    background: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.flash.active {
+
+    animation:
+        flash .8s forwards;
+}
+
+
+@keyframes flash {
+
+    0% {
+
+        opacity: 0;
+    }
+
+    20% {
+
+        opacity: 1;
+    }
+
+    45% {
+
+        opacity: .8;
+    }
+
+    100% {
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =====================================================
+   SHAKE
+===================================================== */
+
+.shake {
+
+    animation:
+        screenShake .12s infinite;
+}
+
+
+@keyframes screenShake {
+
+    0% {
+        transform:
+            translate(0,0);
+    }
+
+    25% {
+        transform:
+            translate(3px,-2px);
+    }
+
+    50% {
+        transform:
+            translate(-3px,2px);
+    }
+
+    75% {
+        transform:
+            translate(2px,2px);
+    }
+
+    100% {
+        transform:
+            translate(-2px,-2px);
+    }
+
+}
+
+
+/* =====================================================
+   LOGO OMDA
+===================================================== */
+
+.logo {
+
+    position: absolute;
+
+    z-index: 40;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.7);
+
+    opacity: 0;
+
+    text-align: center;
+}
+
+
+.logo img {
+
+    display: block;
+
+    width:
+        clamp(180px, 45vw, 520px);
+
+    max-width: 80vw;
+
+    height: auto;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    filter:
+
+        drop-shadow(
+            0 0 8px
+            rgba(255,255,255,.9)
+        )
+
+        drop-shadow(
+            0 0 25px
+            rgba(0,102,255,.95)
+        )
+
+        drop-shadow(
+            0 0 60px
+            rgba(0,102,255,.8)
+        )
+
+        drop-shadow(
+            0 0 110px
+            rgba(0,102,255,.5)
+        );
+}
+
+
+.logo span {
+
+    display: block;
+
+    margin-top: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: .65em;
+
+    color:
+        rgba(255,255,255,.65);
+}
+
+
+.logo.show {
+
+    animation:
+        logoShow 1.2s forwards;
+}
+
+
+.logo.show img {
+
+    animation:
+        logoEnergy 1.4s ease-out forwards;
+}
+
+
+@keyframes logoShow {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.5);
+
+        filter:
+            blur(20px);
+    }
+
+    40% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.95);
+
+        filter:
+            blur(0);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+}
+
+
+@keyframes logoEnergy {
+
+    0% {
+
+        transform:
+            scale(1.5);
+
+        filter:
+
+            brightness(3)
+            blur(12px)
+
+            drop-shadow(
+                0 0 30px white
+            )
+
+            drop-shadow(
+                0 0 100px #0066ff
+            );
+    }
+
+    35% {
+
+        transform:
+            scale(.92);
+
+        filter:
+
+            brightness(2)
+            blur(1px)
+
+            drop-shadow(
+                0 0 20px white
+            )
+
+            drop-shadow(
+                0 0 70px #0066ff
+            )
+
+            drop-shadow(
+                0 0 130px #0066ff
+            );
+    }
+
+    65% {
+
+        transform:
+            scale(1.04);
+
+        filter:
+
+            brightness(1.3)
+            blur(0)
+
+            drop-shadow(
+                0 0 12px white
+            )
+
+            drop-shadow(
+                0 0 45px #0066ff
+            )
+
+            drop-shadow(
+                0 0 90px #0066ff
+            );
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        filter:
+
+            brightness(1)
+
+            drop-shadow(
+                0 0 8px white
+            )
+
+            drop-shadow(
+                0 0 25px #0066ff
+            )
+
+            drop-shadow(
+                0 0 60px
+                rgba(0,102,255,.8)
+            );
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .character {
+
+        width: 65vw;
+        height: 70vh;
+
+        bottom: 11%;
+    }
+
+
+    #goku {
+        left: -15%;
+    }
+
+
+    #vegeta {
+        right: -15%;
+    }
+
+
+    .hud {
+
+        bottom: 4%;
+
+        width: 82vw;
+    }
+
+
+    .status {
+
+        font-size: 9px;
+    }
+
+
+    .attack {
+
+        bottom: 43%;
+    }
+
+
+    .logo img {
+
+        width: 70vw;
+
+        max-width: 330px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .character {
+
+        width: 70vw;
+        height: 64vh;
+
+        bottom: 13%;
+    }
+
+
+    #goku {
+        left: -20%;
+    }
+
+
+    #vegeta {
+        right: -20%;
+    }
+
+
+    .logo img {
+
+        width: 72vw;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div id="loading">
+
+
+    <!-- FUNDO -->
+
+    <div
+        class="space"
+        id="space">
+    </div>
+
+
+    <!-- =================================================
+         CENA
+    ================================================== -->
+
+    <div
+        class="scene"
+        id="scene">
+
+
+        <!-- =========================
+             GOKU
+        ========================== -->
+
+        <div
+            class="character"
+            id="goku">
+
+
+            <div class="aura"></div>
+
+
+            <!-- GOKU NORMAL -->
+
+            <img
+                class="normal"
+                src="/assets/goku-normal.png"
+                alt=""
+            >
+
+
+            <!-- GOKU SSJ -->
+
+            <img
+                class="ssj"
+                src="/assets/goku-ssj.png"
+                alt=""
+            >
+
+
+        </div>
+
+
+        <!-- =========================
+             VEGETA
+        ========================== -->
+
+        <div
+            class="character"
+            id="vegeta">
+
+
+            <div class="aura"></div>
+
+
+            <!-- VEGETA NORMAL -->
+
+            <img
+                class="normal"
+                src="/assets/vegeta-normal.png"
+                alt=""
+            >
+
+
+            <!-- VEGETA SSJ -->
+
+            <img
+                class="ssj"
+                src="/assets/vegeta-ssj.png"
+                alt=""
+            >
+
+
+        </div>
+
+
+        <!-- =========================
+             PARTÍCULAS
+        ========================== -->
+
+        <div
+            class="energy-particles"
+            id="particles">
+        </div>
+
+
+        <!-- =========================
+             ATAQUE GOKU
+        ========================== -->
+
+        <div
+            class="attack"
+            id="gokuAttack">
+        </div>
+
+
+        <!-- =========================
+             ATAQUE VEGETA
+        ========================== -->
+
+        <div
+            class="attack"
+            id="vegetaAttack">
+        </div>
+
+
+        <!-- =========================
+             IMPACTO
+        ========================== -->
+
+        <div
+            class="impact"
+            id="impact">
+        </div>
+
+
+        <!-- =========================
+             FLASH
+        ========================== -->
+
+        <div
+            class="flash"
+            id="flash">
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         HUD
+    ================================================== -->
+
+    <div class="hud">
+
+
+        <div
+            class="status"
+            id="status">
+
+            INICIANDO
+
+        </div>
+
+
+        <div class="power-wrap">
+
+            <div
+                class="power"
+                id="power">
+            </div>
+
+        </div>
+
+
+        <div
+            class="percent"
+            id="percent">
+
+            0%
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         LOGO OFICIAL
+    ================================================== -->
+
+    <div
+        class="logo"
+        id="logo">
+
+
+        <img
+            src="/assets/logo.png"
+            alt="OMDA"
+        >
+
+
+        <span>
+            
+        </span>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   CONFIGURAÇÃO
+===================================================== */
+
+const CONFIG = {
+
+    /*
+        false = fica na tela para testes
+        true  = vai para o Hub depois
+    */
+
+    redirectToHub: true,
+
+    hubURL: "/app.html"
+
+};
+
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const loading =
+    document.getElementById("loading");
+
+const scene =
+    document.getElementById("scene");
+
+const particles =
+    document.getElementById("particles");
+
+const power =
+    document.getElementById("power");
+
+const percent =
+    document.getElementById("percent");
+
+const status =
+    document.getElementById("status");
+
+const impact =
+    document.getElementById("impact");
+
+const flash =
+    document.getElementById("flash");
+
+const logo =
+    document.getElementById("logo");
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+for (
+    let i = 0;
+    i < 90;
+    i++
+) {
+
+    const star =
+        document.createElement("div");
+
+
+    star.className =
+        "star";
+
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+
+    star.style.animationDuration =
+        (2 + Math.random() * 5) + "s";
+
+
+    star.style.animationDelay =
+        Math.random() * 5 + "s";
+
+
+    document
+        .getElementById("space")
+        .appendChild(star);
+
+}
+
+
+/* =====================================================
+   PARTÍCULAS DE ENERGIA
+===================================================== */
+
+for (
+    let i = 0;
+    i < 55;
+    i++
+) {
+
+    const particle =
+        document.createElement("div");
+
+
+    particle.className =
+        "energy";
+
+
+    particle.style.left =
+        (20 + Math.random() * 60) + "%";
+
+
+    particle.style.setProperty(
+        "--x",
+        ((Math.random() - .5) * 500) + "px"
+    );
+
+
+    particle.style.setProperty(
+        "--y",
+        (150 + Math.random() * 650) + "px"
+    );
+
+
+    particle.style.animationDelay =
+        Math.random() * 2 + "s";
+
+
+    particle.style.animationDuration =
+        (1 + Math.random() * 1.5) + "s";
+
+
+    particles.appendChild(
+        particle
+    );
+
+}
+
+
+/* =====================================================
+   POWER
+===================================================== */
+
+function updatePower(value) {
+
+    value =
+        Math.min(
+            100,
+            Math.max(0, value)
+        );
+
+
+    power.style.width =
+        value + "%";
+
+
+    percent.textContent =
+        Math.floor(value) + "%";
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function setStatus(text) {
+
+    status.textContent =
+        text;
+
+}
+
+
+/* =====================================================
+   CARREGAMENTO
+===================================================== */
+
+function charge() {
+
+    loading.classList.add(
+        "powering"
+    );
+
+
+    setStatus(
+        "ACUMULANDO ENERGIA"
+    );
+
+
+    let value = 0;
+
+
+    const interval =
+        setInterval(() => {
+
+
+            value += .7;
+
+
+            updatePower(value);
+
+
+            if (value >= 30) {
+
+                setStatus(
+                    "AUMENTANDO PODER"
+                );
+
+            }
+
+
+            if (value >= 60) {
+
+                setStatus(
+                    "LIBERANDO ENERGIA"
+                );
+
+            }
+
+
+            if (value >= 85) {
+
+                setStatus(
+                    "NÍVEL MÁXIMO"
+                );
+
+            }
+
+
+            if (value >= 100) {
+
+                clearInterval(
+                    interval
+                );
+
+
+                transform();
+
+            }
+
+
+        }, 32);
+
+}
+
+
+/* =====================================================
+   TRANSFORMAÇÃO
+===================================================== */
+
+function transform() {
+
+    setStatus(
+        "TRANSFORMAÇÃO"
+    );
+
+
+    scene.classList.add(
+        "transforming"
+    );
+
+
+    setTimeout(() => {
+
+
+        scene.classList.remove(
+            "transforming"
+        );
+
+
+        scene.classList.add(
+            "max-power"
+        );
+
+
+        setStatus(
+            "PODER MÁXIMO"
+        );
+
+
+        updatePower(100);
+
+
+        setTimeout(() => {
+
+            attack();
+
+        }, 1000);
+
+
+    }, 900);
+
+}
+
+
+/* =====================================================
+   ATAQUE
+===================================================== */
+
+function attack() {
+
+    setStatus(
+        "LIBERANDO..."
+    );
+
+
+    scene.classList.add(
+        "attacking"
+    );
+
+
+    setTimeout(() => {
+
+
+        scene.classList.add(
+            "shake"
+        );
+
+
+        impact.classList.add(
+            "active"
+        );
+
+
+        flash.classList.add(
+            "active"
+        );
+
+
+        setStatus(
+            "IMPACTO"
+        );
+
+
+    }, 600);
+
+
+    setTimeout(() => {
+
+
+        scene.classList.remove(
+            "shake"
+        );
+
+
+        scene.classList.remove(
+            "attacking"
+        );
+
+
+        showLogo();
+
+
+    }, 1300);
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+function showLogo() {
+
+    setStatus("");
+
+
+    logo.classList.add(
+        "show"
+    );
+
+
+    setTimeout(() => {
+
+
+        if (
+            CONFIG.redirectToHub
+        ) {
+
+            window.location.href =
+                CONFIG.hubURL;
+
+        }
+
+
+    }, 2000);
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(() => {
+
+            charge();
+
+        }, 500);
+
+    }
+);
+
+</script>
+
+</body>
+</html>

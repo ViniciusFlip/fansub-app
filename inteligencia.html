@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inteligência Profissional</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-neutral-950 text-white min-h-screen">
+
+  <main class="max-w-3xl mx-auto px-5 py-10">
+
+    <header class="mb-8">
+      <p class="text-orange-500 text-sm font-bold uppercase tracking-widest">
+        Professional Intelligence
+      </p>
+
+      <h1 class="text-3xl font-bold mt-2">
+        Currículo mestre
+      </h1>
+
+      <p class="text-neutral-400 mt-2">
+        Uma fonte central para suas informações profissionais.
+      </p>
+    </header>
+
+    <div id="status"
+      class="mb-6 p-4 rounded-xl bg-neutral-900 border border-neutral-800 text-sm">
+      Conectando ao Firebase...
+    </div>
+
+    <form id="profileForm"
+      class="space-y-5 bg-neutral-900 border border-neutral-800 rounded-2xl p-5">
+
+      <div>
+        <label class="block text-sm mb-2">Nome profissional</label>
+        <input name="name" required
+          class="field" placeholder="Seu nome completo">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Título profissional</label>
+        <input name="title" required
+          class="field"
+          placeholder="Ex.: Desenvolvedor em formação">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Resumo profissional</label>
+        <textarea name="summary" rows="4"
+          class="field"
+          placeholder="Apresente sua experiência, seus projetos e objetivos."></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Competências</label>
+        <input name="skills" class="field"
+          placeholder="JavaScript, HTML, CSS, Firebase">
+        <p class="text-xs text-neutral-500 mt-1">
+          Separe as competências por vírgulas.
+        </p>
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Experiência profissional</label>
+        <textarea name="experience" rows="4" class="field"
+          placeholder="Empresas, funções, projetos e resultados reais."></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Formação</label>
+        <textarea name="education" rows="2" class="field"
+          placeholder="Cursos, formação acadêmica e certificações."></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Cargos desejados</label>
+        <input name="targetRoles" class="field"
+          placeholder="Desenvolvedor júnior, assistente de TI">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Modalidade</label>
+        <select name="workMode" class="field">
+          <option value="remoto">Remoto</option>
+          <option value="hibrido">Híbrido</option>
+          <option value="presencial">Presencial</option>
+          <option value="qualquer">Qualquer modalidade</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Localização</label>
+        <input name="location" class="field"
+          placeholder="Cidade, estado ou Brasil">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">LinkedIn</label>
+        <input name="linkedin" type="url" class="field"
+          placeholder="https://www.linkedin.com/in/...">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">Portfólio</label>
+        <input name="portfolio" type="url" class="field"
+          placeholder="https://seuportfolio.com">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-2">GitHub</label>
+        <input name="github" type="url" class="field"
+          placeholder="https://github.com/...">
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 pt-3">
+        <button type="submit" id="saveButton"
+          class="bg-orange-600 hover:bg-orange-500 rounded-xl px-5 py-3 font-bold flex-1">
+          Salvar currículo mestre
+        </button>
+
+        <button type="button" id="reloadButton"
+          class="bg-neutral-800 hover:bg-neutral-700 rounded-xl px-5 py-3">
+          Recarregar
+        </button>
+      </div>
+    </form>
+
+    <section class="mt-6 bg-neutral-900 border border-neutral-800 rounded-2xl p-5">
+      <h2 class="font-bold text-lg">Estado da inteligência</h2>
+      <p id="profileInfo" class="text-neutral-400 text-sm mt-2">
+        Aguardando autenticação.
+      </p>
+    </section>
+
+  </main>
+
+  <style>
+    .field {
+      width: 100%;
+      background: #171717;
+      border: 1px solid #404040;
+      border-radius: 10px;
+      padding: 12px;
+      color: white;
+      outline: none;
+    }
+
+    .field:focus {
+      border-color: #ff3008;
+    }
+
+    .field::placeholder {
+      color: #737373;
+    }
+  </style>
+
+  <script type="module">
+    import { initializeApp, getApps, getApp }
+      from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+
+    import {
+      getAuth,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    // COLE AQUI A CONFIGURAÇÃO DO SEU PROJETO FIREBASE.
+    // Firebase Console > Configurações do projeto > Seus apps > SDK da Web.
+
+    const firebaseConfig = {
+       apiKey: "AIzaSyCUdvLKNzNyqmhRuPGl3OW16QDK4G8j2-A",
+  authDomain: "engineomda.firebaseapp.com",
+  projectId: "engineomda",
+  storageBucket: "engineomda.firebasestorage.app",
+  messagingSenderId: "151196305319",
+  appId: "1:151196305319:web:f146670c5edc4cd0339882"
+    };
+
+    const app = getApps().length
+      ? getApp()
+      : initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("profileForm");
+    const status = document.getElementById("status");
+    const profileInfo = document.getElementById("profileInfo");
+    const saveButton = document.getElementById("saveButton");
+
+    let currentUser = null;
+
+    const profileRef = () =>
+      doc(db, "professionalProfiles", currentUser.uid);
+
+    function showStatus(message, error = false) {
+      status.textContent = message;
+      status.className =
+        "mb-6 p-4 rounded-xl border text-sm " +
+        (error
+          ? "bg-red-950 border-red-800 text-red-300"
+          : "bg-neutral-900 border-neutral-800 text-neutral-300");
+    }
+
+    function fillForm(data = {}) {
+      for (const field of form.elements) {
+        if (!field.name) continue;
+
+        if (field.name === "skills") {
+          field.value = Array.isArray(data.skills)
+            ? data.skills.join(", ")
+            : "";
+        } else {
+          field.value = data[field.name] || "";
+        }
+      }
+    }
+
+    async function loadProfile() {
+      if (!currentUser) return;
+
+      showStatus("Carregando currículo do Firestore...");
+
+      try {
+        const snapshot = await getDoc(profileRef());
+
+        if (snapshot.exists()) {
+          fillForm(snapshot.data());
+          profileInfo.textContent =
+            "Currículo mestre carregado. UID autenticado: " +
+            currentUser.uid;
+          showStatus("Currículo carregado com sucesso.");
+        } else {
+          fillForm();
+          profileInfo.textContent =
+            "Nenhum currículo salvo. Preencha os campos e salve.";
+          showStatus("Perfil novo. Pronto para cadastrar.");
+        }
+      } catch (error) {
+        console.error(error);
+        showStatus("Erro ao carregar: " + error.message, true);
+      }
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!currentUser) {
+        showStatus("Faça login antes de salvar.", true);
+        return;
+      }
+
+      saveButton.disabled = true;
+      saveButton.textContent = "Salvando...";
+
+      try {
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        data.skills = data.skills
+          .split(",")
+          .map(skill => skill.trim())
+          .filter(Boolean);
+
+        data.uid = currentUser.uid;
+        data.email = currentUser.email || "";
+        data.updatedAt = serverTimestamp();
+
+        await setDoc(profileRef(), data, { merge: true });
+
+        showStatus("Currículo mestre salvo no Firestore.");
+        profileInfo.textContent =
+          "Perfil sincronizado com o banco. UID: " + currentUser.uid;
+      } catch (error) {
+        console.error(error);
+        showStatus("Erro ao salvar: " + error.message, true);
+      } finally {
+        saveButton.disabled = false;
+        saveButton.textContent = "Salvar currículo mestre";
+      }
+    });
+
+    document.getElementById("reloadButton")
+      .addEventListener("click", loadProfile);
+
+    onAuthStateChanged(auth, async (user) => {
+      currentUser = user;
+
+      if (!user) {
+        form.classList.add("hidden");
+        profileInfo.textContent =
+          "Nenhum usuário autenticado nesta página.";
+        showStatus(
+          "Faça login com sua conta Firebase antes de continuar.",
+          true
+        );
+        return;
+      }
+
+      form.classList.remove("hidden");
+      await loadProfile();
+    });
+  </script>
+
+</body>
+</html>

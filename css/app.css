@@ -361,7 +361,26 @@ body{
 
 	 
 
-div#heroBanners{
-	display: none;
+
 }
+
+
+@media (max-width: 501px) {
+	
+	  #heroBanners {
+display: none !important;
+     }
+
+
+}
+
+@media (min-width: 500px) {
+	
+	 .m-hero {
+display: none !important;
+     }
+ #heroBanners {
+display: inherit !important;
+     }
+
 }

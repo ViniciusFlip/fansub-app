@@ -1,31 +1,63 @@
-const menu = {
+// perm.js
 
-user:[
-    "Início",
-    "Torrents",
-    "Perfil"
-],
+import { onAuthStateChanged } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-moderator:[
-    "Início",
-    "Torrents",
-    "Moderação"
-],
+import { doc, getDoc } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-admin:[
-    "Início",
-    "Torrents",
-    "Usuários",
-    "Configurações"
-],
+import { auth, db } from "../../firebase/config.js";
 
-sysops:[
-    "Início",
-    "Torrents",
-    // "Usuários",
-    // "Moderação",
-    // "Configurações",
-    // "Ops Center"
-]
+
+const permissions = {
+
+    ops: ["home", "uploads", "torrents", "usuarios","superchat", "perfil", "detalhe"],
+
+    adm: ["home", "uploads", "torrents", "superchat", "usuarios", "perfil", "detalhe"],
+
+    user: ["home", "torrents", "perfil", "detalhe"]
 
 };
+
+
+function updateSidebar(role) {
+
+    const allowed = permissions[role] || [];
+
+    // Role no card
+    const roleElement = document.querySelector("#sidebar [data-user-role]");
+
+    if (roleElement) {
+        roleElement.textContent = role;
+    }
+
+    // Itens do menu
+    document.querySelectorAll("#sidebar [data-page]").forEach(item => {
+
+        const page = item.dataset.page;
+
+        item.classList.toggle(
+            "hidden",
+            !allowed.includes(page)
+        );
+
+    });
+
+}
+
+
+onAuthStateChanged(auth, async (user) => {
+
+    if (!user) return;
+
+    const snapshot = await getDoc(
+        doc(db, "users", user.uid)
+    );
+
+    if (!snapshot.exists()) return;
+
+    const { role } = snapshot.data();
+
+    updateSidebar(role);
+
+});

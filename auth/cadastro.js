@@ -143,7 +143,7 @@ form.addEventListener("submit", async (event) => {
 
         setTimeout(() => {
 
-            window.location.href = "./";
+            window.location.href = "./load.html";
 
         }, 1500);
 

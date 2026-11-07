@@ -1,687 +1,1068 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMDA — Loading</title>
 
-  <title>Mangas — Portal OMDA</title>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+* {
+    box-sizing: border-box;
+}
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: '#050505',
-            surface: '#101010',
-            line: '#242424',
-            soft: '#8A8A8A',
-            text: '#FFFFFF',
-            textMuted: '#B3B3B3',
-            accent: '#013bff'
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif']
-          }
-        }
-      }
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#loading {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center, #07152b 0%, #02050b 42%, #000 78%);
+    color: white;
+}
+
+/* =========================
+   FUNDO
+========================= */
+
+.space {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    opacity: .35;
+    animation: starFloat linear infinite;
+}
+
+@keyframes starFloat {
+    from {
+        transform: translateY(20px);
+        opacity: .15;
     }
-  </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    50% {
+        opacity: .8;
+    }
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+    to {
+        transform: translateY(-120px);
+        opacity: .05;
+    }
+}
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+/* =========================
+   CENA
+========================= */
+
+.scene {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.character {
+    position: absolute;
+    bottom: 5%;
+    width: min(42vw, 420px);
+    height: min(76vh, 720px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        filter .25s ease;
+}
+
+.character img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* posições */
+
+#goku {
+    left: 5%;
+}
+
+#vegeta {
+    right: 5%;
+}
+
+/* =========================
+   IMAGENS
+========================= */
+
+.normal {
+    opacity: 1;
+}
+
+.ssj {
+    opacity: 0;
+}
+
+/* transformação */
+
+.transforming .normal {
+    animation: normalTransform .8s forwards;
+}
+
+.transforming .ssj {
+    animation: ssjTransform .8s forwards;
+}
+
+@keyframes normalTransform {
+    0% {
+        opacity: 1;
+        filter: brightness(1);
+        transform: scale(1);
+    }
+
+    45% {
+        opacity: 1;
+        filter: brightness(2) blur(2px);
+        transform: scale(1.015);
+    }
+
+    75% {
+        opacity: .3;
+        filter: brightness(5) blur(6px);
+        transform: scale(1.04);
+    }
+
+    100% {
+        opacity: 0;
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes ssjTransform {
+    0% {
+        opacity: 0;
+        filter: brightness(5) blur(8px);
+        transform: scale(1.05);
+    }
+
+    55% {
+        opacity: .2;
+        filter: brightness(5) blur(5px);
+        transform: scale(1.04);
+    }
+
+    80% {
+        opacity: .85;
+        filter: brightness(2);
+        transform: scale(1.015);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   AURAS
+========================= */
+
+.aura {
+    position: absolute;
+    left: 50%;
+    bottom: 7%;
+    width: 80%;
+    height: 92%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.9) 0%,
+            rgba(255,220,80,.55) 16%,
+            rgba(255,180,0,.35) 35%,
+            rgba(255,140,0,.12) 58%,
+            transparent 75%
+        );
+
+    filter: blur(12px);
+}
+
+.powering .aura {
+    animation: auraCharge 2.8s forwards;
+}
+
+@keyframes auraCharge {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(.65);
+    }
+
+    40% {
+        opacity: .25;
+        transform: translateX(-50%) scale(.85);
+    }
+
+    75% {
+        opacity: .55;
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    100% {
+        opacity: .9;
+        transform: translateX(-50%) scale(1.18);
+    }
+}
+
+/* aura pulsando depois da transformação */
+
+.max-power .aura {
+    opacity: 1;
+    animation: maxAura .35s infinite alternate;
+}
+
+@keyframes maxAura {
+    from {
+        transform: translateX(-50%) scale(1.05);
+        filter: blur(14px);
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.22);
+        filter: blur(5px);
+    }
+}
+
+/* =========================
+   PARTÍCULAS
+========================= */
+
+.energy-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.energy {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    width: 4px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffe76a;
+    box-shadow:
+        0 0 8px #fff,
+        0 0 18px #ffd000;
+    opacity: 0;
+}
+
+.powering .energy {
+    animation: energyRise 1.5s linear infinite;
+}
+
+@keyframes energyRise {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0) scale(.5);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-1 * var(--y))
+            )
+            scale(1.2);
+    }
+}
+
+/* =========================
+   HUD
+========================= */
+
+.hud {
+    position: absolute;
+    z-index: 20;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    width: min(520px, 80vw);
+    text-align: center;
+}
+
+.status {
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: .35em;
+    font-weight: 700;
+    color: rgba(255,255,255,.75);
+}
+
+.power-wrap {
+    height: 5px;
+    width: 100%;
+    background: rgba(255,255,255,.08);
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,100,255,.15);
+}
+
+.power {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background:
+        linear-gradient(
+            90deg,
+            #0066ff,
+            #00aaff,
+            #ffffff,
+            #ffd000
+        );
+    box-shadow:
+        0 0 12px #008cff,
+        0 0 30px rgba(0,140,255,.6);
+    transition: width .08s linear;
+}
+
+.percent {
+    margin-top: 9px;
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: rgba(255,255,255,.35);
+}
+
+/* =========================
+   ATAQUES
+========================= */
+
+.attack {
+    position: absolute;
+    z-index: 15;
+    bottom: 42%;
+    width: 0;
+    height: 24px;
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white 18%,
+            #7dd3fc 45%,
+            #2563eb 75%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px white,
+        0 0 35px #008cff,
+        0 0 80px #0066ff;
+}
+
+#gokuAttack {
+    left: 17%;
+    transform-origin: left center;
+    transform: rotate(-7deg);
+}
+
+#vegetaAttack {
+    right: 17%;
+    transform-origin: right center;
+    transform: rotate(7deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white 18%,
+            #c4b5fd 45%,
+            #7c3aed 75%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px white,
+        0 0 35px #8b5cf6,
+        0 0 80px #7c3aed;
+}
+
+.attacking #gokuAttack,
+.attacking #vegetaAttack {
+    animation: beamFire .65s forwards;
+}
+
+@keyframes beamFire {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        width: 66%;
+        opacity: 1;
+    }
+}
+
+/* =========================
+   IMPACTO
+========================= */
+
+.impact {
+    position: absolute;
+    z-index: 25;
+    left: 50%;
+    top: 48%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    opacity: 0;
+    box-shadow:
+        0 0 30px white,
+        0 0 80px #60a5fa,
+        0 0 150px #fff;
+}
+
+.impact.active {
+    animation: impact .8s forwards;
+}
+
+@keyframes impact {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(4);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(18);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(50);
+    }
+}
+
+/* =========================
+   FLASH
+========================= */
+
+.flash {
+    position: absolute;
+    z-index: 30;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flash.active {
+    animation: flash .8s forwards;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   SHAKE
+========================= */
+
+.shake {
+    animation: screenShake .12s infinite;
+}
+
+@keyframes screenShake {
+    0% {
+        transform: translate(0,0);
+    }
+
+    25% {
+        transform: translate(3px,-2px);
+    }
+
+    50% {
+        transform: translate(-3px,2px);
+    }
+
+    75% {
+        transform: translate(2px,2px);
+    }
+
+    100% {
+        transform: translate(-2px,-2px);
+    }
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    position: absolute;
+    z-index: 40;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(.7);
+    opacity: 0;
+    text-align: center;
+}
+
+.logo strong {
+    display: block;
+    font-size: clamp(70px, 16vw, 180px);
+    line-height: .8;
+    letter-spacing: -.08em;
+    font-weight: 900;
+    color: white;
+    text-shadow:
+        0 0 15px #fff,
+        0 0 40px #0066ff,
+        0 0 90px #0066ff;
+}
+
+.logo span {
+    display: block;
+    margin-top: 18px;
+    font-size: 10px;
+    letter-spacing: .65em;
+    color: rgba(255,255,255,.65);
+}
+
+.logo.show {
+    animation: logoShow 1.2s forwards;
+}
+
+@keyframes logoShow {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+        filter: blur(20px);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(.95);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .character {
+        width: 65vw;
+        height: 70vh;
+        bottom: 11%;
+    }
+
+    #goku {
+        left: -15%;
+    }
+
+    #vegeta {
+        right: -15%;
+    }
+
+    .hud {
+        bottom: 4%;
+        width: 82vw;
+    }
+
+    .status {
+        font-size: 9px;
+    }
+
+    .attack {
+        bottom: 43%;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .character {
+        width: 70vw;
+        height: 64vh;
+        bottom: 13%;
+    }
+
+    #goku {
+        left: -20%;
+    }
+
+    #vegeta {
+        right: -20%;
+    }
+
+    .logo strong {
+        font-size: 90px;
+    }
+}
+</style>
 </head>
 
-<div class="min-h-screen bg-ink font-sans text-white antialiased">
+<body>
 
-  <div>
+<div id="loading">
 
-    <!-- CABEÇALHO -->
+    <!-- FUNDO -->
+    <div class="space" id="space"></div>
 
-    <section class="pt-16 pb-10 md:pt-24 md:pb-14">
+    <!-- CENA -->
+    <div class="scene" id="scene">
 
-      <div class="mx-auto w-full max-w-[1200px] px-4 md:px-6">
+        <!-- GOKU -->
+        <div class="character" id="goku">
 
-        <p class="text-[10px] font-medium uppercase tracking-[0.25em] text-accent">
-          Atualizados diariamente
-        </p>
+            <div class="aura"></div>
 
-        <h1 class="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
-          Mangas
-        </h1>
+            <img
+                class="normal"
+                src="/assets/goku-normal.png"
+                alt=""
+            >
 
-        <p class="mt-5 max-w-3xl text-sm leading-7 text-soft md:text-base">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTEÚDO -->
-
-    <section class="pb-20">
-
-      <div class="mx-auto w-full max-w-[1200px] px-4 md:px-6">
-
-
-        <!-- FILTROS -->
-
-        <div class="mb-8 flex flex-wrap gap-2">
-
-          <button
-            type="button"
-            class="rounded-full border border-accent bg-accent px-4 py-2 text-xs font-medium text-white transition hover:brightness-110"
-          >
-            Todos os mangas
-          </button>
-
-          <button
-            type="button"
-            class="rounded-full border border-line bg-surface px-4 py-2 text-xs font-medium text-soft transition hover:border-accent/50 hover:text-white"
-          >
-            Drama
-          </button>
-
-          <button
-            type="button"
-            class="rounded-full border border-line bg-surface px-4 py-2 text-xs font-medium text-soft transition hover:border-accent/50 hover:text-white"
-          >
-            Aventura
-          </button>
-
-          <button
-            type="button"
-            class="rounded-full border border-line bg-surface px-4 py-2 text-xs font-medium text-soft transition hover:border-accent/50 hover:text-white"
-          >
-            Novel
-          </button>
+            <img
+                class="ssj"
+                src="/assets/goku-ssj.png"
+                alt=""
+            >
 
         </div>
 
+        <!-- VEGETA -->
+        <div class="character" id="vegeta">
 
-        <!-- GRID -->
+            <div class="aura"></div>
+
+            <img
+                class="normal"
+                src="/assets/vegeta-normal.png"
+                alt=""
+            >
+
+            <img
+                class="ssj"
+                src="/assets/vegeta-ssj.png"
+                alt=""
+            >
+
+        </div>
+
+        <!-- PARTÍCULAS -->
+        <div
+            class="energy-particles"
+            id="particles"
+        ></div>
+
+        <!-- ATAQUES -->
+        <div
+            class="attack"
+            id="gokuAttack"
+        ></div>
 
         <div
-          id="grid"
-          class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            class="attack"
+            id="vegetaAttack"
+        ></div>
+
+        <!-- IMPACTO -->
+        <div
+            class="impact"
+            id="impact"
+        ></div>
+
+        <!-- FLASH -->
+        <div
+            class="flash"
+            id="flash"
+        ></div>
+
+    </div>
+
+    <!-- HUD -->
+    <div class="hud">
+
+        <div
+            class="status"
+            id="status"
         >
-
-
-          <!-- MANGA 01 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-01.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 02 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-02.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 03 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-03.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 04 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-04.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 05 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-02.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 06 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-03.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 07 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-01.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 08 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-02.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- MANGA 09 -->
-
-          <article class="group overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
-
-            <div class="relative aspect-[4/3] overflow-hidden">
-
-              <img
-                src="assets/images/ft-class-item-img-05.jpg"
-                alt="Nome do Manga"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              >
-
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
-
-              <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-
-                <h2 class="text-base font-semibold text-white">
-                  <a href="ler-online.html" class="hover:text-accent">
-                    Nome do Manga
-                  </a>
-                </h2>
-
-                <a
-                  href="ler-online.html"
-                  class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-black/40 text-white backdrop-blur transition hover:border-accent hover:bg-accent"
-                  aria-label="Ler online"
-                >
-                  <i data-lucide="book-open" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="flex items-center justify-between gap-4 border-t border-line p-5">
-
-              <div class="space-y-1">
-
-                <p class="text-xs text-soft">
-                  Capítulos: 126
-                </p>
-
-                <p class="text-xs text-soft">
-                  Status: Em lançamento
-                </p>
-
-              </div>
-
-              <a
-                href="ler-online.html"
-                class="flex shrink-0 items-center gap-2 text-xs font-semibold text-accent hover:text-white"
-              >
-                <i data-lucide="book-open" class="h-4 w-4"></i>
-                Ler Online
-              </a>
-
-            </div>
-
-          </article>
-
+            INICIANDO
         </div>
 
-      </div>
+        <div class="power-wrap">
+            <div
+                class="power"
+                id="power"
+            ></div>
+        </div>
 
-    </section>
+        <div
+            class="percent"
+            id="percent"
+        >
+            0%
+        </div>
 
-  </div>
+    </div>
 
-
-  <script>
-    lucide.createIcons();
-  </script>
+    <!-- LOGO -->
+    <div
+        class="logo"
+        id="logo"
+    >
+        <strong>OMDA</strong>
+        <span>ANIME • CULTURE • COMMUNITY</span>
+    </div>
 
 </div>
 
+
+<script>
+
+/* =====================================================
+   CONFIGURAÇÃO
+===================================================== */
+
+const CONFIG = {
+
+    /* Depois que terminar:
+       true  = entra no Hub
+       false = fica no loading para testes
+    */
+    redirectToHub: false,
+
+    hubURL: "/hub/",
+
+    /* duração aproximada do carregamento */
+    loadingTime: 4200
+};
+
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const loading = document.getElementById("loading");
+const scene = document.getElementById("scene");
+
+const goku = document.getElementById("goku");
+const vegeta = document.getElementById("vegeta");
+
+const particles = document.getElementById("particles");
+
+const power = document.getElementById("power");
+const percent = document.getElementById("percent");
+const status = document.getElementById("status");
+
+const gokuAttack = document.getElementById("gokuAttack");
+const vegetaAttack = document.getElementById("vegetaAttack");
+
+const impact = document.getElementById("impact");
+const flash = document.getElementById("flash");
+
+const logo = document.getElementById("logo");
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+for (let i = 0; i < 90; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDuration =
+        (2 + Math.random() * 5) + "s";
+
+    star.style.animationDelay =
+        Math.random() * 5 + "s";
+
+    particles.appendChild(star);
+}
+
+
+/* =====================================================
+   PARTÍCULAS DE ENERGIA
+===================================================== */
+
+for (let i = 0; i < 55; i++) {
+
+    const particle = document.createElement("div");
+
+    particle.className = "energy";
+
+    particle.style.left =
+        (20 + Math.random() * 60) + "%";
+
+    particle.style.setProperty(
+        "--x",
+        ((Math.random() - .5) * 500) + "px"
+    );
+
+    particle.style.setProperty(
+        "--y",
+        (150 + Math.random() * 650) + "px"
+    );
+
+    particle.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    particle.style.animationDuration =
+        (1 + Math.random() * 1.5) + "s";
+
+    particles.appendChild(particle);
+}
+
+
+/* =====================================================
+   POWER BAR
+===================================================== */
+
+function updatePower(value) {
+
+    value = Math.min(100, Math.max(0, value));
+
+    power.style.width = value + "%";
+
+    percent.textContent =
+        Math.floor(value) + "%";
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function setStatus(text) {
+    status.textContent = text;
+}
+
+
+/* =====================================================
+   CARGAMENTO
+===================================================== */
+
+function charge() {
+
+    loading.classList.add("powering");
+
+    setStatus("ACUMULANDO ENERGIA");
+
+    let value = 0;
+
+    const interval = setInterval(() => {
+
+        value += .7;
+
+        updatePower(value);
+
+        if (value >= 30) {
+            setStatus("AUMENTANDO PODER");
+        }
+
+        if (value >= 60) {
+            setStatus("LIBERANDO ENERGIA");
+        }
+
+        if (value >= 85) {
+            setStatus("NÍVEL MÁXIMO");
+        }
+
+        if (value >= 100) {
+
+            clearInterval(interval);
+
+            transform();
+
+        }
+
+    }, 32);
+}
+
+
+/* =====================================================
+   TRANSFORMAÇÃO
+===================================================== */
+
+function transform() {
+
+    setStatus("TRANSFORMAÇÃO");
+
+    scene.classList.add("transforming");
+
+    setTimeout(() => {
+
+        scene.classList.remove("transforming");
+
+        scene.classList.add("max-power");
+
+        setStatus("PODER MÁXIMO");
+
+        updatePower(100);
+
+        setTimeout(() => {
+
+            attack();
+
+        }, 1000);
+
+    }, 900);
+}
+
+
+/* =====================================================
+   ATAQUE
+===================================================== */
+
+function attack() {
+
+    setStatus("LIBERANDO...");
+
+    scene.classList.add("attacking");
+
+    setTimeout(() => {
+
+        scene.classList.add("shake");
+
+        impact.classList.add("active");
+
+        flash.classList.add("active");
+
+        setStatus("IMPACTO");
+
+    }, 600);
+
+
+    setTimeout(() => {
+
+        scene.classList.remove("shake");
+
+        scene.classList.remove("attacking");
+
+        showLogo();
+
+    }, 1300);
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+function showLogo() {
+
+    setStatus("");
+
+    logo.classList.add("show");
+
+    setTimeout(() => {
+
+        if (CONFIG.redirectToHub) {
+
+            window.location.href =
+                CONFIG.hubURL;
+
+        }
+
+    }, 1800);
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        charge();
+
+    }, 500);
+
+});
+
+</script>
+
+</body>
 </html>

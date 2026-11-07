@@ -72,7 +72,7 @@ async function redirectAfterLogin(user) {
     }
 
 
-    window.location.href = "../";
+    window.location.href = "../load.html";
 }
 
 
